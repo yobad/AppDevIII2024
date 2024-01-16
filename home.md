@@ -1,6 +1,6 @@
 <img src="images/banner.png" alt="Banner" />
 
-# 420-6A6 Application Development III - Winter 2024
+# Outline
 
 Welcome to 420-6A6 Application Development III. This course teaches how to build applications and deploy them on multiple platforms. 
 

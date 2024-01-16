@@ -29,12 +29,12 @@ plugins:
 # in order as they should show up.
 header_pages:
   - home.md
+  - Lectures.md
+  - Labs.md
+  - Assignments.md
+  - FinalProject.md
   - about.md
-  #- lectures.md
-  #- labs.md
-  #- demos.md
-  #- assignments.md
-  #- project.md
+
 
 # Set to `true` to show excerpts on the homepage.
 #show_excerpts: false

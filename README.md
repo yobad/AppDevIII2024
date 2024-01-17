@@ -1,17 +1,23 @@
-### App Dev III - Winter 2024
+---
+layout: page
+title: App Dev III - Winter 2024
+permalink: /home/
+---
+Welcome to *420-6A6 Application Development III*!
 
 <img src="Images/AppdevIII_banner.jpg" alt="Banner" />
 
-Welcome to 420-6A6 Application Development III. In this course, you will learn about building applications that can run on multiple platforms: Android, iOS, Windows, MacOS, Chrome OS and/or Linux. The objective is to build a single application withing a shared codebase that can run on the different platforms.
+In this course, you will learn about building applications for various multiple platforms: Android, iOS, Windows, MacOS, Chrome OS and/or Linux. The objective is to build a single application within a shared codebase that can run on the different platforms.
 
-You will be exposed to .NET MAUI framework by Microsoft that uses C# programming language to build native applications for: Android, iOS, MacOS and Windows.
+You will be exposed to .NET MAUI framework by Microsoft which uses the C# programming language to build native applications for: Android, iOS, MacOS and Windows.
 
 In this website you will find material for the course:
 
-Course Notes
-Class Demos
-Labs Exercises
-Assignments
+- Lectures
+
+- Labs
+- Assignments
+- Demos
 
 ## Course Outline 
 You can download a copy of the course here.

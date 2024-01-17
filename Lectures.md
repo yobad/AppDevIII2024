@@ -1,6 +1,8 @@
 ---
 layout: page
-title: Assignments
+title: Lecture Notes
 permalink: /lectures/
 ---
 
+
+Coming soon...

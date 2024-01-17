@@ -20,4 +20,4 @@ In this website you will find material for the course:
 - Demos
 
 ## Course Outline 
-You can download a copy of the course here.
+You can download a copy of the course outline here.

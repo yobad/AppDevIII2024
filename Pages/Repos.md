@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Demos
-permalink: /demos/
+title: Repos
+permalink: /repos/
 ---
 
 

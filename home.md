@@ -1,4 +1,4 @@
-<img src="images/banner.png" alt="Banner" />
+<img src="Images/AppdevIII_banner.jpg" alt="Banner" />
 
 # Outline
 

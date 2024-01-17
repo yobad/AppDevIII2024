@@ -1,13 +1,10 @@
 title: Application Development III 
-author:
-  name: Youmna Badawy
-  email: youmna.badawy@johnabbott.qc.ca
+
 
 # The `>` after `description:` means to ignore line-breaks until next key.
 # If you want to omit the line-break after the end of text, use `>-` instead.
 description: >
-  This Website contains all material for the course 420-6A6-AB 
-  Application Development III including labs, assignments and lecture notes.
+  This Web site is written in Markdown and hosted by GitHub Pages.  This theme is called Minima, created by Joel Glovier
 
 # Build settings
 

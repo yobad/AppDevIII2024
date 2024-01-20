@@ -34,6 +34,12 @@ header_pages:
   - Pages/FinalProject.md
   - Pages/Repos.md
 
+sidebar:
+  - label: Lectures
+    children:
+      - document-one
+      - document-two
+      - document-three
 
 # Set to `true` to show excerpts on the homepage.
 #show_excerpts: false

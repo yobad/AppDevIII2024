@@ -1,8 +1,5 @@
 ---
-layout: page
+layout: home
 title: Lecture Notes
 permalink: /lectures/
 ---
-
-
-Coming soon...

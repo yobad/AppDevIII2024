@@ -59,8 +59,12 @@ minima:
   # Minima date format.
   # The default value is "%b %d, %Y" (e.g. Nov 14, 2023) 
   # Refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this.
-  #date_format: "%b-%d-%Y"
-
+  date_format: "%b-%d-%Y"
+  footer:
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/AppDevIII-W24-Code"
   # Generate social links in footer.
   #social_links:
   #  - { platform: devto,          user_url: "https://dev.to/jekyll" }

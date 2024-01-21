@@ -5,7 +5,7 @@ permalink: /
 ---
 Welcome to *420-6A6 Application Development III*!
 
-<img src="_images/AppdevIII_banner.jpg" alt="Banner" />
+<img src="images/AppdevIII_banner.jpg" alt="Banner" />
 
 In this course, you will learn about building applications for various platforms: Android, iOS, Windows, MacOS, Chrome OS and/or Linux. The objective is to build a single application within a shared codebase that can run on the different platforms.
 

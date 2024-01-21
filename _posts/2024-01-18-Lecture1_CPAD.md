@@ -10,14 +10,16 @@ The following notes were based on Matt Milner's course on .NET MAUI
 - Building a single codebase for a software and have it run on different platforms is not a new concept in programming.
 - Having a mobile app became a business need. 
 - Before smart phones, the focus of application development was developing applications for personal computers.
-  - Platforms: Windows, Linux, MacOS. 
-  - The aim of cross platform in these application is to create a compiled (ready) app that would run on all platforms without issues.
+- Platforms: Windows, Linux, MacOS. 
+- The aim of cross platform in these application is to create a compiled (ready) app that would run on all platforms without issues.
 
 
 ## Main Problem
 
-<img src="../_images/cpad/mainproblem.png" height="400" />
+<img src="/images/cpad/img1_mainproblem.png" width="400" style="vertical-align: middle;" title="Main issue with native apps"/>
 
+
+*Main issue with native apps*
 - In C\C++, a written code had to be recompiled for each platform.
 - Sometimes the code required some modifications to support some OS specific feature. 
   (especially when accessing local resources)
@@ -26,6 +28,10 @@ The following notes were based on Matt Milner's course on .NET MAUI
 **Summary**
 
 - The process is repeated for each operating system.
+
+|<img src="/images/cpad/img4_nativeAppsGen.PNG"/>|
+| :----------------------------------------------------------: |
+| *Cross platform programming languages*|
 
 ## Mobile Apps - Frameworks
 
@@ -67,38 +73,29 @@ The following notes were based on Matt Milner's course on .NET MAUI
 
   - Apple: iOS & XCode toolkit – Objective C & Swift.
 
-    <div style="text-align:center;">
-        <img src="../_images/cpad/google.png" width="10%" class="inline-img"/>
-        <img src="../_images/cpad/android.png" width="16%" class="inline-img"/>
-        <img src="../_images/cpad/apple.png" width="9%"  class="inline-img"/>
-        <img src="../_images/cpad/xcode.png" width="11%" class="inline-img"/>
-    </div>
-
-
 
 - A mobile app framework is required to build apps.
 
-  - A framework usually includes an IDE and SDK. 
-  - In App Dev II course you worked with the Android Framework.
-    - IDE: Android Studio.
-    - SDK: Android SDK.
-  - In this course we will study other frameworks.
+- A framework usually includes an IDE and SDK. 
+- In App Dev II course you worked with the Android Framework.
+  - IDE: Android Studio.
+  - SDK: Android SDK.
+- In this course we will study other frameworks.
 
-  
 
-  ![ch2_img1](..\images\cpad\ch2_img1.png)
 
 **This can quickly become frustrating**
 
 ### Why Native or Why not Native?
 
-<img src="../images/cpad/advantages.png" height="400" />
+|<img src="/images/cpad/img2_advantages.png" height="400" />|
+| :----------------------------------------------------------: |
+| *Advantages of CPAD*|
 
 # Cross Platform Types
 
 - The idea behind CPAD is to use interfaces that unify the code development across various platforms.
 
-  
 
 ## Web Apps
 
@@ -140,13 +137,14 @@ The following notes were based on Matt Milner's course on .NET MAUI
 
   - **Flutter**: Open-source UI kit developed by Google. It integrates easily with Android Studio and Visual Studio. The logic is written in Dart, the UI is written in Flutter Widgets. It can be deployed very quickly, dart is also a declarative language which helps developers focus on writing code quickly.  
 
-    https://app.starbucks.com
+    [Starbucks App](https://app.starbucks.com)
 
-    <div>
-        <img src="../_images\cpad\ch2_img4.png" height="600" />
-        <img src="../_images/cpad/Flutter.webp" width="20%" style="vertical-align:top" />
-    </div>
-
+    
+    |<img src="/images/cpad/img3_FlutterGen.png" style="margin-bottom: 20px;"/>|
+    | :----------------------------------------------------------: |
+    | *Flutter Architecure* |
+    
+    
     
     
 
@@ -181,13 +179,11 @@ The following notes were based on Matt Milner's course on .NET MAUI
     
 
 
-| ![Hybrid Native Apps](../_images/cpad/hybrid.PNG "Hybrid Native Apps" ) |
+|  <img src="/images/cpad/img6_hybridGen.PNG" />|
 | :----------------------------------------------------------: |
 |            *Hybrid Native Apps Building Process*             |
 
-| ![Hybrid App Architecture](../_images/cpad/hybridArch.PNG "Hybrid App Architecture" ) |
-| :----------------------------------------------------------: |
-|                  *Hybrid App Architecture*                   |
+
 
 ## Cross-Platform Native 
 
@@ -208,11 +204,15 @@ The following notes were based on Matt Milner's course on .NET MAUI
 
   - **React Native**: Open source. Similar to MAUI, react views are created and react handles it to generate native controls. It was created by facebook using a command-line interface (based on Javascript, React.js, ECMAScript, JSX)
 
-    ![ch2_img3](..\_images\cpad\ch2_img3.png)
+  |<img src="\images\cpad\ch2_img3.png" />|
+  | :----------------------------------------------------------: |
+  |*React Native Architecture*|
 
   - **MAUI (previously Xamarin)**: The same business logic  (written in C#) for all platforms, UI code (written in C#/XAML) will be adapted by MAUI for the various targets. (XAML controls -> Native controls). It has an excellent performance, near native app performance.
 
-    ![ch2_img4](..\_images\cpad\ch2_img5.png)
+  |<img src = "\images\maui_intro\maui_cpad.png" />|
+  | :----------------------------------------------------------: |
+  | *.NET Multi-platform App UI (.NET MAUI)*|
 
   - Progressive Web Apps: CPAD for modern Web Browsers (load content while offline, responsive design)
 
@@ -234,40 +234,5 @@ The following notes were based on Matt Milner's course on .NET MAUI
 
   - Security
   - Use cases where CPAD is not the way to go: if we need to directly interface with the hardware, use of CoreOS libraries, Speed requirements
-
-  
-
-# Architecture of .NET MAUI
-
-![ch2_img4](..\_images\cpad\ch2_img6.png)
-
-# Structure of a .NET MAUI Project
-
-- Open Visual Studio 2022
-
-- Create a .NET MAUI Application
-
-- Overview of the project explorer
-
-- Platforms: This folder contains platform specific code:
-
-  
-
-- After building your project, if you navigate to the location of the bin folder of the project, you can find multiple applications created for the app.
-
-- Typically there's a resource's folder in which all images, fonts, etc. are stored. MAUI will be responsible of embedding this content to each platform with its specificity.  
-
-- Shell
-
-- Pages
-
-- Layouts
-
-- Controls
-
-- Data Binding
-
-- Access to device features (cameras, sensors, location, etc.)
-
 
 

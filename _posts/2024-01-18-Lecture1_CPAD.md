@@ -15,9 +15,8 @@ The following notes were based on Matt Milner's course on .NET MAUI
 
 
 ## Main Problem
-![Main Problem](..\images\cpad\img1_mainproblem.png "Main Problem with Native apps")
 
-<img src="images/cpad/img1_mainproblem.png" width="400" style="vertical-align: middle;" title="Main issue with native apps"/>
+<img src="{{site.url}}/images/cpad/img1_mainproblem.png" width="400" style="vertical-align: middle;" title="Main issue with native apps"/>
 
 
 *Main issue with native apps*

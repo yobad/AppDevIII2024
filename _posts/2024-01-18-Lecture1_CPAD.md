@@ -16,7 +16,7 @@ The following notes were based on Matt Milner's course on .NET MAUI
 
 ## Main Problem
 
-<img src="../images/cpad/img1_mainproblem.png" width="400" style="vertical-align: middle;" title="Main issue with native apps"/>
+<img src="images/cpad/img1_mainproblem.png" width="400" style="vertical-align: middle;" title="Main issue with native apps"/>
 
 
 *Main issue with native apps*

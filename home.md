@@ -13,10 +13,10 @@ You will be exposed to .NET MAUI framework by Microsoft which uses the C# progra
 
 In this website you will find material for the course:
 
-- Lectures
-- Labs
-- Assignments
-- Demos
+- [Lectures](./pages/lectures.md)
+- [Labs](./pages/labs.md)
+- [Assignments](./pages/assignments.md)
+- [Demos](./pages/demos/)
 
 ## Course Outline 
-You can download a copy of the course outline here.
+You can download a copy of the course outline [here](./files/WINTER2024.COMPUTER_SCIENCE.420-6A6-AB.BADAWYY.pdf ':ignore').

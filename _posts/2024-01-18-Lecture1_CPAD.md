@@ -140,7 +140,7 @@ The following notes were based on Matt Milner's course on .NET MAUI
     [Starbucks App](https://app.starbucks.com)
 
     
-    |<img src="/images/cpad/img3_FlutterGen.png" style="margin-bottom: 20px;"/>|
+    |<img src="/images/cpad/img3_FlutterGen.png"  height=300 style="margin-bottom: 20px;"/>|
     | :----------------------------------------------------------: |
     | *Flutter Architecure* |
     
@@ -179,7 +179,7 @@ The following notes were based on Matt Milner's course on .NET MAUI
     
 
 
-|  <img src="/images/cpad/img6_hybridGen.PNG" />|
+|  <img src="/images/cpad/img6_hybridGen.PNG" height=250/>|
 | :----------------------------------------------------------: |
 |            *Hybrid Native Apps Building Process*             |
 
@@ -204,13 +204,14 @@ The following notes were based on Matt Milner's course on .NET MAUI
 
   - **React Native**: Open source. Similar to MAUI, react views are created and react handles it to generate native controls. It was created by facebook using a command-line interface (based on Javascript, React.js, ECMAScript, JSX)
 
-  |<img src="\images\cpad\ch2_img3.png" />|
+
+  |<img src="\images\cpad\img10_ReactNativeGen.png" height=300/>|
   | :----------------------------------------------------------: |
   |*React Native Architecture*|
 
   - **MAUI (previously Xamarin)**: The same business logic  (written in C#) for all platforms, UI code (written in C#/XAML) will be adapted by MAUI for the various targets. (XAML controls -> Native controls). It has an excellent performance, near native app performance.
 
-  |<img src = "\images\maui_intro\maui_cpad.png" />|
+  |<img src = "\images\cpad\img11_Maui_Xamarin_intro.png" height=300/>|
   | :----------------------------------------------------------: |
   | *.NET Multi-platform App UI (.NET MAUI)*|
 

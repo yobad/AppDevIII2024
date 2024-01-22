@@ -3,10 +3,12 @@ layout: post
 title: "Lecture 2: .NET MAUI"
 categories: misc
 ---
+Those notes are based on: 
+[Microsoft's documentation](https://learn.microsoft.com/en-ca/dotnet/maui/what-is-maui?view=net-maui-8.0) 
 ### Architecture of .NET MAUI
 
-![ch2_img4](..\images\cpad\ch2_img6.png)
 
+<img src="\images\maui_intro\maui_architecture.png" height=500 />
 # Structure of a .NET MAUI Project
 
 - Open Visual Studio 2022

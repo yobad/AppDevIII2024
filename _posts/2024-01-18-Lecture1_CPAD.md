@@ -16,7 +16,7 @@ The following notes were based on Matt Milner's course on .NET MAUI
 
 ## Main Problem
 
-<img src="/images/cpad/img1_mainproblem.PNG" width="400" style="vertical-align: middle;" title="Main issue with native apps"/>
+<img src="/images/cpad/img1_mainproblem.png" width="400" style="vertical-align: middle;" title="Main issue with native apps"/>
 
 
 *Main issue with native apps*
@@ -29,7 +29,7 @@ The following notes were based on Matt Milner's course on .NET MAUI
 
 - The process is repeated for each operating system.
 
-| <img src="/images/cpad/img4_nativeAppsGen.PNG"/> |
+| <img src="/images/cpad/img4_nativeAppsGen.png"/> |
 | :------------------------------------------------: |
 |       *Cross platform programming languages*       |
 
@@ -179,7 +179,7 @@ The following notes were based on Matt Milner's course on .NET MAUI
     
 
 
-| <img src="/images/cpad/img6_hybridGen.PNG" height=250/> |
+| <img src="/images/cpad/img6_hybridGen.png" height=250/> |
 | :-------------------------------------------------------: |
 |           *Hybrid Native Apps Building Process*           |
 

@@ -16,7 +16,7 @@ The following notes were based on Matt Milner's course on .NET MAUI
 
 ## Main Problem
 
-<img src="./images/cpad/img1_mainproblem.png" width="400" style="vertical-align: middle;" title="Main issue with native apps"/>
+<img src="/images/cpad/img1_mainproblem.PNG" width="400" style="vertical-align: middle;" title="Main issue with native apps"/>
 
 
 *Main issue with native apps*
@@ -29,7 +29,7 @@ The following notes were based on Matt Milner's course on .NET MAUI
 
 - The process is repeated for each operating system.
 
-| <img src="./images/cpad/img4_nativeAppsGen.PNG"/> |
+| <img src="/images/cpad/img4_nativeAppsGen.PNG"/> |
 | :------------------------------------------------: |
 |       *Cross platform programming languages*       |
 
@@ -205,7 +205,7 @@ The following notes were based on Matt Milner's course on .NET MAUI
   - **React Native**: Open source. Similar to MAUI, react views are created and react handles it to generate native controls. It was created by facebook using a command-line interface (based on Javascript, React.js, ECMAScript, JSX)
 
 
-| <img src="\images\cpad\img10_ReactNativeGen.png" height=300/> |
+| <img src="/images/cpad/img10_ReactNativeGen.png" height=300/> |
 | :----------------------------------------------------------: |
 |                 *React Native Architecture*                  |
 

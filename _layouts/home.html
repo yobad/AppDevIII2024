@@ -8,7 +8,36 @@ layout: base
   {%- endif -%}
 
   {{ content }}
+  <!-- Html Elements for Search -->
+  <!-- Credits: https://blog.webjeda.com/instant-jekyll-search/-->
+  <div id="search-container">
+    <style>
+      input[type=text], select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+      </style>
+    <input type="text" id="search-input" placeholder="search..."  size="50" >
+    <ul id="results-container"></ul>
+  </div>
+    
+  <!-- Script pointing to search-script.js -->
+  <script src="../script/simple-jekyll-search.min.js" type="text/javascript"></script>
 
+  <!-- Configuration -->
+  <script>
+    SimpleJekyllSearch({
+        searchInput: document.getElementById('search-input'),
+        resultsContainer: document.getElementById('results-container'),
+        json: '/search.json'
+    })
+  </script>
+  
   
   {% if site.paginate %}
     {% assign posts = paginator.posts %}

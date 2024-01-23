@@ -8,7 +8,7 @@ Those notes are based on:
 ### Architecture of .NET MAUI
 
 
-<img src="/images/maui_intro/maui_architecture.png" height=500 />
+<img src="{{site.baseurl}}/images/maui_intro/maui_architecture.png" height=500 />
 # Structure of a .NET MAUI Project
 
 - Open Visual Studio 2022

@@ -1,6 +1,5 @@
 title: Application Development III 
-url:https://yobad.github.io/AppDevIII2024/
-
+baseurl: /AppDevIII2024
 # The `>` after `description:` means to ignore line-breaks until next key.
 # If you want to omit the line-break after the end of text, use `>-` instead.
 description: >

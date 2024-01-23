@@ -23,7 +23,7 @@ The following notes were based on Matt Milner's course on .NET MAUI
 - In C\C++, a written code had to be recompiled for each platform.
 - Sometimes the code required some modifications to support some OS specific feature. 
   (especially when accessing local resources)
-- Question: How can C++ code be used in MacOS it the native language is Swift.
+- Question: How can C++ code be used in MacOS if the native language is Swift?
 
 **Summary**
 
@@ -37,7 +37,7 @@ The following notes were based on Matt Milner's course on .NET MAUI
 
 - Having a mobile app became a business need. 
 
-  - One of the best ways to grow customer base.
+- One of the best ways to grow customer base.
 
 - When developing a Web, Mobile or Hybrid App for multiple platforms, you need to know multiple programing languages, architectures and the specify of each platform.
 

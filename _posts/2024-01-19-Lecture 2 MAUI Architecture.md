@@ -11,13 +11,13 @@ Those notes are based on:
 <img src="{{site.baseurl}}/images/maui_intro/maui_architecture.png" height=500 />
 # Structure of a .NET MAUI Project
 
-- Open Visual Studio 2022
+1. Open Visual Studio 2022
 
-- Create a .NET MAUI Application
+2. Create a .NET MAUI Application
 
-- Overview of the project explorer
+3. Overview of the project explorer
 
-- Platforms: This folder contains platform specific code:
+4. Platforms: This folder contains platform specific code:
 
   
 

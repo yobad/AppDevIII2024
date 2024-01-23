@@ -16,7 +16,7 @@ The following notes were based on Matt Milner's course on .NET MAUI
 
 ## Main Problem
 
-<img src="/images/cpad/img1_mainproblem.png" width="400" style="vertical-align: middle;" title="Main issue with native apps"/>
+<img src="images/cpad/img1_mainproblem.png" width="400" style="vertical-align: middle;" title="Main issue with native apps"/>
 
 
 *Main issue with native apps*
@@ -29,7 +29,7 @@ The following notes were based on Matt Milner's course on .NET MAUI
 
 - The process is repeated for each operating system.
 
-| <img src="/images/cpad/img4_nativeAppsGen.png"/> |
+| <img src="images/cpad/img4_nativeAppsGen.png"/> |
 | :------------------------------------------------: |
 |       *Cross platform programming languages*       |
 
@@ -88,7 +88,7 @@ The following notes were based on Matt Milner's course on .NET MAUI
 
 ### Why Native or Why not Native?
 
-| <img src="/images/cpad/img2_advantages.png" height="400" /> |
+| <img src="images/cpad/img2_advantages.png" height="400" /> |
 | :----------------------------------------------------------: |
 |                     *Advantages of CPAD*                     |
 
@@ -140,7 +140,7 @@ The following notes were based on Matt Milner's course on .NET MAUI
     [Starbucks App](https://app.starbucks.com)
 
     
-    | <img src="/images/cpad/img3_FlutterGen.png"  height=300 style="margin-bottom: 20px;"/> |
+    | <img src="images/cpad/img3_FlutterGen.png"  height=300 style="margin-bottom: 20px;"/> |
     | :----------------------------------------------------------: |
     |                    *Flutter Architecure*                     |
     
@@ -179,7 +179,7 @@ The following notes were based on Matt Milner's course on .NET MAUI
     
 
 
-| <img src="/images/cpad/img6_hybridGen.png" height=250/> |
+| <img src="images/cpad/img6_hybridGen.png" height=250/> |
 | :-------------------------------------------------------: |
 |           *Hybrid Native Apps Building Process*           |
 
@@ -205,13 +205,13 @@ The following notes were based on Matt Milner's course on .NET MAUI
   - **React Native**: Open source. Similar to MAUI, react views are created and react handles it to generate native controls. It was created by facebook using a command-line interface (based on Javascript, React.js, ECMAScript, JSX)
 
 
-| <img src="/images/cpad/img10_ReactNativeGen.png" height=300/> |
+| <img src="images/cpad/img10_ReactNativeGen.png" height=300/> |
 | :----------------------------------------------------------: |
 |                 *React Native Architecture*                  |
 
   - **MAUI (previously Xamarin)**: The same business logic  (written in C#) for all platforms, UI code (written in C#/XAML) will be adapted by MAUI for the various targets. (XAML controls -> Native controls). It has an excellent performance, near native app performance.
 
-| <img src = "/images/maui_intro/maui_cpad.png" height=300/> |
+| <img src = "images/maui_intro/maui_cpad.png" height=300/> |
 | :----------------------------------------------------------: |
 |           *.NET Multi-platform App UI (.NET MAUI)*           |
 

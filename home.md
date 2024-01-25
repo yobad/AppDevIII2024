@@ -20,3 +20,7 @@ In this website you will find material for the course:
 
 ## Course Outline 
 You can download a copy of the course outline [here](./files/WINTER2024.COMPUTER_SCIENCE.420-6A6-AB.BADAWYY.pdf ':ignore').
+
+```csharp
+int test =3;
+```

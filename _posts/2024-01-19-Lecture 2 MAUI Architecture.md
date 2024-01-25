@@ -1,9 +1,10 @@
 ---
 layout: post
 title: "Lecture 2: .NET MAUI"
-categories: misc
+permalink: /lectures/intro-maui
+categories: notes
 ---
-Those notes are based on: 
+This lecture is are based on: 
 [Microsoft's documentation](https://learn.microsoft.com/en-ca/dotnet/maui/what-is-maui?view=net-maui-8.0) 
 ### Architecture of .NET MAUI
 
@@ -51,22 +52,48 @@ Those notes are based on:
 Overview of the project explorer
 
 - Platforms: This folder contains platform specific code:
-<img src="{{site.baseurl}}/images/maui_intro/project_explorer.png" />
+  <img src="{{site.baseurl}}/images/maui_intro/project_explorer.png" />
   
-
 - After building your project, if you navigate to the location of the bin folder of the project, you can find multiple applications created for the app.
 
 - Typically there's a resource's folder in which all images, fonts, etc. are stored. MAUI will be responsible of embedding this content to each platform with its specificity.  
 
 
 
-# What is XAML?
+# XAML
 
 - XAML is a declarative markup language which defines the UI components of the App.
 - It's also used in WPF and UWP.
 - Extension is `.xaml`
 - For every xaml file, you have an associated C# code behind with the same name:
-<img src="{{site.baseurl}}/images/maui_intro/code_behind.png" height=500 />
+<img src="{{site.baseurl}}/images/maui_intro/MainPage.png" />
 
 The MainPage.xaml:
+- Contains the definition of the main page.
+- Note that the `ContentPage` is definied using the following attributes:
+    - `xmlns` : The XML namespace is the default namespace in every XAML file, it refers to the .NET MAUI classes (`ContentPage`, `Button`, `VerticalStackLayout`)
+    - `xmlns:x` : The secondary namespace refered to as `x` in the file, it is associated with elements specific to `XAML`. This allows MAUI apps to support constructs created by other frameworks (WPF, UPF, etc.)
+    - `x:Class`: One of the constructs introduced by XAML allowing a binding between the XAML Content Page and the C# class definied in the [Code Behind](#code-behind). 
+    - We will see more on data binding on [lecture 3]({{site.baseurl}}/lectures/data-binding/)
 
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+        <? content ?>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
+
+```
+
+### Code Behind

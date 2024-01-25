@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Introduction"
-categories: misc
+permalink: /lectures/introduction
+categories: notes
 ---
 
 The course of Application Development III builds on top of your knowledge and skills acquired during your studies at the college. Along with the Connected Objects course, this course acts as a capstone for the computer science program. This is the season finale!

@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Lecture 1: Cross-Platform App Development Frameworks"
-categories: misc
+permalink: /lectures/cpad
+categories: notes
 ---
 The following notes were based on Matt Milner's course on .NET MAUI
 

@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Data Binding"
-categories: junk
+title: "Lecture 4: Design Patterns - Subscriber Pattern"
+categories: notes
 ---
 
 Coming soon...

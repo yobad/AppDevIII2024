@@ -1,4 +1,4 @@
 ---
-layout: post
+layout: notes
 ---
 Coming soon...

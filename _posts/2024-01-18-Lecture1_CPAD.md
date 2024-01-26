@@ -42,13 +42,13 @@ The following notes were based on Matt Milner's course on .NET MAUI
 
 - When developing a Web, Mobile or Hybrid App for multiple platforms, you need to know multiple programing languages, architectures and the specify of each platform.
 
-  ##### Types of Mobile App Frameworks**:
+#### Types of Mobile App Frameworks:
 
-  - Native
-  - Web Apps
-  - Progressive Web Apps
-  - Hybrid Apps
-  - **Cross-Platform Native** Apps (Focus of this course)
+- Native
+- Web Apps
+- Progressive Web Apps
+- Hybrid Apps
+- **Cross-Platform Native** Apps (Focus of this course)
 
 ##### 	How to Choose a Mobile App Framework?
 

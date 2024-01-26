@@ -112,15 +112,16 @@ $dm-brand-color-dark:      darken($dm-brand-color, 35%) !default;
 
 $dm-site-title-color:      #FFFFFF!default;
 
-$dm-text-color:            #FFFFFF !default;
+$dm-text-color:            #eae9e9 !default;
 $dm-background-color:      #1F1F1F !default;
-$dm-code-background-color: #222 !default;
+$dm-code-background-color: #000 !default;
+
 
 $dm-link-base-color:       $dm-brand-color-light!default;
 $dm-link-visited-color:    $dm-link-base-color !default;
 $dm-link-hover-color:      $dm-text-color !default;
 
-$dm-border-color-01:       $dm-brand-color-dark !default;
+$dm-border-color-01:       #565656 !default;
 $dm-border-color-02:       $dm-brand-color-light !default;
 $dm-border-color-03:       $dm-brand-color !default;
 

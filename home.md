@@ -16,11 +16,9 @@ In this website you will find material for the course:
 - [Lectures](./pages/lectures.md)
 - [Labs](./pages/labs.md)
 - [Assignments](./pages/assignments.md)
-- [Demos](./pages/demos/)
+- [Demos](./pages/repos.md)
 
 ## Course Outline 
 You can download a copy of the course outline [here](./files/WINTER2024.COMPUTER_SCIENCE.420-6A6-AB.BADAWYY.pdf ':ignore').
 
-```csharp
-int test =3;
-```
+

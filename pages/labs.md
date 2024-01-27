@@ -6,5 +6,4 @@ permalink: /labs/
 
 ---
 
-
-Coming soon...
+### [Lab0 - Getting Started with MAUI](../labs/lab0.md)

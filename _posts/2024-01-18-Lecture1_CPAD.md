@@ -103,15 +103,25 @@ The following notes were based on Matt Milner's course on .NET MAUI
 - Responsive web pages.
   - Use widely spread (and tested) web technologies.
   - Single codebase created for all platforms. 
-- Hosted on web servers.
+- Hosted on web servers 
   - Not available via the app store.
+  - It's a dynamic apps (uses an application server) unlike web pages which are static.
 - Accessed via **mobile browser**. 
   - Require URL required.
   - Require Internet connection. (Is there Offline access!!)
-- Convenient to create and easy to maintain. 
+- **Advantages:**
+  - Not using any space on device
+  - Convenient to create.
+  - Much easier to maintain (no need to send updates to users)
+  - Cheaper and faster to develop (great for small businesses)
+
 - **Disadvantages:** 
   - Lack the look and feel of native apps.
-  - Lack access to all features a mobile can offer. (not all hardware can be accessed).
+  - Lack access to all features a mobile can offer. (not all hardware can be accessed: GPS, Camera, Mic, etc.).
+
+- **Examples of Web Apps**: 
+  - [Youtube.com](https://youtube.com)
+  - []
 
 ## Progressive Web Apps (PWAs)
 
@@ -128,26 +138,38 @@ The following notes were based on Matt Milner's course on .NET MAUI
     (uses manifests & JavaScript service workers)
   - Feels like native app: have an icon and do not run in the browser. 
 
+- **Advantages**:
+
+  - Quick development cycle
+  - Much smaller apps
+
 - **Disadvantages:**
 
   - Special UI elements must be created within web framework to mimic native UI and UX. 
   - Has access to many mobile APIs but not all.
   - **Slower** performance than native apps. 
 
-- Examples:
+- Examples of framework:
 
   - **Flutter**: Open-source UI kit developed by Google. It integrates easily with Android Studio and Visual Studio. The logic is written in Dart, the UI is written in Flutter Widgets. It can be deployed very quickly, dart is also a declarative language which helps developers focus on writing code quickly.  
 
-    [Starbucks App](https://app.starbucks.com)
+    [Google Classroom](https://classroom.google.com/)
 
     
+
+
     | <img src="{{site.baseurl}}/images/cpad/img3_FlutterGen.png"  height=300 style="margin-bottom: 20px;"/> |
     | :----------------------------------------------------------: |
-    |                    *Flutter Architecure*                     |
-    
-    
-    
-    
+    |                    *Flutter Architecture*                    |
+
+- To install the App, you must use the browser, then select the option of downloading the app. 
+
+- Examples of PWAs: 
+
+  - [Starbucks App](https://app.starbucks.com)
+  - [Pinterest](https://www.pinterest.com/)
+
+  
 
 ## Hybrid Native Apps
 
@@ -237,3 +259,7 @@ The following notes were based on Matt Milner's course on .NET MAUI
   - Security
   - Use cases where CPAD is not the way to go: if we need to directly interface with the hardware, use of CoreOS libraries, Speed requirements
 
+## Additional Ressources:
+
+- [Flutter Tutorial](https://codelabs.developers.google.com/codelabs/flutter-codelab-first#3)
+- [Mobile App vs Web App: What’s the difference?](https://www.browserstack.com/guide/mobile-app-vs-web-app)

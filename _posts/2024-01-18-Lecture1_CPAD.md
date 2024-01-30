@@ -120,8 +120,10 @@ The following notes were based on Matt Milner's course on .NET MAUI
   - Lack access to all features a mobile can offer. (not all hardware can be accessed: GPS, Camera, Mic, etc.).
 
 - **Examples of Web Apps**: 
+
   - [Youtube.com](https://youtube.com)
-  - []
+
+    
 
 ## Progressive Web Apps (PWAs)
 
@@ -259,7 +261,7 @@ The following notes were based on Matt Milner's course on .NET MAUI
   - Security
   - Use cases where CPAD is not the way to go: if we need to directly interface with the hardware, use of CoreOS libraries, Speed requirements
 
-## Additional Ressources:
+## Additional Resources:
 
 - [Flutter Tutorial](https://codelabs.developers.google.com/codelabs/flutter-codelab-first#3)
 - [Mobile App vs Web App: What’s the difference?](https://www.browserstack.com/guide/mobile-app-vs-web-app)

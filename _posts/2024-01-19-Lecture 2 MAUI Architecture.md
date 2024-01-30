@@ -39,7 +39,7 @@ According to Microsoft's latest [documentation](https://learn.microsoft.com/en-u
 
 | Platform | Min Version|
 | :--------------------:|
-| Windows  |    5.0     |
+| Windows  |    10.1809    |
 | Mac      |    10.15   |
 | Android  |    5.0     |
 | iOS      |    11      |
@@ -72,7 +72,7 @@ According to Microsoft's latest [documentation](https://learn.microsoft.com/en-u
 - Platforms: This folder contains platform specific code:
   <img src="{{site.baseurl}}/images/maui_intro/project_explorer.png" />
   
-- Ressources: this folder contains all images, fonts, etc. are stored. MAUI will be responsible of embedding this content to each platform with its specificity.  
+- Resources: this folder contains all images, fonts, etc. are stored. MAUI will be responsible of embedding this content to each platform with its specificity.  
 
 
 
@@ -117,7 +117,7 @@ Example `MainPage.xaml.cs`:
 - It contains the constructor of the `ContentPage` inherited page. 
 - You'll notice that the `MainPage` (or any user definied page) inherits from the `ContentPage` class.
 - The user definied page, will typically contain variables specific to the App that is interfacing with the model (classes and business logic).
-- It's generally good practice to extract any businesss logic away from the code behind and add it to a model class. 
+- It's generally good practice to extract any business logic away from the code behind and add it to a model class. 
 
 
 

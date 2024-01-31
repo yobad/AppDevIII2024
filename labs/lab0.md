@@ -10,11 +10,11 @@ This first lab or tutorial, will walk you through the tools and the proejct stru
  - Creating your first MAUI App
  - Creating an Android Emulator
  - Getting familiar with the .NET MAUI project structure
- - Modifying existant buttons and labels
+ - Modifying existent buttons and labels
  - Adding pages
  - Creating basic navigation
 
-## Creating your first .NET MAUI App
+### Creating your first .NET MAUI App
 
 It's recommended that you use the school PCs to complete the labs because they have already been correctly configured and have the recommended specs.
 
@@ -164,5 +164,4 @@ Let's modify the Navigation bar back ground color (by default white):
 <div style="display: flex; margin-right: 10px;" >
     <img src="{{site.baseurl}}/images/labs_images/Lab0_exo1.png" height=300/>
     <img src="{{site.baseurl}}/images/labs_images/Lab0_exo2.png" height=300/>
-</div>
-   
+</div>   

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "MAUI Layouts"
+title: "Lecture 3 : MAUI Layouts"
 permalink: /lectures/maui-layouts
 categories: notes
 

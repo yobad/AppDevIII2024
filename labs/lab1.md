@@ -24,24 +24,20 @@ This lab will help you get familiar with the various MAUI layouts and controls.
 
 
 
-## MAUI Project
+## Create a MAUI Project
 
 - Create a .NET MAUI Project
 - Name: **Lab1**
 - .NET: **7**
 
-## Navigation
+#### Target platform
 
-- The app consists of three main pages:
-  - Profile Page
-  - Post Page
-  - Comment Page
+For this lab we will be testing the app on two different form factors:
 
-- We will use the basic stack navigation we have used so far in this course
+- Android Emulator: Pixel 5 - API 34
+- Windows Machine
 
-  
-
-## Main Page
+## Modify the Main Page
 
 - Modify the main page to include:
 
@@ -50,25 +46,25 @@ This lab will help you get familiar with the various MAUI layouts and controls.
   - A `button`: `Text`=`"Post Page"`, `Clicked` (create a new event handler)
   - A `button`: `Text`=`"Comment Page"`, `Clicked` (create a new event handler)
 
-  <img src="../images/labs_images/Lab1/Lab1_MainPage_threebuttons.png" height=400/>
-
-- Rename your event handlers so that they follow the standard for this course:
-
-  ```csharp
-  private async void Btn_PostPage_Clicked(object sender, EventArgs e)
-  {
-      ///...
-  }
-  ```
+  
 
   
 
-## Target platform
+  <img src="../images/labs_images/Lab1/Lab1_MainPage_threebuttons.png" height=400/>
 
-For this lab we will be testing the app on two different form factors:
+- Rename your event handlers so that they follow the standard ***Btn_ButtonName_Clicked***
 
-- Android Emulator: Pixel 5 - API 34
-- Windows Machine
+
+#### App Navigation
+
+- The app consists of three main pages:
+  - Profile Page
+  - Post Page
+  - Comment Page
+
+- We will use the basic stack navigation we have used so far in this course
+
+
 
 
 
@@ -76,7 +72,7 @@ For this lab we will be testing the app on two different form factors:
 
 
 
-## Profile Page
+## Modify the Profile Page
 
 - Download the following [sample](../files/Lab1_sample_images.zip) images and place them into your  `Resources > Images` folder
 
@@ -84,15 +80,15 @@ For this lab we will be testing the app on two different form factors:
 
   - Remove the default `VerticalStackLayout` and replace it with a `Grid`
   - The `Grid` must have the following specs:
-    - Be a child of the `ScrollView`
-    - `Padding`: 10
+    - Have as parent the `ScrollView`
     - Columns: 3 adaptable to the screen size
     - Rows : 3 adaptable to the screen size
     - The first row must have a height that is 2 x bigger than all the other rows.
+    - `Padding`: 10
     - `RowSpacing`: 5
     - `ColumnSpacing`: 5
 
-- Add the following items on the following locations (Row,Column):
+- Add the following items to the following positions (Row,Column):
 
   - (0,0)`Image`:
     - `Source` = "dotnet_bot_jetpack.png"
@@ -127,20 +123,24 @@ For this lab we will be testing the app on two different form factors:
 
   
 
-  This is what your layout should look like
-
   
 
-<div>
+  
+  
+  This is what your layout should look like
+  
+  
+
+<div display: inline-block>
 <img src="../images/labs_images/Lab1/Lab1_grid.png" height=400/>
 <img src="../images/labs_images/Lab1/Lab1_grid_win.png" height=350/>  
 </div>
 
-</div>
 
 
 
-## Post Page
+
+## Modify the Post Page
 
 The post page contains all the details of a social media post. To keep it simple, we will only display 1 post, and 1 comment for this post number as well as the number of times the like button has been clicked:
 
@@ -297,7 +297,7 @@ The comment section should contain a single `HorizontalStackLayout` with the fol
 
     
 
-## Comment Page
+## Modify the Comment Page
 
 This page is composed of a title section at the top of the screen, a large middle section where the comments will appear and finally a text entry at the bottom part of the screen. This page should be composed of an `AbsoluteLayout`containing the following items with the given bounds: 
 

@@ -133,8 +133,9 @@ For this lab we will be testing the app on two different form factors:
 
 <div display: inline-block>
 <img src="../images/labs_images/Lab1/Lab1_grid.png" height=400/>
-<img src="../images/labs_images/Lab1/Lab1_grid_win.png" height=350/>  
+<img src="../images/labs_images/Lab1/Lab1_grid_win.png" height=350  
 </div>
+
 
 
 
@@ -142,7 +143,7 @@ For this lab we will be testing the app on two different form factors:
 
 ## Modify the Post Page
 
-The post page contains all the details of a social media post. To keep it simple, we will only display 1 post, and 1 comment for this post number as well as the number of times the like button has been clicked:
+The post page contains all the details of a social media post. To keep it simple, we will only display 1 post and 1 comment:
 
 <img src="../images/labs_images/Lab1/Lab1_postpage_verticalstack.png" height=400/>
 
@@ -230,7 +231,7 @@ This area is made up of another `HorizontalStackLayout` containing three `ImageB
 
 #### Like Event Handler
 
-In the code behind add a counter for the number of likes and make sure the likes label is updated every time the like button is clicked:
+- In the code behind, add a counter for the number of likes and make sure the likes label is updated every time the like button is clicked:
 
 
 
@@ -247,7 +248,7 @@ private void Btn_LikeButton_Clicked(object sender, EventArgs e)
 
 #### Share Event Handler
 
-Modify the signature of the event handler to make it run asynchronously:
+- Modify the signature of the event handler to make it run asynchronously:
 
 ```csharp
 private async void Btn_ShareButton_Clicked(object sender, EventArgs e)
@@ -258,9 +259,10 @@ private async void Btn_ShareButton_Clicked(object sender, EventArgs e)
 
 
 
-Show a `DisplayActionSheet` to allow the user to select the platform then show `DisplayAlert` to confirm that the post was shared on the selected platform. Read more about [MAUI Pop-ups](https://learn.microsoft.com/en-us/dotnet/maui/user-interface/pop-ups?view=net-maui-7.0)
+- Show a `DisplayActionSheet` to allow the user to select the platform then show `DisplayAlert` to confirm that the post was shared on the selected platform. Read more about [MAUI Pop-ups](https://learn.microsoft.com/en-us/dotnet/maui/user-interface/pop-ups?view=net-maui-7.0)
 
-Hint: Use the `await` keyword to save the returned user selection in a `string` variable.
+> Hint: Use the `await` keyword to save the returned user selection in a `string` variable.
+>
 
 <div>
     <img src="../images/labs_images/Lab1/Lab1_share_1.png" height=400/>
@@ -271,7 +273,9 @@ Hint: Use the `await` keyword to save the returned user selection in a `string` 
 
 #### Comment Event Handler
 
-For simplicity, the comment button should push a `CommentPage` on the stack (similar to the `MainPage` Comment Page Button).
+For simplicity:
+
+- push a `CommentPage` on the stack (similar to the `MainPage` Comment Page Button)
 
 #### Comment section:
 
@@ -366,7 +370,7 @@ The Comment Page should have the following appearance. Note: I am not expecting 
 
 
 
-
+**End of the lab!**
 
 
 ### Grading Rubric

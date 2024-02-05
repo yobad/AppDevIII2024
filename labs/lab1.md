@@ -131,10 +131,11 @@ For this lab we will be testing the app on two different form factors:
   
   
 
-<div display: inline-block>
+<div>
 <img src="../images/labs_images/Lab1/Lab1_grid.png" height=400/>
 <img src="../images/labs_images/Lab1/Lab1_grid_win.png" height=350  
 </div>
+
 
 
 

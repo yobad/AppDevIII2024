@@ -131,10 +131,10 @@ For this lab we will be testing the app on two different form factors:
   
   
 
-<div>
-<img src="../images/labs_images/Lab1/Lab1_grid.png" height=400/>
-<img src="../images/labs_images/Lab1/Lab1_grid_win.png" height=350  
-</div>
+<img src="../images/labs_images/Lab1/Lab1_grid.png" height=400 class="inline-img"/>
+
+<img src="../images/labs_images/Lab1/Lab1_grid_win.png" height=350 class="inline-img" /> 
+
 
 
 
@@ -361,10 +361,8 @@ This page is composed of a title section at the top of the screen, a large middl
 
 The Comment Page should have the following appearance. Note: I am not expecting the Send button to be connected to an event handler.
 
-<div>
-    <img src="../images/labs_images/Lab1/Lab1_absolute_exo.png" height=400/>
-    <img src="../images/labs_images/Lab1/Lab1_absolute_exo_win.png" height=400/>
-</div>
+<img src="../images/labs_images/Lab1/Lab1_absolute_exo.png" height=400 class="inline-img"/>
+    <img src="../images/labs_images/Lab1/Lab1_absolute_exo_win.png" height=400 class="inline-img"/>
 
 
 

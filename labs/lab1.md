@@ -125,7 +125,7 @@ For this lab we will be testing the app on two different form factors:
   - (3,0) `Border`
     - `Grid.ColumnSpan`="3"
     - `Stroke`="LightGray" 
-    - `MaximumHeightRequest`="1"
+    - `MaximumHeightRequest`="3"
     
   - (4,0) to (5,2) `Image`
     - `Source` : use the sample images to populate the mosaic
@@ -194,7 +194,7 @@ This area is where the image should be added in the main `VerticalStackLayout`:
   - `Text`="0 like"
 - `Border`:
   - `BackgroundColor` = "LightGray"
-  - `HeightRequest`="2"
+  - `HeightRequest`="3"
 
 
 
@@ -328,8 +328,8 @@ This page is composed of a title section at the top of the screen, a large middl
 
   - x= 50%
   - y= 5%
-  - Width = 1 pixel
-  - Height = 100%
+  - Width = 100%
+  - Height = 3 pixels
   -  `BackgroundColor`="Gray" 
 
   
@@ -348,7 +348,7 @@ This page is composed of a title section at the top of the screen, a large middl
   - x= 50%
   - y= 88%
   - Width = 100%
-  - Height = 2 pixels
+  - Height = 3 pixels
   -  `BackgroundColor`="Gray" 
 
 - `Entry`

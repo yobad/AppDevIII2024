@@ -90,7 +90,7 @@ For this lab we will be testing the app on two different form factors:
     - `RowSpacing`: 5
     - `ColumnSpacing`: 5
 
-- Add the following items to the following positions (Row,Column):
+- Add the following items to the following positions ***(Row,Column)***:
 
   - (0,0)`Image`:
     - `Source` = "dotnet_bot_jetpack.png"
@@ -312,6 +312,8 @@ The comment section should contain a single `HorizontalStackLayout` with the fol
 
 This page is composed of a title section at the top of the screen, a large middle section where the comments will appear and finally a text entry at the bottom part of the screen. This page should be composed of an `AbsoluteLayout`containing the following items with the given bounds: 
 
+> Hint: To combine two Absolute Layout flags, separate them by a comma: example: AbsoluteLayout.LayoutFlags = "HeightProportional, XProportional"
+
 - `Label` 
 
   - x= 50%
@@ -327,8 +329,10 @@ This page is composed of a title section at the top of the screen, a large middl
   - x= 50%
   - y= 5%
   - Width = 1 pixel
-  - Height = 2 pixels
+  - Height = 100%
   -  `BackgroundColor`="Gray" 
+
+  
 
 - `VerticalStackLayout`
 
@@ -337,13 +341,13 @@ This page is composed of a title section at the top of the screen, a large middl
   - Width = 100%
   - Height = 80%
   - child :
-    - `HorizontalStackLayout`
+    - `HorizontalStackLayout` (same as the comment in the [`PostPage`](# Comment section)
 
 - `Border`
 
   - x= 50%
   - y= 88%
-  - Width = 1 pixel
+  - Width = 100%
   - Height = 2 pixels
   -  `BackgroundColor`="Gray" 
 
@@ -360,7 +364,7 @@ This page is composed of a title section at the top of the screen, a large middl
   - x= 98%
   - y= 97%
   - Width = 8%
-  - Height = 50
+  - Height = 50 pixels
   - `Source`="send.png"
 
   

@@ -28,7 +28,7 @@ This lab will help you get familiar with the various MAUI layouts and controls.
 
 - Create a .NET MAUI Project
 - Name: **Lab1**
-- .NET: **7**
+- ⚠️ IMPORTANT USE **.NET** **7** 
 
 #### Target platform
 
@@ -74,6 +74,8 @@ For this lab we will be testing the app on two different form factors:
 
 ## Modify the Profile Page
 
+- Warning! Make sure to use .NET 7 because Microsoft 
+
 - Download the following [sample](../files/Lab1_sample_images.zip) images and place them into your  `Resources > Images` folder
 
 - Modify the default `ProfilePage.xaml` to include the following:
@@ -93,38 +95,46 @@ For this lab we will be testing the app on two different form factors:
   - (0,0)`Image`:
     - `Source` = "dotnet_bot_jetpack.png"
     - `MaximumHeightRequest`="300"
+    
   - (0,0)`Label`:
     - `Text` = "Dotnet Bot"
     - `FontSize`="Medium"
     -  `FontAttributes`="Bold"
     - `VerticalTextAlignment`="End"
+    
   - (0,1) `Grid`: 
     - 3 columns x 1 row with three labels
       - (0,0): "6 Posts"
       - (0,1): "3.2M Followers"
       - (0,2): "150 Following"
-      - Hint: Use  `&#10;` to end a line.
+    
+      > Hint: Use  `&#10;` to end a line.
+    
   - (1,0)`Label`
     - `Text`="I am a simple bot trying to live my dreams."
     - `Grid.ColumnSpan`=3
+    
   - (2,0)`Button`:
     - `Text`="Follow"
     - `MaximumHeightRequest`="60"
+    
   - (2,1)`Button :`
     - `Text`="Message"
     - `MaximumHeightRequest`="60"
+    
   - (3,0) `Border`
     - `Grid.ColumnSpan`="3"
     - `Stroke`="LightGray" 
     - `MaximumHeightRequest`="1"
-  - (4,0) to (5,1) `Image`
+    
+  - (4,0) to (5,2) `Image`
     - `Source` : use the sample images to populate the mosaic
     - `Aspect`="AspectFill"
-
   
-
   
-
+  
+  
+  
   
   
   This is what your layout should look like
@@ -223,10 +233,6 @@ This area is made up of another `HorizontalStackLayout` containing three `ImageB
   - `WidthRequest`="30"
 
     [^3]: <a href="https://www.flaticon.com/free-icons/share" title="share icons">Share icons created by Aldo Cervantes - Flaticon</a>
-
-    
-
-  - `IsEnabled`="False"
 
   - `Clicked`: "Btn_Share_Clicked" (add a new event handler)
 

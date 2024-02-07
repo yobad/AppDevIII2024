@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Lecture 4 : Data Binding"
+title: "Lecture 4: Data binding"
 permalink: /lectures/databinding/
 categories: notes
 ---
@@ -31,11 +31,7 @@ categories: notes
 | :----------------------------------------------------------: |
 |                     *Data Binding Mode*                      |
 
-
-
-
-
-## XAML-to-XAML Binding
+# XAML-to-XAML Binding
 
 Values of attributes from one `XAML` UI element can be bound to other attributes from the same Content Page. Bindings can be set on any class that derives from `BindableObject`
 
@@ -43,7 +39,7 @@ Values of attributes from one `XAML` UI element can be bound to other attributes
 
 - Use of the Markup extension `{Binding ...}`
 - You may either use of the `BindingContext` to set the source
-- You may alternatively specify the source directly in the Target and use the `Path` to bind to a particular property.
+- You may alternatively specify the **source** directly in the Target and use the `Path` to bind to a particular property.
 - Refer to the following example:
 
 ```xaml
@@ -86,52 +82,56 @@ For more complex translations of the bound values, use [Converters](https://lear
 
 
 
-### XAML-to-C# Binding
-
-To create a binding between the XAML and the code behind of a Page, you simply need to specify the `BindingContext` inside the constructor of the `ContentPage`.
-
-Let's use the example of the `PostPage` from Lab1, instead of imbedding the source of the image directly in the `XAML`,  we could create a public property in the code behind to bind the image in the `XAML`:
-
-`PostPage.xaml.cs`:
-
-```c#
-namespace Lab1.Views
-{
-    public string ImageSource {get; set;} = "fall.png" //Added
-    public partial class PostPage : ContentPage
-    {
-            public PostPage()
-            {
-                InitializeComponent();
-                BindingContext = this; // Added
-            }
-    }
-}
-```
-
-`PostPage.xaml`:
-
-```xaml
-    <ScrollView>
-        <VerticalStackLayout Padding="10" Spacing="5" VerticalOptions="Center">
-            <!-- content...-->
-            <Border BackgroundColor="Black" Padding="5">
-                <Image Source="{Binding ImageSource}"  Aspect="AspectFit" MaximumHeightRequest="500"/>
-            </Border>
-            <!-- content...-->
-            
-        </VerticalStackLayout> 
-    </ScrollView>
-
-```
-
-> You might wonder, what have we gained by using binding in this example? 
->
-> Not much for now, but as we make the `PostPage` more dynamic, having access to the variable properties in the code behind will make our lives much easier.
+#### 
 
 
 
-### INotifyPropertyChanged
+# XAML to C# Data Binding
+
+- To create a binding between the XAML and the code behind of a Page, you simply need to specify the `BindingContext` inside the constructor of the `ContentPage`.
+
+  Let's use the example of the `PostPage` from Lab1, instead of imbedding the source of the image directly in the `XAML`,  we could create a public property in the code behind to bind the image in the `XAML`:
+
+  `PostPage.xaml.cs`:
+
+  ```c#
+  namespace Lab1.Views
+  {
+      public string ImageSource {get; set;} = "fall.png" //Added
+      public partial class PostPage : ContentPage
+      {
+              public PostPage()
+              {
+                  InitializeComponent();
+                  BindingContext = this; // Added
+              }
+      }
+  }
+  ```
+
+  `PostPage.xaml`:
+
+  ```xaml
+      <ScrollView>
+          <VerticalStackLayout Padding="10" Spacing="5" VerticalOptions="Center">
+              <!-- content...-->
+              <Border BackgroundColor="Black" Padding="5">
+                  <Image Source="{Binding ImageSource}"  Aspect="AspectFit" MaximumHeightRequest="500"/>
+              </Border>
+              <!-- content...-->
+              
+          </VerticalStackLayout> 
+      </ScrollView>
+  
+  ```
+
+  > You might wonder, what have we gained by using binding in this example? 
+  >
+  > Not much for now, but as we make the `PostPage` more dynamic, having access to the variable properties in the code behind will make our lives much easier.
+
+
+
+### `INotifyPropertyChanged`
 
 As per Microsoft [documentation](https://docs.microsoft.com/en-us/dotnet/desktop/wpf/data/how-to-implement-property-change-notification?view=netframeworkdesktop-4.8), to notify the UI that a property has been updated dynamically, the following has to be applied to the model class:
 
@@ -151,7 +151,102 @@ As per Microsoft [documentation](https://docs.microsoft.com/en-us/dotnet/desktop
 
 In the .NET MAUI framework, you will realize that the `ViewModel` is nothing more but a class that implements this interface and that has a few public properties bound to the views and that fire the `OnPropertyChanged`event every time the model or the view were changed.
 
-## Resources
 
-1. https://www.techtarget.com/whatis/definition/data-binding
+
+## Example of the `CollectionView`
+
+
+
+#### ItemSource
+
+
+
+```xaml
+<CollectionView.ItemsSource>
+    <x:Array Type ="{x:Type x:String}">
+        <x:String>Cool! Nice pic</x:String>
+        <x:String>amazing!</x:String>
+        <x:String>I love it</x:String>
+        <x:String>Cool! The colors are so bright!</x:String>
+    </x:Array>
+</CollectionView.ItemsSource>
+```
+
+Alternatively, the data structure can be defined in the code behind as a public property:
+
+```csharp
+public partial class CommentPage : ContentPage
+{
+    private List<string> _comments = new List<string>() { "Cool! Nice pic", "amazing!", "Trop beau!!", "I love it", "Cool! The colors are so bright!" };
+    public List<string> Comments { get { return _comments; } }
+    public CommentPage()
+    {
+        InitializeComponent();
+        BindingContext = this;
+    }
+}
+```
+
+By setting the `BindingContext = this`, the XAML `ContentPage` can now access public properties of the associated code behind class:
+
+```csharp
+<CollectionView AbsoluteLayout.LayoutBounds="0.5,0.35,1,0.80" AbsoluteLayout.LayoutFlags="All" ItemsSource="{Binding Comments}">
+```
+
+
+
+We may eventually define a model class to include all the properties of a comment:
+
+```csharp
+public class Comment
+{
+    public int UserId { get; set; }
+    public Uri ProfilePic { get; set; }
+    public string Text {  get; set; }
+}
+```
+
+
+
+We can then use a `List<Comment>` in the `CommentPage`.
+
+
+
+#### ItemTemplate
+
+The item template define how each child item in the collection view should be displayed and how this 
+
+
+
+```xaml
+<CollectionView.ItemTemplate>
+    <DataTemplate>
+        <HorizontalStackLayout>
+            <Image Source="{Binding ProfilePic}" WidthRequest="35"/>
+            <Border BackgroundColor="LightGray" StrokeShape="RoundRectangle 10,10,10,10" Padding="5">
+                <Label Text="{Binding Text}"/>
+            </Border>
+        </HorizontalStackLayout>
+    </DataTemplate>
+</CollectionView.ItemTemplate>
+```
+
+
+
+#### `ObservableCollection`
+
+As the list of comments is modified, we need to have a mechanism to notify the `CollectionView` that the data structure was changed, you may use an `ObservableCollection<Comment>` instead on `List<Comment>` which is a data collection that implements the `INotifyPropertyChanged`. We will see more on this in future lectures.
+
+
+
+# References
+
+1. https://learn.microsoft.com/en-us/xamarin/xamarin-forms/xaml/markup-extensions/consuming1. 
+2. https://learn.microsoft.com/en-us/dotnet/maui/fundamentals/data-binding/basic-bindings?view=net-maui-8.0
+3. https://learn.microsoft.com/en-us/dotnet/maui/fundamentals/data-binding/binding-mode?view=net-maui-8.0
+4. https://www.techtarget.com/whatis/definition/data-binding
+5. https://learn.microsoft.com/en-us/dotnet/maui/fundamentals/data-binding/string-formatting?view=net-maui-8.0
+6. https://learn.microsoft.com/en-us/dotnet/maui/fundamentals/data-binding/binding-path?view=net-maui-8.0
+7. https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/collectionview/layout?view=net-maui-8.0
+8. https://learn.microsoft.com/en-us/dotnet/api/system.collections.objectmodel.observablecollection-1?view=net-8.0
 

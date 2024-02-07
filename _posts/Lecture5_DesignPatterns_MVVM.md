@@ -1,4 +1,0 @@
----
-layout: notes
----
-Coming soon...

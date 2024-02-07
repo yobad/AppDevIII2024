@@ -46,8 +46,7 @@ Values of attributes from one `XAML` UI element can be bound to other attributes
 <Slider x:Name="slider"
         Maximum="360"
         VerticalOptions="Center" />
-<Label  Text="Rotating text"
-        Rotation="{Binding Source={x:Reference slider},Path=Value}"/>
+<Label Text="{Binding Source={x:Reference slider}, Path=Value}"/>
 ```
 
 Refer to the [documentation](https://learn.microsoft.com/en-us/xamarin/xamarin-forms/app-fundamentals/data-binding/basic-bindings) from more information.
@@ -78,11 +77,19 @@ You may bind values to the Text property of a UI element such as a `Label` while
 </VerticalStackLayout>
 ```
 
+Here are a few useful string formattings:
+
+- `{0:F2}` : Two digits after the decimal 
+- `{0:F0}` : Only the integer part
+- `{0:MMMM}`: Month, January, February, ...
+- `&quot;`: double quotations
+- `{{}}`: to display curly brackets 
+
+
+
 For more complex translations of the bound values, use [Converters](https://learn.microsoft.com/en-us/dotnet/communitytoolkit/maui/converters/).
 
 
-
-#### 
 
 
 
@@ -90,14 +97,16 @@ For more complex translations of the bound values, use [Converters](https://lear
 
 - To create a binding between the XAML and the code behind of a Page, you simply need to specify the `BindingContext` inside the constructor of the `ContentPage`.
 
-  Let's use the example of the `PostPage` from Lab1, instead of imbedding the source of the image directly in the `XAML`,  we could create a public property in the code behind to bind the image in the `XAML`:
+  Let's use the example of the `PostPage` from Lab1. In this page we have hardcoded the image path within the `XAML`code to create the layout of a post. 
+
+  We could create a public property in the code behind to bind the image source:
 
   `PostPage.xaml.cs`:
 
   ```c#
   namespace Lab1.Views
   {
-      public string ImageSource {get; set;} = "fall.png" //Added
+      public ImageSource PostImg { get; set; } = ImageSource.FromFile("fall.jpg"); //Added
       public partial class PostPage : ContentPage
       {
               public PostPage()
@@ -116,7 +125,7 @@ For more complex translations of the bound values, use [Converters](https://lear
           <VerticalStackLayout Padding="10" Spacing="5" VerticalOptions="Center">
               <!-- content...-->
               <Border BackgroundColor="Black" Padding="5">
-                  <Image Source="{Binding ImageSource}"  Aspect="AspectFit" MaximumHeightRequest="500"/>
+                  <Image Source="{Binding PostImg}"  Aspect="AspectFit" MaximumHeightRequest="500"/>
               </Border>
               <!-- content...-->
               
@@ -125,9 +134,23 @@ For more complex translations of the bound values, use [Converters](https://lear
   
   ```
 
-  > You might wonder, what have we gained by using binding in this example? 
+  
+
+  
+
+  **Question:** Why did I use an ImageSource and not a string? Test it out with the `dotnet_bot_jetpack` image on the same page and explain why isn't it working with strings?
+
+  
+
+  **Challenge #1;** Use binding to properties to replace the hardcoded `dotnet_bot_jetpack` source image and the `.NET Bot` label.
+
+  **Challenge #2: **Try using binding by making the `LikesCount` a public property and bind it to XAML using String formatting.
+
+  
+
+  > You might wonder, what have we gained by using binding in those example? 
   >
-  > Not much for now, but as we make the `PostPage` more dynamic, having access to the variable properties in the code behind will make our lives much easier.
+  > Not much for now, but as we make the `PostPage` more dynamic, having access to the variable properties in the code behind will make our lives much easier later on.
 
 
 

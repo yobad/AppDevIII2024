@@ -123,11 +123,11 @@ For more complex translations of the bound values, use [Converters](https://lear
   ```xaml
       <ScrollView>
           <VerticalStackLayout Padding="10" Spacing="5" VerticalOptions="Center">
-              <!-- content...-->
+              <!-- Omitted for brevity...-->
               <Border BackgroundColor="Black" Padding="5">
                   <Image Source="{Binding PostImg}"  Aspect="AspectFit" MaximumHeightRequest="500"/>
               </Border>
-              <!-- content...-->
+              <!-- Omitted for brevity...-->
               
           </VerticalStackLayout> 
       </ScrollView>

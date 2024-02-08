@@ -25,21 +25,74 @@ categories: notes
 
   - There are multiple ways to set the `BindingContext` of the target object. Sometimes it’s set from the code-behind file, sometimes using a `StaticResource` or `x:Static` markup extension, and sometimes as the content of `BindingContext` property-element tags.
 
-
-
-| <img src="../images/data_binding/img1_databinding.svg" width=850 /> |
+| <img src="{{site.baseurl}}/images//data_binding/img1_databinding.jpg" width=850 /> |
 | :----------------------------------------------------------: |
-|                     *Data Binding Mode*                      |
+|                        *Data Binding*                        |
 
-# XAML-to-XAML Binding
 
-Values of attributes from one `XAML` UI element can be bound to other attributes from the same Content Page. Bindings can be set on any class that derives from `BindableObject`
+
+# XAML Markup extensions
+
+This feature of XAML is useful to add functionality to the XAML page. For example using data binding  or using colors defined in a static dictionary. All Markup expression implement the `IMarkupExtension` interface so that they can be referenced by XAML. Think of them as pointers to new functionality. 
+
+Markup Extensions appear as curly brackets in XAML, here are a few examples:
+
+- You can use a string to define a color instead of having to set the `Color` attribute
+
+  example:  `<Boder BackgroundColor="Red"/>` 
+
+- You can use a static dictionary:
+
+  example:  `"BackgroundColor = {StaticResource Secondary}"`
+
+- You can use a data type using:
+
+  example:  `{x:Type myDataType}`
+
+- The following are the most comment markup expressions:
+
+  - `AppThemeBinding`: refers to the current system theme
+
+  - `Binding`: **The topic of this lecture!**
+
+  - `DataTemplate`: A template object for multi-binding (see: [Example below](# Example of the `CollectionView`))
+
+  - `DynamicResource`: A link to a dictionary key for styling values that may change at run time (for example in a game)
+
+  - `StaticResource`: A link to a static dictionary with values that are static (ex: Theme colors)
+
+  - `OnPlatform`: This helps you customize the UI based on the platform.
+
+  - `x:Static` : referencing static fields, property or enums. 
+
+  - `x:Reference`: referencing a named item on the same page (for which `x:Name` was set)
+
+  - `x:Array`: declares an array of a given data type :
+
+    ```xaml
+    <x:Array Type ="{x:Type x:Int16}">
+        <x:Int16>1</x:Int16>
+        <x:Int16>2</x:Int16>
+        <x:Int16>3</x:Int16>
+        <x:Int16>4</x:Int16>
+    </x:Array>
+    ```
+
+  - `x:Type`: refers to a data type object in `System.Type` (note you must include the `System.Type` namespace to find the usual data types)
+
+  - `x:Null`: null value for XAML properties.
+
+    
+
+# Visual element to Visual element
+
+Bindable attributes of a visual element can be bound to other attributes from the same Content Page. Bindings can be set on any class that derives from `BindableObject`
 
 **How does it work?**
 
 - Use of the Markup extension `{Binding ...}`
-- You may either use of the `BindingContext` to set the source
-- You may alternatively specify the **source** directly in the Target and use the `Path` to bind to a particular property.
+- You may either use the `BindingContext` to set the source
+- You may alternatively specify the `Source` directly in the Target and use the `Path` to bind to a particular property.
 - Refer to the following example:
 
 ```xaml
@@ -59,7 +112,7 @@ Refer to the [documentation](https://learn.microsoft.com/en-us/xamarin/xamarin-f
 
   property of `Binding`, which is set to a member of the `BindingMode` enumeration and can have one of the following values:
 
-  - `Default`
+  - `Default` - depends on the UI item being bound, usually `TwoWay`
   - `OneWay` values are transferred from the source to the target.
   - `OneWayToSource` values are transferred from the target to the source.
   - `TwoWay` values are transferred both ways between source and target.
@@ -72,9 +125,15 @@ You may bind values to the Text property of a UI element such as a `Label` while
 
 
 ```xaml
-<VerticalStackLayout BindingContext="{x:Static sys:DateTime.Now}">
-    <Label Text="{Binding StringFormat='Today: {0:MMMM dd, yyyy}'}" />
-</VerticalStackLayout>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=netstandard"
+             x:Class="DataBindingDemos.StringFormattingPage"
+             Title="String Formatting">
+    <VerticalStackLayout BindingContext="{x:Static sys:DateTime.Now}">
+        <Label Text="{Binding StringFormat='Today: {0:MMMM dd, yyyy}'}" />
+    </VerticalStackLayout>
+</ContentPage>
 ```
 
 Here are a few useful string formattings:
@@ -93,64 +152,63 @@ For more complex translations of the bound values, use [Converters](https://lear
 
 
 
-# XAML to C# Data Binding
+# Visual element to C# Property
 
-- To create a binding between the XAML and the code behind of a Page, you simply need to specify the `BindingContext` inside the constructor of the `ContentPage`.
+To create a binding between the XAML and the code behind of a Page, you simply need to specify the `BindingContext` inside the constructor of the `ContentPage`.
 
-  Let's use the example of the `PostPage` from Lab1. In this page we have hardcoded the image path within the `XAML`code to create the layout of a post. 
+Let's use the example of the `PostPage` from Lab1. In this page we have hardcoded the image path within the `XAML`code to create the layout of a post. 
 
-  We could create a public property in the code behind to bind the image source:
+We could create a public property in the code behind to bind the image source:
 
-  `PostPage.xaml.cs`:
+`PostPage.xaml.cs`:
 
-  ```c#
-  namespace Lab1.Views
-  {
-      public ImageSource PostImg { get; set; } = ImageSource.FromFile("fall.jpg"); //Added
-      public partial class PostPage : ContentPage
-      {
-              public PostPage()
-              {
-                  InitializeComponent();
-                  BindingContext = this; // Added
-              }
-      }
-  }
-  ```
+```c#
+namespace Lab1.Views
+{
+    public ImageSource PostImg { get; set; } = ImageSource.FromFile("fall.jpg"); //Added
+    public partial class PostPage : ContentPage
+    {
+            public PostPage()
+            {
+                InitializeComponent();
+                BindingContext = this; // Added
+            }
+    }
+}
+```
 
-  `PostPage.xaml`:
+`PostPage.xaml`:
 
-  ```xaml
-      <ScrollView>
-          <VerticalStackLayout Padding="10" Spacing="5" VerticalOptions="Center">
-              <!-- content...-->
-              <Border BackgroundColor="Black" Padding="5">
-                  <Image Source="{Binding PostImg}"  Aspect="AspectFit" MaximumHeightRequest="500"/>
-              </Border>
-              <!-- content...-->
-              
-          </VerticalStackLayout> 
-      </ScrollView>
-  
-  ```
+```xaml
+    <ScrollView>
+        <VerticalStackLayout Padding="10" Spacing="5" VerticalOptions="Center">
+            <!-- content...-->
+            <Border BackgroundColor="Black" Padding="5">
+                <Image Source="{Binding PostImg}"  Aspect="AspectFit" MaximumHeightRequest="500"/>
+            </Border>
+            <!-- content...-->
+            
+        </VerticalStackLayout> 
+    </ScrollView>
+```
 
-  
 
-  
 
-  **Question:** Why did I use an ImageSource and not a string? Test it out with the `dotnet_bot_jetpack` image on the same page and explain why isn't it working with strings?
 
-  
 
-  **Challenge #1;** Use binding to properties to replace the hardcoded `dotnet_bot_jetpack` source image and the `.NET Bot` label.
+**Question:** Why did I use an ImageSource and not a string? Test it out with the `dotnet_bot_jetpack` image on the same page and explain why isn't it working with strings?
 
-  **Challenge #2: **Try using binding by making the `LikesCount` a public property and bind it to XAML using String formatting.
 
-  
 
-  > You might wonder, what have we gained by using binding in those example? 
-  >
-  > Not much for now, but as we make the `PostPage` more dynamic, having access to the variable properties in the code behind will make our lives much easier later on.
+**Challenge #1;** Use binding to properties to replace the hardcoded `dotnet_bot_jetpack` source image and the `.NET Bot` label.
+
+**Challenge #2: **Try using binding by making the `LikesCount` a public property and bind it to XAML using String formatting.
+
+
+
+> You might wonder, what have we gained by using binding in those example? 
+>
+> Not much for now, but as we make the `PostPage` more dynamic, having access to the variable properties in the code behind will make our lives much easier later on.
 
 
 
@@ -262,14 +320,13 @@ As the list of comments is modified, we need to have a mechanism to notify the `
 
 
 
-# References
+# Additional Resources 
 
-1. https://learn.microsoft.com/en-us/xamarin/xamarin-forms/xaml/markup-extensions/consuming1. 
-2. https://learn.microsoft.com/en-us/dotnet/maui/fundamentals/data-binding/basic-bindings?view=net-maui-8.0
-3. https://learn.microsoft.com/en-us/dotnet/maui/fundamentals/data-binding/binding-mode?view=net-maui-8.0
-4. https://www.techtarget.com/whatis/definition/data-binding
-5. https://learn.microsoft.com/en-us/dotnet/maui/fundamentals/data-binding/string-formatting?view=net-maui-8.0
-6. https://learn.microsoft.com/en-us/dotnet/maui/fundamentals/data-binding/binding-path?view=net-maui-8.0
-7. https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/collectionview/layout?view=net-maui-8.0
-8. https://learn.microsoft.com/en-us/dotnet/api/system.collections.objectmodel.observablecollection-1?view=net-8.0
+1. [Theory behind Data Binding](https://www.techtarget.com/whatis/definition/data-binding)
+2. [Basics of Data Binding in Maui](https://learn.microsoft.com/en-us/dotnet/maui/fundamentals/data-binding/basic-bindings?view=net-maui-8.0)
+3. [Consuming Markup Extensions](https://learn.microsoft.com/en-us/xamarin/xamarin-forms/xaml/markup-extensions/consuming1) 
+4. [Binding Modes](https://learn.microsoft.com/en-us/dotnet/maui/fundamentals/data-binding/binding-mode?view=net-maui-8.0)
+5. [XAML string formatting](https://learn.microsoft.com/en-us/dotnet/maui/fundamentals/data-binding/string-formatting?view=net-maui-8.0)
+6. [Collection View](https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/collectionview/layout?view=net-maui-8.0)
+7. [Observable Collection](https://learn.microsoft.com/en-us/dotnet/api/system.collections.objectmodel.observablecollection-1?view=net-8.0)
 

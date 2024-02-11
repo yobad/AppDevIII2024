@@ -1,0 +1,215 @@
+---
+layout: post
+title: "Lab 2 - Using Binding in a Tip Calculator"
+permalink: /labs/lab2
+categories: labs
+---
+
+This lab will help you refresh your knowledge of XAML data binding and get familiar a little bit closer to having a proper app architecture.
+
+* **Worth**: 3%
+* 📅 **Due**: February 23, 2024 @11:59PM
+* 🕑 **Late Submissions**: Deductions for late submissions is 10%/day. 
+  *To a maximum of 3 days. A a grade of 0% will be given after 3 days.*
+* 📥**Submission**: Demo of the UI in class + code submission through GitHub classroom.
+
+## Objective
+
+- Use XAML Binding 
+- Use View to Code Behind Binding
+- Learn how to separate the business logic from the Views
+- Build a simple tip calculator app for Canadians.
+
+
+
+## Project Preparation
+
+- Check the `GitHub` classroom link shared with you on Teams and accept the assignment.
+- Once your private repo is created, clone it to your computer.
+- Create a new `.NET MAUI App` project in the cloned folder using the following specifications:
+  - Project Name: `TipCalculator`
+  - ⚠️ Target Framework: **.NET 7.0**
+
+#### Target platform
+
+For this lab we will be testing the app on two different form factors:
+
+- Android Emulator: Pixel 5 - API 34 (if available)
+- Windows Machine
+
+
+
+## User Interface
+
+Modify the `MainPage.xaml` to create a simple tip calculator. You may use the following design or a design of your choice.
+
+<img src="../images/labs_images/Lab2/m1.png" height="400" class="inline-img"/>
+
+  <img src="../images/labs_images/Lab2/m2.png" height="400" class="inline-img"/>   <img src="../images/labs_images/Lab2/m3.png" height="400" class="inline-img"/> 
+
+ <img src="../images/labs_images/Lab2/m4.png" height="400" class="inline-img"/> <img src="i../images/labs_images/Lab2/m5.png" height="400" class="inline-img"/>
+
+## UI - Requirements
+
+- Information button: `ImageButton` 
+  - Download an icon and add it to project resources. You may use any .PNG or .SVG image found online.
+    - Icon samples can be acquired from: [Icons8](https://icons8.com/) or [Flaticon](https://www.flaticon.com/free-icon/info_665049?term=information&page=1&position=1&origin=search&relatd_id=665049). 
+  - On click the app navigate to the "Canadian Tip Info" page. (Text will be provided at the end of the assignment)
+- Bill Amount Before Tax: `Entry`.
+  - Allow numeric values only.
+- Tip Percentage: `Slider`.
+  - Label for tip value must be updated using `XAML`(not in the associated `C#` code.
+  - Tip minimum value is 0% and max value is 40%.
+  - Tip value increases by 1. **No decimal should be displayed.**
+- Canadian Province: `Picker` 
+  -  The picker will use a class model to display the Canadian provinces. 
+    (`Province` class details are provided in the next section).
+  -  Note I suggest you complete this part after finishing your models and static classes.
+  - Picker may be populated using its `ItemsSource` property.
+    - An easier way is to add all provinces using an array in the similar manner done in a `CollectionView` in `XAML` in the example seen in class.
+    - You can then use the `ItemDisplayBinding` to set the attribute to display of each item contained in the List.
+- Tax Rate: Right below the picker a `Label` will display the HST\GST Tax for the selected province in the picker using the province object.
+- Tip Amount: `Label` displaying calculated the tip amount.
+  - `Tip Amount = (Tip Percent) /100 x Bill Amount before Tax`
+- Total Amount: `Label` displaying total bill amount including provincial tax and tip.
+  - `Tax Amount = (Provincial Tax) /100 x Bill Amount before Tax`
+  - `Total Amount = Bill Amount before Tax + Tax Amount + Tip Amount`
+- Split Options:
+  - Allows user to split the total amount based on the split value provided.
+- Tip Info Page:
+  - Information about tipping.
+  - *Note: the content of the text is bigger than the screen.* 
+  - Use proper text styling and formatting, do not dump text into UI: Grades will be deduced for bad UI design.
+
+#### App Text and Information
+
+> ##### *Province's Tax Rates*
+>
+> - *Alberta: 5%*
+> - *British Columbia: 12%*
+> - *Manitoba: 12%*
+> - *New Brunswick: 15%*
+> - *Newfoundland and Labrador: 15%*
+> - *Northwest Territories: 5%*
+> - *Nova Scotia Tax: 15%*
+> - *Nunavut: 5%*
+> - *Ontario: 13%*
+> - *Prince Edward Island: 15%*
+> - *Quebec: 14.975%* 
+> - *Saskatchewan: 11%*
+> - *Yukon: 5%*
+>
+> ##### *Tip Info Text*
+>
+> ***At the restaurant (waiter or waitress)***
+>
+> *The standard tip at a restaurant is 15% and may exceed 20% (which is a very good tip).However, when you talk about tip for take-out orders, it is often zero.*
+>
+> ***Restaurant Delivery Person***
+>
+> *The standard for restaurant delivery is usually 10% of the amount before taxes.*
+>
+> ***Hotel***
+>
+> *The maids are generally entitled to $1 overnight stay / room. It is the same amount per luggage for a Porter.*
+>
+> ***Dressing or hairdresser***
+>
+> *The amount of tip for hairdressers or barbers is between 5% and 15%.*
+>
+> ### *Taxi Driver*
+>
+> *The amount reserved for taxi drivers varied from 10% to 15% depending on the service offered. If the driver helps you with your luggage or guide you to different places to visit, the percentage should be considered on the rise. ($ 1 / bag and / or 15% of the stroke)*
+>
+> ***United States***
+>
+> *The tip standards are essentially the same as in Canada.*
+>
+> ***In France, Algeria***
+>
+> *The tip is usually included in the price of the invoice. However, it is very appreciated, especially when good service to give an amount up to the difference in the rounded invoice or around 5%.*
+>
+> ***Japan, China***
+>
+> *The tip is not necessary and can even insult the person who rendered the service.*
+>
+> ***UK and South Africa***
+>
+> *The majority of hotels and restaurants included the tip in the bill. When it is not included, the amount could be between 10% and 15%.*
+>
+> ***Other countries***
+>
+> *A 10% tip is never wrong. However, you can go from 5% to 10%.*
+
+## Models
+
+Organize your project by creating a `Models` folder. Add the following new classes:
+
+- `Province` class: represents each province basic information. In this app you require:
+  - the province's name : `string`
+  - the province's HST\GST Tax : `decimal`
+
+- `Bill` class: this class should include all the information related to the bill and the total amount calculation:
+  - Extract the **concepts** from the app design above, for example: Total amount, amount before taxes, tax amount, tip amount, etc.
+  - Respect the OOP Pillars:
+    - **OOP Encapsulation:** avoid exposing unnecessary information in the `Bill` class and hide **all calculations**. 
+    - **OOP Abstraction:** all variables related to the `Bill` class should be defined in the class.  Avoid adding these variables in the code behind of the `XAML` page. The code behind should only define an object of the `Bill` class and use its members.
+  - Hint: use calculated properties.
+
+> Note: The classes should be built without having any dependency on the technology used. (on `MAUI` or `XAML`)
+
+## Data Repos
+
+Organize the data you use inside your project by creating a `DataRepos` folder. Add the following new static classes:
+
+- `Provinces`: Contains a single public attribute which is an iterable (array, list, etc..) of all the Canadian provinces and their respective tax rates: 
+
+  | Province                  | Tax Rate |
+  | ------------------------- | -------- |
+  | Alberta                   | 5%       |
+  | British Columbia          | 12%      |
+  | Manitoba                  | 12%      |
+  | New Brunswick             | 15%      |
+  | Newfoundland and Labrador | 15%      |
+  | Northwest Territories     | 5%       |
+  | Nova Scotia               | 15%      |
+  | Nunavut                   | 5%       |
+  | Ontario                   | 13%      |
+  | Prince Edward Island      | 15%      |
+  | Quebec                    | 14.975%  |
+  | Saskatchewan              | 11%      |
+  | Yukon                     | 5%       |
+
+## Binding View, Model and Repos
+
+Once the classes are built integrate them to the View. Create an object `Bill` in the code behind (or in `XAML`) and use binding to connect its various properties to the code behind.  
+
+As for the data repo, simply include its namespace in the code behind and refer to the `Provinces` array, it's static object!
+
+I suggest you add breakpoints inside the model's properties setters and validate that they get executed when certain UI elements are modified. 
+
+If you find yourself writing logic code in the code behind (example calculating a value), you know that you have missed to add that functionality in the class.
+
+## Functionality 
+
+Note that the app design does not include any button to invoke the calculation of tip or total amount. Use event base programming with the combination of data binding to have the app automatically update the UI labels.
+
+## Grading Rubric
+
+| Evaluation Criteria  | Details                                                      | Worth |
+| -------------------- | ------------------------------------------------------------ | ----- |
+| **Functionality**    | App does everything and works as expected.<br />App does not crash. | 2     |
+| **UI Design**        | All requested elements available.<br />Use of at least 2 nested layouts.<br />Use of application resources for UI styling.<br /> | 3     |
+| **Data Binding**     | Use of View-to-View binding when possible.<br /> Use of View-to-Code-Behind binding over event handlers. | 4     |
+| **Model Classes**    | Proper class design and use of OOP pillars.<br />`Province` class (5)<br /> `Bill` class (15) | 2     |
+| **App Architecture** | Separation of the logic and the presentation layers of the app<br />*There should be no calculations done in the code behind.* | 2     |
+| **Name & ID**        | At the top of all submitted files: provide your name, student ID and assignment number. | 1     |
+
+
+
+
+
+# References
+
+1. Web agency telorDesign, Calculators and conversion tools:  https://www.calculconversion.com/tip-calculator-canada.html, last accessed on Feb 11 2024
+2. Retail Council of Canada, Sales Tax Rates by Province: https://www.retailcouncil.org/resources/quick-facts/sales-tax-rates-by-province/, last accessed on Feb11 2024

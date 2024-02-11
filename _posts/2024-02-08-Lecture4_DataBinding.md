@@ -236,7 +236,9 @@ In the .NET MAUI framework, you will realize that the `ViewModel` is nothing mor
 
 ## Example of the `CollectionView`
 
+Let's make the comment list in the Lab1 more dynamic using binding.
 
+### Defining a CollectionView in the PostPage.
 
 #### ItemSource
 
@@ -268,7 +270,7 @@ public partial class CommentPage : ContentPage
 }
 ```
 
-By setting the `BindingContext = this`, the XAML `ContentPage` can now access public properties of the associated code behind class:
+By setting the `BindingContext = this`, the XAML `ContentPage` can now access public properties of the associated code behind class. Note: You must remove the `<CollectionView.ItemsSource> ....` from the code behind to avoid setting it twice.
 
 ```csharp
 <CollectionView AbsoluteLayout.LayoutBounds="0.5,0.35,1,0.80" AbsoluteLayout.LayoutFlags="All" ItemsSource="{Binding Comments}">
@@ -289,7 +291,7 @@ public class Comment
 
 
 
-We can then use a `List<Comment>` in the `CommentPage`.
+We can then use a `List<Comment>` in the `CommentPage` code behind as such:
 
 
 
@@ -314,9 +316,96 @@ The item template define how each child item in the collection view should be di
 
 
 
-#### `ObservableCollection`
+### Adding Items to the Collection View: 
+
+Let's try to add comments by reading the text input from the `Entry` when the send `ImageButton` is clicked.
+
+1. In your code behind add private attributes representing the current user's Id and User profile pic, this is the profile pic used for posting new comments:
+
+   ```csharp
+   private int userId_ = 456;
+   private string userProfilePic_ = "<add a url to pic of your choice>";
+   ```
+
+   
+
+2. Modify the `Entry`in the `CommentPage`so that it has a `x:Name` property:
+
+   ```xaml
+   <Entry x:Name="CommentsEntry" Placeholder="Add a comment..." <!-- ...etc... --->
+   ```
+
+3. Add an event Handler on your `ImageButton` and rename it accordingly
+
+   ```csharp
+   private void Btn_Send_Clicked(object sender, EventArgs e)
+   {
+   	string comment = CommentEntry.Text;
+   	if(comment !=null)
+   	{
+   		Comments.Add(new Comment(){UserId= userId_, Text=comment,ProfilePic = new Uri(userProfilePic_)});
+   		CommentEntry.Text="";
+   	}
+   }
+   ```
+
+4. What do you observe? Why is the comment not added?
+
+   Answer: The List is a data structure that does not notify its subscribers of any new added item. To solve this you can either:
+
+   call the `OnPropertyChanged` event or you can use an `ObservableCollection`
+
+#### What is an `ObservableCollection`?
 
 As the list of comments is modified, we need to have a mechanism to notify the `CollectionView` that the data structure was changed, you may use an `ObservableCollection<Comment>` instead on `List<Comment>` which is a data collection that implements the `INotifyPropertyChanged`. We will see more on this in future lectures.
+
+
+
+### Challenge 1 (Easy): Adding Comments in the `PostPage` 
+
+Try to add a similar comments section in the `PostPage`. 
+
+### Challenge 2 (Medium): Avoid overwriting the comments when the `CommentPage` is pushed. 
+
+How can we make the comments list shared across both pages and how can we make sure the comments added in the `CommentPage` won't be lost once you navigate out and into the page.
+
+> Hint: There are two possible solutions: 1) create a static data repo that will make it accessible throughout the views (this is the easiest option for now), 2) dependency injection : pass the comment list by reference to the constructor of the `CommentPage`
+
+### Challenge 3 (Hard): Creating a Post model
+
+1. Create a `Post` model which will save the following information:
+
+   `Post`
+
+   - `string UserId`
+   - `Uri ProfileImg`
+   - `Uri PostContent`
+   - `ObservableCollection<Comment> PostComments`
+   - `int Likes`
+
+2. Instantiate a `Post` in your code behind with a list of `Comments`
+
+3. Set the `Comments = DataRepos.SocialMediaPosts[0].PostsComments`
+
+4. Create a public property for the `ContentImage` 
+
+5. Set it to `DataRepos.SocialMediaPosts[0].ProfileImg`. 
+
+6. Bind the `ContentImage` to the Image behind displayed.
+
+7. Bind the `Likes` to the `LikesLabel` in the code behind.
+
+   > Hint: You might need to change the `Post` class to make it notify the UI of any change.
+
+### Challenge 4 (Medium): Swipe through posts
+
+1. Add a `Data Repos` folder and add a `Posts` class
+
+2. Modify the `Posts` class to make it static 
+3. Add a static property`ObservableCollection<Post> SocialMediaPosts`
+4. Add posts and comments to every post.
+
+> Hint: You can use a `CarouselView` or simply add left/right `ImageButton`
 
 
 

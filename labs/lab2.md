@@ -47,7 +47,7 @@ Modify the `MainPage.xaml` to create a simple tip calculator. You may use the fo
 
   <img src="../images/labs_images/Lab2/m2.png" height="400" class="inline-img"/>   <img src="../images/labs_images/Lab2/m3.png" height="400" class="inline-img"/> 
 
- <img src="../images/labs_images/Lab2/m4.png" height="400" class="inline-img"/> <img src="i../images/labs_images/Lab2/m5.png" height="400" class="inline-img"/>
+ <img src="../images/labs_images/Lab2/m4.png" height="400" class="inline-img"/> <img src="../images/labs_images/Lab2/m5.png" height="400" class="inline-img"/>
 
 ## UI - Requirements
 

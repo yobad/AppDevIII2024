@@ -378,9 +378,10 @@ How can we make the comments list shared across both pages and how can we make s
    `Post`
 
    - `string UserId`
-   - `Uri ProfileImg`
-   - `Uri PostContent`
-   - `ObservableCollection<Comment> PostComments`
+   - `string` Username 
+   - `Uri ProfileImage`
+   - `Uri ContentImage`
+   - `ObservableCollection<Comment> Comments`
    - `int Likes`
 
 2. Instantiate a `Post` in your code behind with a list of `Comments`

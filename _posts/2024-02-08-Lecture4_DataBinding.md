@@ -386,11 +386,11 @@ How can we make the comments list shared across both pages and how can we make s
 
 2. Instantiate a `Post` in your code behind with a list of `Comments`
 
-3. Set the `Comments = DataRepos.SocialMediaPosts[0].PostsComments`
+3. Set the `Comments = DataRepos.SocialMediaPosts[0].Comments`
 
 4. Create a public property for the `ContentImage` 
 
-5. Set it to `DataRepos.SocialMediaPosts[0].ProfileImg`. 
+5. Set it to `DataRepos.SocialMediaPosts[0].ProfileImage`. 
 
 6. Bind the `ContentImage` to the Image behind displayed.
 

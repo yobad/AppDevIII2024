@@ -5,7 +5,7 @@ permalink: /lectures/databinding/
 categories: notes
 ---
 
-
+[Demo Basic Binding](https://github.com/AppDevIII-W24-Code/Demos/tree/632ce254f018c06db0b29a42a52228b7ad6d41a9/Demo3BasicBinding)
 
 - In C#, data bindings allow properties of two objects to be coupled, i.e: to change together.
 
@@ -235,6 +235,8 @@ In the .NET MAUI framework, you will realize that the `ViewModel` is nothing mor
 
 
 ## Example of the `CollectionView`
+
+[Here is my solution](https://github.com/AppDevIII-W24-Code/Demos/tree/632ce254f018c06db0b29a42a52228b7ad6d41a9/DemoSocialMediaBinding)
 
 Let's make the comment list in the Lab1 more dynamic using binding.
 

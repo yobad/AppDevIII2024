@@ -11,6 +11,8 @@ This lecture is are based on:
 
 [TOC]
 
+[Demo made in class](https://github.com/AppDevIII-W24-Code/Demos/tree/632ce254f018c06db0b29a42a52228b7ad6d41a9/Demo_Intro_MAUI)
+
 ### Architecture of .NET MAUI
 
 - .NET MAUI stands for .NET Multi-platform App UI.

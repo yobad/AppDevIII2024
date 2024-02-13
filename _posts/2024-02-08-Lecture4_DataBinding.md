@@ -5,7 +5,7 @@ permalink: /lectures/databinding/
 categories: notes
 ---
 
-[Demo Basic Binding](https://github.com/AppDevIII-W24-Code/Demos/tree/632ce254f018c06db0b29a42a52228b7ad6d41a9/Demo3BasicBinding)
+[Demo made in class: Basic Binding](https://github.com/AppDevIII-W24-Code/Demos/tree/632ce254f018c06db0b29a42a52228b7ad6d41a9/Demo3BasicBinding)
 
 - In C#, data bindings allow properties of two objects to be coupled, i.e: to change together.
 

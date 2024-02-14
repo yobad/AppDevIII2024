@@ -41,45 +41,92 @@ For this lab we will be testing the app on two different form factors:
 
 ## User Interface
 
-Modify the `MainPage.xaml` to create a simple tip calculator. You may use the following design or a design of your choice:
+Modify the `MainPage.xaml` to create a simple tip calculator. **You may use the following design** or a design of your choice:
 
 <img src="../images/labs_images/Lab2/m1.png" height="400" class="inline-img"/>
 
-  <img src="../images/labs_images/Lab2/m2.png" height="400" class="inline-img"/>   <img src="../images/labs_images/Lab2/m3.png" height="400" class="inline-img"/> 
-
- <img src="../images/labs_images/Lab2/m4.png" height="400" class="inline-img"/> <img src="../images/labs_images/Lab2/m5.png" height="400" class="inline-img"/>
-
 ## UI - Requirements
 
-- Information button: `ImageButton` 
-  - Download an icon and add it to project resources. You may use any .PNG or .SVG image found online.
-    - Icon samples can be acquired from: [Icons8](https://icons8.com/) or [Flaticon](https://www.flaticon.com/free-icon/info_665049?term=information&page=1&position=1&origin=search&relatd_id=665049). 
+- Download the button icons from [here](../images/labs_images/Lab2/icons.zip), you are free to use other icons if you prefer.
+
+- **Information button: `ImageButton`** 
+
+  - `Source`=`"info.png"` or you may use the icon of your choice.
+  - `MaximumHeightRequest`=30
+  - `MaximumWidthRequest`=30
+  - Add an event handler and rename it accordingly.
   - On click the app navigate to the "Canadian Tip Info" page. (Text will be provided at the end of the assignment)
-- Bill Amount Before Tax: `Entry`.
-  - Allow numeric values only.
-- Tip Percentage: `Slider`.
+
+- **Bill Amount Before Tax: `Entry`.**
+
+  - `PlaceholderText`: $0.00
+
+  - `TextChanged`: Create an event handler and name it accordingly
+
+  - `FontSize`: `Large`
+
+  - Allow numeric values only:
+
+      <img src="../images/labs_images/Lab2/m2.png" height="400" class="inline-img"/>
+
+- **Tip Percentage: `Slider`.**
+
+  - Define the  `x:Name` to be able to reference it elsewhere.
+
+  - Tip minimum value is 0% and max value is 100%.
+
   - Label for tip value must be updated using `XAML`(not in the associated `C#` code.
-  - Tip minimum value is 0% and max value is 40%.
-  - Tip value increases by 1. **No decimal should be displayed.**
-- Canadian Province: `Picker` 
+
+  - The displayed tip value should increase by 1. **No decimal should be displayed.**
+
+    
+
+    
+
+- **Canadian Province: `Picker`** 
+
+  -  Define the `x:Name` to be able to reference it elsewhere.
+
   -  The picker will use a class model to display the Canadian provinces. 
     (`Province` class details are provided in the next section).
-  -  Note I suggest you complete this part after finishing your models and static classes.
-  - Picker may be populated using its `ItemsSource` property.
+
+  -  Note I suggest you complete the picker after finishing your models and static classes.
+
+  -  Picker may be populated using its `ItemsSource` property.
     - An easier way is to add all provinces using an array in the similar manner done in a `CollectionView` in `XAML` in the example seen in class.
-    - You can then use the `ItemDisplayBinding` to set the attribute to display of each item contained in the List.
-- Tax Rate: Right below the picker a `Label` will display the HST\GST Tax for the selected province in the picker using the province object.
-- Tip Amount: `Label` displaying calculated the tip amount.
+    - You can then use the `ItemDisplayBinding` to set the attribute to display of each item contained in the List
+
+    <img src="../images/labs_images/Lab2/m3.png" height="400" class="inline-img"/>
+
+- **Tax Rate `Label`**: 
+
+  - Right below the picker a `Label` will display the HST\GST Tax for the selected province in the picker using the province object.
+  - You must only use `XAML` binding not the code behind.
+
+- **Tip Amount `Label:** 
+
+  - `Label` displaying calculated the tip amount.
   - `Tip Amount = (Tip Percent) /100 x Bill Amount before Tax`
-- Total Amount: `Label` displaying total bill amount including provincial tax and tip.
+
+- **Total Amount `Label`**:
+
+  -  displaying total bill amount including provincial tax and tip.
   - `Tax Amount = (Provincial Tax) /100 x Bill Amount before Tax`
   - `Total Amount = Bill Amount before Tax + Tax Amount + Tip Amount`
-- Split Options:
+
+- **Split Options:**
+
   - Allows user to split the total amount based on the split value provided.
-- Tip Info Page:
+
+- **`Tip Info Page`:**
+
   - Information about tipping.
+
   - *Note: the content of the text is bigger than the screen.* 
-  - Use proper text styling and formatting, do not dump text into UI: Grades will be deduced for bad UI design.
+
+  - Use proper text styling and formatting, do not dump text into UI: Grades will be deduced for bad UI design:
+
+    <img src="../images/labs_images/Lab2/m5.png" height="400" class="inline-img"/><img src="../images/labs_images/Lab2/m6.png" height="400" class="inline-img"/>
 
 #### App Text and Information
 
@@ -136,14 +183,14 @@ Organize your project by creating a `Models` folder. Add the following new class
 - `Province` class: represents each province basic information. In this app you require:
   - the province's name : `string`
   - the province's HST\GST Tax : `decimal`
-
 - `Bill` class: this class should include all the information related to the bill and the total amount calculation:
   - Extract the **concepts** from the app design above, for example: Total amount, amount before taxes, tax amount, tip amount, etc.
   - Respect the OOP Pillars:
     - **OOP Encapsulation:** avoid exposing unnecessary information in the `Bill` class and hide **all calculations**. 
     - **OOP Abstraction:** all variables related to the `Bill` class should be defined in the class.  Avoid adding these variables in the code behind of the `XAML` page. The code behind should only define an object of the `Bill` class and use its members.
-  - Hint: use calculated properties.
 
+> Hint: use calculated properties.
+>
 > Note: The classes should be built without having any dependency on the technology used. (on `MAUI` or `XAML`)
 
 ## Data Repos
@@ -168,19 +215,23 @@ Organize the data you use inside your project by creating a `DataRepos` folder. 
   | Saskatchewan              | 11%      |
   | Yukon                     | 5%       |
 
-## Binding View, Model and Repos
+## Binding the View with the Model and Repos
 
-Once the classes are built integrate them to the View. Create an object `Bill` in the code behind (or in `XAML`) and use binding to connect its various properties to the code behind.  
+- Once the classes are built integrate them to the View. Create an object `Bill` in the code behind (or in `XAML`) and use binding to connect its various properties to the code behind.  
 
-As for the data repo, simply include its namespace in the code behind and refer to the `Provinces` array, it's static object!
+- As for the data repo, simply include its namespace in the code behind and refer to the `Provinces` array, it's static object!
 
-I suggest you add breakpoints inside the model's properties setters and validate that they get executed when certain UI elements are modified. 
+- I suggest you add breakpoints inside the model's properties setters and validate that they get executed when certain UI elements are modified. 
 
-If you find yourself writing logic code in the code behind (example calculating a value), you know that you have missed to add that functionality in the class.
+- If you see some properties not being updated on the screen that is most likely because values are changing without notifying the view:
+  - Remember there is many ways of implementing this app. You can use the `INotifyPropertyChanged` interface, or simply call an Update method every time a value has changed. It's up to you to decide. 
+  - I will be posting various possible solutions for this Lab. 
+
+- If you find yourself writing logic code in the code behind (example calculating a value), you know that you have missed to add that functionality in the class.
 
 ## Functionality 
 
-Note that the app design does not include any button to invoke the calculation of tip or total amount. Use event base programming with the combination of data binding to have the app automatically update the UI labels.
+Note that the app design does not include any "Submit" button to invoke the calculation of tip or total amount. Use event base programming with the combination of data binding to have the app automatically update the UI labels.
 
 ## Grading Rubric
 

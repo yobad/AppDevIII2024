@@ -41,7 +41,7 @@ For this lab we will be testing the app on two different form factors:
 
 ## User Interface
 
-Modify the `MainPage.xaml` to create a simple tip calculator. You may use the following design or a design of your choice.
+Modify the `MainPage.xaml` to create a simple tip calculator. You may use the following design or a design of your choice:
 
 <img src="../images/labs_images/Lab2/m1.png" height="400" class="inline-img"/>
 
@@ -83,59 +83,47 @@ Modify the `MainPage.xaml` to create a simple tip calculator. You may use the fo
 
 #### App Text and Information
 
-> ##### *Province's Tax Rates*
->
-> - *Alberta: 5%*
-> - *British Columbia: 12%*
-> - *Manitoba: 12%*
-> - *New Brunswick: 15%*
-> - *Newfoundland and Labrador: 15%*
-> - *Northwest Territories: 5%*
-> - *Nova Scotia Tax: 15%*
-> - *Nunavut: 5%*
-> - *Ontario: 13%*
-> - *Prince Edward Island: 15%*
-> - *Quebec: 14.975%* 
-> - *Saskatchewan: 11%*
-> - *Yukon: 5%*
->
-> ##### *Tip Info Text*
->
 > ***At the restaurant (waiter or waitress)***
 >
 > *The standard tip at a restaurant is 15% and may exceed 20% (which is a very good tip).However, when you talk about tip for take-out orders, it is often zero.*
->
+> 
 > ***Restaurant Delivery Person***
->
+> 
 > *The standard for restaurant delivery is usually 10% of the amount before taxes.*
->
+> 
 > ***Hotel***
->
+> 
 > *The maids are generally entitled to $1 overnight stay / room. It is the same amount per luggage for a Porter.*
->
+> 
 > ***Dressing or hairdresser***
->
+> 
 > *The amount of tip for hairdressers or barbers is between 5% and 15%.*
 >
-> ### *Taxi Driver*
+> ***Taxi Driver***
 >
 > *The amount reserved for taxi drivers varied from 10% to 15% depending on the service offered. If the driver helps you with your luggage or guide you to different places to visit, the percentage should be considered on the rise. ($ 1 / bag and / or 15% of the stroke)*
+>
+> ### Tips in Other Countries
 >
 > ***United States***
 >
 > *The tip standards are essentially the same as in Canada.*
 >
-> ***In France, Algeria***
+> ***Mexico, Cuba, Haiti, Dominican Repulic***
+>
+> *The tip is usually between 5% - 15%.*
+>
+> ***Brazil, Columbia, Chile, Ecuador***
 >
 > *The tip is usually included in the price of the invoice. However, it is very appreciated, especially when good service to give an amount up to the difference in the rounded invoice or around 5%.*
 >
-> ***Japan, China***
+> ***Iceland and Fineland***
+>
+> *No tips to pay!*
+>
+> ***China, Japan, South Korea***
 >
 > *The tip is not necessary and can even insult the person who rendered the service.*
->
-> ***UK and South Africa***
->
-> *The majority of hotels and restaurants included the tip in the bill. When it is not included, the amount could be between 10% and 15%.*
 >
 > ***Other countries***
 >

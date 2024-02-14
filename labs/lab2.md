@@ -43,7 +43,7 @@ For this lab we will be testing the app on two different form factors:
 
 Modify the `MainPage.xaml` to create a simple tip calculator. **You may use the following design** or a design of your choice:
 
-<img src="../images/labs_images/Lab2/m1.png" height="400" class="inline-img"/>
+<img src="../images/labs_images/Lab2/m1.png" height="400"/>
 
 ## UI - Requirements
 
@@ -67,7 +67,7 @@ Modify the `MainPage.xaml` to create a simple tip calculator. **You may use the 
 
   - Allow numeric values only:
 
-      <img src="../images/labs_images/Lab2/m2.png" height="400" class="inline-img"/>
+      <img src="../images/labs_images/Lab2/m2.png" height="400"/>
 
 - **Tip Percentage: `Slider`.**
 
@@ -79,7 +79,7 @@ Modify the `MainPage.xaml` to create a simple tip calculator. **You may use the 
 
   - The displayed tip value should increase by 1. **No decimal should be displayed.**
 
-    
+    <img src="../images/labs_images/Lab2/m7.png" height="400"/>
 
     
 
@@ -96,14 +96,14 @@ Modify the `MainPage.xaml` to create a simple tip calculator. **You may use the 
     - An easier way is to add all provinces using an array in the similar manner done in a `CollectionView` in `XAML` in the example seen in class.
     - You can then use the `ItemDisplayBinding` to set the attribute to display of each item contained in the List
 
-    <img src="../images/labs_images/Lab2/m3.png" height="400" class="inline-img"/>
+    <img src="../images/labs_images/Lab2/m3.png" height="400"/>
 
 - **Tax Rate `Label`**: 
 
   - Right below the picker a `Label` will display the HST\GST Tax for the selected province in the picker using the province object.
   - You must only use `XAML` binding not the code behind.
 
-- **Tip Amount `Label:** 
+- **Tip Amount `Label`** 
 
   - `Label` displaying calculated the tip amount.
   - `Tip Amount = (Tip Percent) /100 x Bill Amount before Tax`
@@ -116,10 +116,11 @@ Modify the `MainPage.xaml` to create a simple tip calculator. **You may use the 
 
 - **Split Options:**
 
-  - Allows user to split the total amount based on the split value provided.
+  - Allows user to split the total amount based on a split value (number of people sharing the bill).
+  - Allows user to see how many people are splitting the bill and increase/decrease this value
   - **Note: the number of people splitting the bill will always be greater or equal to 1*** 
 
-- **`Tip Info Page`:**
+  #### **Tip Info Page**
 
   - Information about tipping.
 
@@ -129,7 +130,7 @@ Modify the `MainPage.xaml` to create a simple tip calculator. **You may use the 
 
     <img src="../images/labs_images/Lab2/m5.png" height="400" class="inline-img"/><img src="../images/labs_images/Lab2/m6.png" height="400" class="inline-img"/>
 
-#### App Text and Information
+#### Information Text
 
 > ***At the restaurant (waiter or waitress)***
 >
@@ -157,7 +158,7 @@ Modify the `MainPage.xaml` to create a simple tip calculator. **You may use the 
 >
 > *The tip standards are essentially the same as in Canada.*
 >
-> ***Mexico, Cuba, Haiti, Dominican Repulic***
+> ***Mexico, Cuba, Dominican Republic***
 >
 > *The tip is usually between 5% - 15%.*
 >
@@ -165,9 +166,9 @@ Modify the `MainPage.xaml` to create a simple tip calculator. **You may use the 
 >
 > *The tip is usually included in the price of the invoice. However, it is very appreciated, especially when good service to give an amount up to the difference in the rounded invoice or around 5%.*
 >
-> ***Iceland and Fineland***
+> ***Iceland and Finland***
 >
-> *No tips to pay!*
+> *No need to pay tips*
 >
 > ***China, Japan, South Korea***
 >
@@ -176,6 +177,10 @@ Modify the `MainPage.xaml` to create a simple tip calculator. **You may use the 
 > ***Other countries***
 >
 > *A 10% tip is never wrong. However, you can go from 5% to 10%.*
+
+[1]: https://hellosafe.ca/en/travel-insurance/tipping-world-map	"Source: Hello Safe Map"
+
+
 
 ## Models
 
@@ -189,13 +194,11 @@ Organize your project by creating a `Models` folder. Add the following new class
   - Respect the OOP Pillars:
     - **OOP Encapsulation:** avoid exposing unnecessary information in the `Bill` class and hide **all calculations**. 
     - **OOP Abstraction:** all variables related to the `Bill` class should be defined in the class.  Avoid adding these variables in the code behind of the `XAML` page. The code behind should only define an object of the `Bill` class and use its members.
-<<<<<<< .mine
-    - **Validation**: You model is not aware of the View and therefore should validate that the value provided to the setters are valid. 
-=======
+    - **Validation**: You model is not aware of the View and therefore should validate that the value provided to the setters. 
 
->>>>>>> .theirs
 
-> Hint: use calculated properties.
+
+> Hint: use calculated properties for the Tax Amount, Tip Amount, Total Amount and the Split Amount.
 >
 > Note: The classes should be built without having any dependency on the technology used. (on `MAUI` or `XAML`)
 
@@ -224,15 +227,11 @@ Organize the data you use inside your project by creating a `DataRepos` folder. 
 ## Binding the View with the Model and Repos
 
 - Once the classes are built integrate them to the View. Create an object `Bill` in the code behind (or in `XAML`) and use binding to connect its various properties to the code behind.  
-
 - As for the data repo, simply include its namespace in the code behind and refer to the `Provinces` array, it's static object!
-
 - I suggest you add breakpoints inside the model's properties setters and validate that they get executed when certain UI elements are modified. 
-
 - If you see some properties not being updated on the screen that is most likely because values are changing without notifying the view:
   - Remember there is many ways of implementing this app. You can use the `INotifyPropertyChanged` interface, or simply call an Update method every time a value has changed. It's up to you to decide. 
   - I will be posting various possible solutions for this Lab. 
-
 - If you find yourself writing logic code in the code behind (example calculating a value), you know that you have missed to add that functionality in the class.
 
 ## Functionality 
@@ -252,12 +251,10 @@ Note that the app design does not include any "Submit" button to invoke the calc
 
 
 
-<script src="https://hellosafe.ca/responsive.js"></script><iframe class="responsive-iframe" src="https://hellosafe.ca/app/iframe?id=199739&amp;has-title=false&amp;lang=en-CA" title="Countries with the highest tipping rates in the world" frameborder="0" style="top: 0; left: 0; bottom: 0; border: 0; right: 0; width: 100%;"></iframe>Visit <a href="https://hellosafe.ca/">HelloSafe Canada</a> for more tools.
-
 # References
 
 1. Web agency telorDesign, Calculators and conversion tools:  https://www.calculconversion.com/tip-calculator-canada.html, last accessed on Feb 11 2024
 
 2. Retail Council of Canada, Sales Tax Rates by Province: https://www.retailcouncil.org/resources/quick-facts/sales-tax-rates-by-province/, last accessed on Feb11 2024
 
-   
+3. Hellosafe, [Map] In which countries of the world is it common to tip and how much? :https://hellosafe.ca/en/travel-insurance/tipping-world-map, last accessed on Feb 13

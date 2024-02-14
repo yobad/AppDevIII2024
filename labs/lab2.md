@@ -189,7 +189,11 @@ Organize your project by creating a `Models` folder. Add the following new class
   - Respect the OOP Pillars:
     - **OOP Encapsulation:** avoid exposing unnecessary information in the `Bill` class and hide **all calculations**. 
     - **OOP Abstraction:** all variables related to the `Bill` class should be defined in the class.  Avoid adding these variables in the code behind of the `XAML` page. The code behind should only define an object of the `Bill` class and use its members.
+<<<<<<< .mine
     - **Validation**: You model is not aware of the View and therefore should validate that the value provided to the setters are valid. 
+=======
+
+>>>>>>> .theirs
 
 > Hint: use calculated properties.
 >

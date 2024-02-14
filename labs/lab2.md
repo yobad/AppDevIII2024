@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Lab 2 - Using Binding in a Tip Calculator"
+title: "Lab 2 - Tip me with binding"
 permalink: /labs/lab2
 categories: labs
 ---
@@ -244,8 +244,8 @@ Note that the app design does not include any "Submit" button to invoke the calc
 | -------------------- | ------------------------------------------------------------ | ----- |
 | **Functionality**    | App does everything and works as expected.<br />App does not crash. | 2     |
 | **UI Design**        | All requested elements available.<br />Use of at least 2 nested layouts.<br />Use of application resources for UI styling.<br /> | 3     |
-| **Data Binding**     | Use of View-to-View binding when possible.<br /> Use of View-to-Code-Behind binding over event handlers. | 4     |
-| **Model Classes**    | Proper class design and use of OOP pillars.<br />`Province` class (5)<br /> `Bill` class (15) | 2     |
+| **Data Binding**     | Use of View-to-View binding when possible.<br />Slider--> Tax Rate Label<br />Picker -> HST/GST Label<br />Use of View-to-Code-Behind binding over event handlers:<br />Tip Amount Label to code behind property<br />Tax Amount Label to code behind property<br />Total Amount Label to code behind property<br />Split Amount Label to code behind property | 6     |
+| **Model Classes**    | Proper class design and use of OOP pillars.<br />`Province` class (5)<br /> `Bill` class (15) | 3     |
 | **App Architecture** | Separation of the logic and the presentation layers of the app<br />*There should be no calculations done in the code behind.* | 2     |
 | **Name & ID**        | At the top of all submitted files: provide your name, student ID and assignment number. | 1     |
 

@@ -6,6 +6,8 @@ permalink: /labs/
 
 ---
 
-### [Lab0 - Getting Started with MAUI](../labs/lab0.md)
+### [Lab0 - Getting Started with MAUI (0%)](../labs/lab0.md) 
 
-### [Lab1 - Social Media Layouts](../labs/lab1.md)
+### [Lab 1 - Social Media Layouts (2%)](../labs/lab1.md) 
+
+### [Lab 2 - Tip me with binding (3%)](../labs/lab2.md)

@@ -5,7 +5,7 @@ permalink: /lectures/databinding/
 categories: notes
 ---
 
-
+[Demo made in class: Basic Binding](https://github.com/AppDevIII-W24-Code/Demos/tree/632ce254f018c06db0b29a42a52228b7ad6d41a9/Demo3BasicBinding)
 
 - In C#, data bindings allow properties of two objects to be coupled, i.e: to change together.
 
@@ -236,6 +236,8 @@ In the .NET MAUI framework, you will realize that the `ViewModel` is nothing mor
 
 ## Example of the `CollectionView`
 
+[Here is my solution](https://github.com/AppDevIII-W24-Code/Demos/tree/632ce254f018c06db0b29a42a52228b7ad6d41a9/DemoSocialMediaBinding)
+
 Let's make the comment list in the Lab1 more dynamic using binding.
 
 ### Defining a CollectionView in the PostPage.
@@ -378,18 +380,19 @@ How can we make the comments list shared across both pages and how can we make s
    `Post`
 
    - `string UserId`
-   - `Uri ProfileImg`
-   - `Uri PostContent`
-   - `ObservableCollection<Comment> PostComments`
+   - `string` Username 
+   - `Uri ProfileImage`
+   - `Uri ContentImage`
+   - `ObservableCollection<Comment> Comments`
    - `int Likes`
 
 2. Instantiate a `Post` in your code behind with a list of `Comments`
 
-3. Set the `Comments = DataRepos.SocialMediaPosts[0].PostsComments`
+3. Set the `Comments = DataRepos.SocialMediaPosts[0].Comments`
 
 4. Create a public property for the `ContentImage` 
 
-5. Set it to `DataRepos.SocialMediaPosts[0].ProfileImg`. 
+5. Set it to `DataRepos.SocialMediaPosts[0].ProfileImage`. 
 
 6. Bind the `ContentImage` to the Image behind displayed.
 

@@ -8,6 +8,8 @@ categories: notes
 
 
 
+[Demo made in class](https://github.com/AppDevIII-W24-Code/Demos/tree/632ce254f018c06db0b29a42a52228b7ad6d41a9/Demo2Layouts)
+
 ## Vertical and Horizontal Stack Layouts
 
 - Similar to the `StackLayout` existent older .NET frameworks, the `VerticalStackLayout` and the `HorizontalStackLayout` organize items in a one-dimensional stack.
@@ -115,7 +117,6 @@ categories: notes
 
       [^1]: Refer to [this](https://askxammy.com/working-with-absolutelayout-in-xamarin-forms/) link for more information.
 
-      
   - `HeightProprtional`, `WidthProportional`, `XProportional`,`YProportional`
 
 ## Flex Layout
@@ -133,14 +134,14 @@ Here are a few properties to explore:
 - `AlignContent`: Defines how the items layed on multiple lines are distributed in the parent 
 
   <div>
-      
+  
   </div>
 
   <div>
       <img src="../images/maui_layouts/layouts_flex.png" height="500" />
       <img src="../images/maui_layouts/layouts_flex_win.png" height="300" />
   </div>
-
+  
   
 
  

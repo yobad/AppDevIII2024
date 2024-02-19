@@ -398,7 +398,7 @@ How can we make the comments list shared across both pages and how can we make s
 
 As per Microsoft [documentation](https://docs.microsoft.com/en-us/dotnet/desktop/wpf/data/how-to-implement-property-change-notification?view=netframeworkdesktop-4.8), to notify the UI that a property has been updated dynamically, the following has to be applied to the model class:
 
-- The UI elements should use `Binding` to connect to the properties in the class.
+- The class must use public properties:
 
   - A property requires a getter to provide a value to the UI element.
   - A property requires a setter to send a value from the UI to the class.
@@ -409,7 +409,7 @@ As per Microsoft [documentation](https://docs.microsoft.com/en-us/dotnet/desktop
 
 - The property must be a full property with a private backing field and a full setter and getter.
 
-- Create the `OnPropertyChanged` method to raise the event. (code provided in the documentation above):
+- Create the `OnPropertyChanged` method to raise the event. (code provided in the documentation above or in this example):
 
   ```cs
   public class Post : INotifyPropertyChanged  
@@ -429,17 +429,57 @@ As per Microsoft [documentation](https://docs.microsoft.com/en-us/dotnet/desktop
 - Finally, `OnPropertyChanged();` should be called in the setter of the property that is required to update the UI, for example:
 
   ```csharp
-    public Uri ProfileImage
-    {
-        get { return profileImg_; }
+  public class Post : INotifyPropertyChanged  
+  {
+      int likes_ = 0;  
+      public int Likes
+      {
+        get { return likes_; }
         set
         {
-            profileImg_ = value;
+            likes_ = value;
+            // Call OnPropertyChanged whenever the property is updated
+            OnPropertyChanged();
+        }
+      }
+  	///Some more code...
+      
+  ```
+
+  
+
+- If a property affects other properties in the model, you can raise the event multiple times providing the properties that should be updated:
+
+  ```csharp
+  public class Post : INotifyPropertyChanged  
+  {
+      ///Some more code...
+      public string UserId
+      {
+        get { return userId_; }
+        set
+        {
+            userId_ = value;
             // Call OnPropertyChanged whenever the property is updated
             OnPropertyChanged(nameof(ProfileImage));
-        }
-    }
+            OnPropertyChanged(nameof(Username));
   
+        }
+      }
+  	///Some more code...
+  ```
+
+  
+
+- The UI elements should use `Binding` to connect to the properties of the class.
+
+  ```xaml
+  <HorizontalStackLayout>
+      <Image Source="{Binding ProfileImage}" HeightRequest="50"/>
+      <Label Text="{Binding Username}" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium"/>
+  </HorizontalStackLayout>
+  
+  <Label x:Name="LikesLabel" Text="{Binding Likes , StringFormat='{0:N0} Likes'}"/>
   ```
 
   
@@ -450,7 +490,7 @@ As per Microsoft [documentation](https://docs.microsoft.com/en-us/dotnet/desktop
 
 
 
-In the .NET MAUI framework, you will realize that the `ViewModel` is nothing more but a class that implements this interface and that has a few public properties bound to the views and that fire the `OnPropertyChanged`event every time the model or the view were changed.
+This might feel tedious at first!  We will see later that there exist Nuget Packages ([System.ObjectModel](https://www.nuget.org/packages/System.ObjectModel/4.3.0?_src=template) and [PropertyChanged.Fody](https://www.nuget.org/packages/PropertyChanged.Fody/4.1.0)) that can generate all this code for us. 
 
 # Additional Resources 
 

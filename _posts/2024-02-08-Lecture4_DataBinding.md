@@ -277,7 +277,36 @@ public class Comment
 
 We can then use a `List<Comment>` in the `CommentPage` code behind as such:
 
+```csharp
+public List<Comment> Comments { get; set; } = new List<Comment>()                
+{
+    new Comment() { 
+        UserId = 123, 
+        Text = "Wow great pic!", 
+        ProfilePic = new Uri("https://www.innovus.co.za/images/getimage/?k=/assets/images/spin-out-companies/samplegallery/Sony-DSC-RX1-Sample-Image.jpg&w=250&h=250&d=1&crop=1")},
+    new Comment() { 
+        UserId = 456, 
+        Text = "Nice!", 
+        ProfilePic = new Uri("https://www.innovus.co.za/assets/images/spin-out-companies/samplegallery/zz.jpg")},
+    new Comment() { 
+        UserId = 789, 
+        Text = "Baahh I don't like your pic", 
+        ProfilePic = new Uri("https://www.innovus.co.za/assets/images/spin-out-companies/samplegallery/sample4_l.jpg")}
+}
+```
 
+
+
+```xaml
+ <CollectionView ItemsSource="{Binding Comments}">
+     <!--some code...-->
+```
+
+
+
+- I know this might feel heavy at first, but the data will typically be fetched from a database and not hard coded inside you code!
+
+  
 
 #### ItemTemplate
 

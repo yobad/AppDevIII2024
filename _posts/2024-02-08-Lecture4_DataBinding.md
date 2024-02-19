@@ -212,25 +212,7 @@ namespace Lab1.Views
 
 
 
-### `INotifyPropertyChanged`
 
-As per Microsoft [documentation](https://docs.microsoft.com/en-us/dotnet/desktop/wpf/data/how-to-implement-property-change-notification?view=netframeworkdesktop-4.8), to notify the UI that a property has been updated dynamically, the following has to be applied to the model class:
-
-- The UI elements should use `Binding` to connect to the properties in the class.
-  - A property requires a getter to provide a value to the UI element.
-  - A property requires a setter to send a value from the UI to the class.
-- The class with bound properties must implement `INotifyPropertyChanged` interface.
-- Declare an event `public event PropertyChangedEventHandler PropertyChanged;` .
-- The property must be a full property with a private backing field and a full setter and getter.
-- Create the `OnPropertyChanged` method to raise the event. (code provided in the documentation above).
-- Finally, `OnPropertyChanged();` should be called in the setter of the property that is required to update the UI.
-- Each property that is required to change a UI value should follow the process.
-
-> Check this [link](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.inotifypropertychanged?view=net-7.0) for more details in `.NET MAUI`.
-
-
-
-In the .NET MAUI framework, you will realize that the `ViewModel` is nothing more but a class that implements this interface and that has a few public properties bound to the views and that fire the `OnPropertyChanged`event every time the model or the view were changed.
 
 
 
@@ -411,6 +393,64 @@ How can we make the comments list shared across both pages and how can we make s
 > Hint: You can use a `CarouselView` or simply add left/right `ImageButton`
 
 
+
+### `INotifyPropertyChanged`
+
+As per Microsoft [documentation](https://docs.microsoft.com/en-us/dotnet/desktop/wpf/data/how-to-implement-property-change-notification?view=netframeworkdesktop-4.8), to notify the UI that a property has been updated dynamically, the following has to be applied to the model class:
+
+- The UI elements should use `Binding` to connect to the properties in the class.
+
+  - A property requires a getter to provide a value to the UI element.
+  - A property requires a setter to send a value from the UI to the class.
+
+- The class with bound properties must implement `INotifyPropertyChanged` interface.
+
+- Declare an event `public event PropertyChangedEventHandler PropertyChanged;` .
+
+- The property must be a full property with a private backing field and a full setter and getter.
+
+- Create the `OnPropertyChanged` method to raise the event. (code provided in the documentation above):
+
+  ```cs
+  public class Post : INotifyPropertyChanged  
+  {
+  
+    // Create the OnPropertyChanged method to raise the event
+    // The calling member's name will be used as the parameter.
+    protected void OnPropertyChanged([CallerMemberName] string name = null)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+    }
+  }
+  ```
+
+  
+
+- Finally, `OnPropertyChanged();` should be called in the setter of the property that is required to update the UI, for example:
+
+  ```csharp
+    public Uri ProfileImage
+    {
+        get { return profileImg_; }
+        set
+        {
+            profileImg_ = value;
+            // Call OnPropertyChanged whenever the property is updated
+            OnPropertyChanged(nameof(ProfileImage));
+        }
+    }
+  
+  ```
+
+  
+
+- Each property that is required to change a UI value should follow the process.
+
+> Check this [link](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.inotifypropertychanged?view=net-7.0) for more details in `.NET MAUI`.
+
+
+
+In the .NET MAUI framework, you will realize that the `ViewModel` is nothing more but a class that implements this interface and that has a few public properties bound to the views and that fire the `OnPropertyChanged`event every time the model or the view were changed.
 
 # Additional Resources 
 

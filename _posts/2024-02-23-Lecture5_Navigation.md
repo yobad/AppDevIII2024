@@ -25,22 +25,43 @@ categories: notes
 
 
 
-- In Lab0, we used `Navigation.PushAsync(new Page());` to push a new page on the stack
+- In Lab0, we used `await Navigation.PushAsync(new Page());` to push a new page on the stack and this page becomes the active page.
 
 - This type of navigation is called "Stack Navigation" or modal navigation
 
 - Other methods exist under the same `INavigation` interface:
 
-  - `PushModalAsync`
+  - `PushModalAsync` (task in the active page must be completed similar to a pop-up)
   - `PopAsync`
   - `PopModalAsync`
   - `RemovePage`(doesn't work on Android)
   - `PopToRootAsync`
 
-- It's especially useful when the app has a specific flow: y
+- This way of navigation is easy 
 
-  - You need to finish one task before moving to the next one 
-  - Or, you can't get to the previous task until you are done with this current one.
+- Passing in data to the pushed page is very easy: 
+
+  - Through the constructor 
+
+    ```csharp
+    await Navigation.PushAsync(new Page(int data,...));
+    ```
+
+  - Through the Binding context
+
+    ```
+    var mypage = new Page();
+    mypage.BindingContext = someObject; 
+    await Navigation.PushAsync(mypage);
+    ```
+
+- It's especially useful when the app has a specific flow: 
+
+  - Sequential tasks:
+    - you must complete one task before moving to the next.
+  - Display Hierarchical data: 
+    - you want to show more details.
+    - you are expanding the data on the page.
 
 - In order to remove the current page, we would use `Navigation.PopAsync();`
 
@@ -300,7 +321,7 @@ The next navigation style we will learn about is Tab bar navigation:
 
 ### Implicit conversions	
 
-- Note: MAUI actually wraps each `ShellContent` in a `Tab` object. But due to **implicit conversion** the hierarchy seems simplified. In this case:
+- Note: MAUI actually wraps each `ShellContent` in a `Tab` object. But due to **implicit conversion**s, the hierarchy seems simplified. In this case:
 
    The real hierarchy is:
 
@@ -361,7 +382,7 @@ The next navigation style we will learn about is Tab bar navigation:
 
   
 
-This is the current hierarchy 
+After this step, this is the current hierarchy 
 
 `Shell`
 
@@ -374,7 +395,7 @@ This is the current hierarchy
   - `VideosPage`
   - `Profile`
 
-**Note**: I am omitting the `Tabs` added implicitly by the Shell on each `ContentPage`
+**Note**: I am omitting the `Tabs` added by the implicit conversions
 
 ## Combining `TabBar` and `FlyoutMenu`
 
@@ -501,70 +522,15 @@ Shell navigation will enable us to navigate to any page using Uri links called r
 await Shell.Current.GoToAsync("//MainPage");
 ```
 
-## Routes Registration in `XAML`
-
-- Modify the `AppShell.xaml` to register routes for the following pages
-
-```xaml
-    <FlyoutItem Title="Home" Icon="home.png" Route="Home">
-        <ShellContent ...
-            ContentTemplate="{DataTemplate local:MainPage}"
-            Route="MainPage" />
-       
-        <Tab Icon="more.png" Title="New Post" Route="AddPost">
-            <ShellContent
-                 <!--Some code.. -->
-                Route="SelectFile"
-                ContentTemplate="{DataTemplate views:FilePage}"/>
-            <ShellContent
-                 <!--Some code.. -->
-                Route="NewPost"
-                ContentTemplate="{DataTemplate views:NewPostPage}"/>
-        </Tab>
-
-    </FlyoutItem>
-
-    <ShellContent Title="Groups"
-               <!--Some code.. -->
-              Route="GroupsPage"
-              ContentTemplate="{DataTemplate views:GroupsPage}"/>
-```
 
 
 
-This creates the following hierarchy using the names of the pages as their routes:
-
-"/"
-
-- "Home"
-
-   /"MainPage"
-
-  /"SearchPage"
-
-   /"AddPost"
-
-  ​	 /"FilePage"
-
-  ​	 /"NewPostPage"
-
-  /"VideosPage"
-
-  /"ProfilePage"
-
-- "GroupsPage"
-
-- "InfoPage"
-
-- "Settings"
-
-  
 
 ## Explicit routes Registration in `C#` 	
 
-- Now, routes can get messy in complex hierarchies, just like for websites
+- Routes can get messy in complex hierarchies, just like for websites
 
-- We want to avoid as much as possible magic strings in our app, to solve this:
+- We want to avoid as much as possible **magic strings** in our app, to solve this:
 
   - Use the name of the page as its route
 
@@ -587,13 +553,17 @@ This creates the following hierarchy using the names of the pages as their route
   }
   ```
 
-- **Note:** You may define hierarchical routes too at this point using forward slashes in the routes arguments, but for simplicity purposes we will use only the name of each file to route it.
+  
+
+  
+
+- **Note:** You may define hierarchical routes too at this point using forward slashes in the routes arguments,
 
   ```
    Routing.RegisterRoute($"//Home/{nameof(MainPage)}", typeof(MainPage));
   ```
 
-  
+   **but for simplicity purposes we will use only the name of each file to route it**
 
 
 
@@ -645,7 +615,7 @@ What's the point of using routing to go to the `MainPage`?  Why not simply `Push
 - Let's try to reuse the same page and simply navigate to it using `GoToAsync`
 - Modify the event handlers in the `MainPage` and the `VideosPage` to navigate to this `CommentPage` 
   - Without passing arguments (only passing the route as argument to `GoToAsync()`)
-  - With 1 simple argument: using the constructor `public CommentsPage(int userid)`
+  - With arguments: provide a UserId, ProfilePic and Comments. 
 
 
 
@@ -664,7 +634,7 @@ What's the point of using routing to go to the `MainPage`?  Why not simply `Push
 Passing simple data types as `strings` or `int` can be done using string formatting
 
 ```csha
-await Shell.Current.GoToAsync($"{nameof(MyPage)}?SimpleArgument={12345}")
+await Shell.Current.GoToAsync($"{nameof(MyPage)}?SimpleArgument={12345}");
 ```
 
 
@@ -672,8 +642,8 @@ await Shell.Current.GoToAsync($"{nameof(MyPage)}?SimpleArgument={12345}")
 To pass multiple arguments and complex objects you need to use a dictionary `Dictionary<string, object>`:
 
 ```csharp
-await Shell.Current.GoToAsync(nameof(MyPage), true, new Dictionary<string, object> {
-    {"Arg1", value1 },
+await Shell.Current.GoToAsync(nameof(MyPage), new Dictionary<string, object> {
+    {"Arg1", value1},
     {"Arg2", value2},
     {"Arg3", value3}
 });

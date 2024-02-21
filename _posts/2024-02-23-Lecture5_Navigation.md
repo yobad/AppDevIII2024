@@ -645,7 +645,7 @@ What's the point of using routing to go to the `MainPage`?  Why not simply `Push
 - Let's try to reuse the same page and simply navigate to it using `GoToAsync`
 - Modify the event handlers in the `MainPage` and the `VideosPage` to navigate to this `CommentPage` 
   - Without passing arguments (only passing the route as argument to `GoToAsync()`)
-  - With 1 simple argument: using the constructor `public CommentsPage(int userid)`
+  - With arguments: provide a UserId, ProfilePic and Comments. 
 
 
 
@@ -664,7 +664,7 @@ What's the point of using routing to go to the `MainPage`?  Why not simply `Push
 Passing simple data types as `strings` or `int` can be done using string formatting
 
 ```csha
-await Shell.Current.GoToAsync($"{nameof(MyPage)}?SimpleArgument={12345}")
+await Shell.Current.GoToAsync($"{nameof(MyPage)}?SimpleArgument={12345}");
 ```
 
 
@@ -672,8 +672,8 @@ await Shell.Current.GoToAsync($"{nameof(MyPage)}?SimpleArgument={12345}")
 To pass multiple arguments and complex objects you need to use a dictionary `Dictionary<string, object>`:
 
 ```csharp
-await Shell.Current.GoToAsync(nameof(MyPage), true, new Dictionary<string, object> {
-    {"Arg1", value1 },
+await Shell.Current.GoToAsync(nameof(MyPage), new Dictionary<string, object> {
+    {"Arg1", value1},
     {"Arg2", value2},
     {"Arg3", value3}
 });

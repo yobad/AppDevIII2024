@@ -69,7 +69,7 @@ Markup Extensions appear as curly brackets in XAML, here are a few examples:
 
   - `x:Array`: declares an array of a given data type :
 
-    ```xaml
+    ```xml
     <x:Array Type ="{x:Type x:Int16}">
         <x:Int16>1</x:Int16>
         <x:Int16>2</x:Int16>
@@ -95,7 +95,7 @@ Bindable attributes of a visual element can be bound to other attributes from th
 - You may alternatively specify the `Source` directly in the Target and use the `Path` to bind to a particular property.
 - Refer to the following example:
 
-```xaml
+```xml
 <Slider x:Name="slider"
         Maximum="360"
         VerticalOptions="Center" />
@@ -124,7 +124,7 @@ You may bind values to the Text property of a UI element such as a `Label` while
 
 
 
-```xaml
+```xml
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:sys="clr-namespace:System;assembly=netstandard"
@@ -162,7 +162,7 @@ We could create a public property in the code behind to bind the image source:
 
 `PostPage.xaml.cs`:
 
-```c#
+```csharp
 namespace Lab1.Views
 {
     public ImageSource PostImg { get; set; } = ImageSource.FromFile("fall.jpg"); //Added
@@ -179,7 +179,7 @@ namespace Lab1.Views
 
 `PostPage.xaml`:
 
-```xaml
+```xml
     <ScrollView>
         <VerticalStackLayout Padding="10" Spacing="5" VerticalOptions="Center">
             <!-- content...-->
@@ -228,7 +228,7 @@ Let's make the comment list in the Lab1 more dynamic using binding.
 
 
 
-```xaml
+```xml
 <CollectionView.ItemsSource>
     <x:Array Type ="{x:Type x:String}">
         <x:String>Cool! Nice pic</x:String>
@@ -256,7 +256,7 @@ public partial class CommentPage : ContentPage
 
 By setting the `BindingContext = this`, the XAML `ContentPage` can now access public properties of the associated code behind class. Note: You must remove the `<CollectionView.ItemsSource> ....` from the code behind to avoid setting it twice.
 
-```csharp
+```xml
 <CollectionView AbsoluteLayout.LayoutBounds="0.5,0.35,1,0.80" AbsoluteLayout.LayoutFlags="All" ItemsSource="{Binding Comments}">
 ```
 
@@ -297,7 +297,7 @@ public List<Comment> Comments { get; set; } = new List<Comment>()
 
 
 
-```xaml
+```xml
  <CollectionView ItemsSource="{Binding Comments}">
      <!--some code...-->
 ```
@@ -314,7 +314,7 @@ The item template define how each child item in the collection view should be di
 
 
 
-```xaml
+```xml
 <CollectionView.ItemTemplate>
     <DataTemplate>
         <HorizontalStackLayout>
@@ -344,7 +344,7 @@ Let's try to add comments by reading the text input from the `Entry` when the se
 
 2. Modify the `Entry`in the `CommentPage`so that it has a `x:Name` property:
 
-   ```xaml
+   ```xml
    <Entry x:Name="CommentsEntry" Placeholder="Add a comment..." <!-- ...etc... --->
    ```
 
@@ -440,7 +440,7 @@ As per Microsoft [documentation](https://docs.microsoft.com/en-us/dotnet/desktop
 
 - Create the `OnPropertyChanged` method to raise the event. (code provided in the documentation above or in this example):
 
-  ```cs
+  ```csharp
   public class Post : INotifyPropertyChanged  
   {
   
@@ -502,7 +502,7 @@ As per Microsoft [documentation](https://docs.microsoft.com/en-us/dotnet/desktop
 
 - The UI elements should use `Binding` to connect to the properties of the class.
 
-  ```xaml
+  ```xml
   <HorizontalStackLayout>
       <Image Source="{Binding ProfileImage}" HeightRequest="50"/>
       <Label Text="{Binding Username}" VerticalTextAlignment="Center" FontAttributes="Bold" FontSize="Medium"/>

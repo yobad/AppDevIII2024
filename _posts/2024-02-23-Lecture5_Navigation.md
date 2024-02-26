@@ -49,7 +49,7 @@ categories: notes
 
   - Through the Binding context
 
-    ```
+    ```csharp
     var mypage = new Page();
     mypage.BindingContext = someObject; 
     await Navigation.PushAsync(mypage);
@@ -114,7 +114,7 @@ If you wish to access the views used in this demo clone the `Demos` repos
 - To create a flyout menu within your .NET MAUI app, open to the `AppShell.xaml` file:
 - The default MAUI project only contains a `ShellContent` routing to the main page:
 
-```xaml
+```xml
 <Shell
     x:Class="DemoNavigation2.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
@@ -137,7 +137,7 @@ If you wish to access the views used in this demo clone the `Demos` repos
 
 - You can now add more `ShellContent` and you'll notice that I flyout menu appears on the top left corner containing a route to the `MainPage` twice:
 
-```xaml
+```xml
 <Shell
     x:Class="DemoNavigation2.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
@@ -160,7 +160,7 @@ If you wish to access the views used in this demo clone the `Demos` repos
 
 - To be able to refer to the views inside the  `./Views` folder,  add the `xmlns:views` namespace to  `AppShell`:
 
-```xaml
+```xml
 <Shell
     x:Class="DemoNavigation2.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
@@ -174,21 +174,21 @@ If you wish to access the views used in this demo clone the `Demos` repos
 
 - You can now include views inside this folder, and make use of the `Icon` property to give the flyout menu a nicer look
 
-  ```xaml
-      <ShellContent
-          Title="Home"
-           Icon="home.png"
-          ContentTemplate="{DataTemplate local:MainPage}"
-          Route="MainPage" />
-      <ShellContent
-          Title="Info"
-          Icon ="setting.png"
-          ContentTemplate="{DataTemplate views:InfoPage}"/>
-  ```
+```xml
+<ShellContent
+    Title="Home"
+     Icon="home.png"
+    ContentTemplate="{DataTemplate local:MainPage}"
+    Route="MainPage" />
+<ShellContent
+    Title="Info"
+    Icon ="setting.png"
+    ContentTemplate="{DataTemplate views:InfoPage}"/>
+```
 
-- Add two more pages to get this result:
+Add two more pages to get this result:
 
-  <img src="{{site.baseurl}}/images/maui_navigation/flyout_1.png" Height="100" class="inline-img"/>
+<img src="{{site.baseurl}}/images/maui_navigation/flyout_1.png" Height="100" class="inline-img"/>
 
 - You should now be able to navigate to each one of these pages as you click on their icons:
 
@@ -201,7 +201,7 @@ If you wish to access the views used in this demo clone the `Demos` repos
 - Flyout Menu items are simply buttons added to the flyout menu to make certain functionality available everywhere throughout the app
 - For example, I added a menu button to toggle between light mode and dark mode:
 
-```xaml
+```xml
  <MenuFlyoutItem Text="Switch Theme"  Clicked="Btn_SwitchTheme_Clicked"/>
 ```
 
@@ -237,13 +237,13 @@ private void Btn_SwitchTheme_Clicked(object sender, EventArgs e)
 
 - Let's try to add the `dotnet_bot.png` as the header and a horizontal stack layout containing this image and a label saying "I hope you are enjoying this!":
 
-```xaml
-    <Shell.FlyoutHeader>
-        <!--Some code.. -->
-    </Shell.FlyoutHeader>
-    <Shell.FlyoutFooter>
-        <!--Some code.. -->
-    </Shell.FlyoutFooter>
+```xml
+<Shell.FlyoutHeader>
+    <!--Some code.. -->
+</Shell.FlyoutHeader>
+<Shell.FlyoutFooter>
+    <!--Some code.. -->
+</Shell.FlyoutFooter>
 ```
 
 <img src="{{site.baseurl}}/images/maui_navigation/flyout_with_header.png" Height="100" class="inline-img"/>
@@ -291,33 +291,34 @@ The next navigation style we will learn about is Tab bar navigation:
 
 - To add a Tab bar simply use the `TabBar` object as a child of the `Shell`.
 
--  Then include `ShellContent` pages as children of the `TabBar`. 
 
-  ```xaml
-  <TabBar>
-      <ShellContent
-          Title="Home"
-           Icon="home.png"
-          ContentTemplate="{DataTemplate local:MainPage}"
-          Route="MainPage" />
-      <ShellContent
-          Title="Search"
-          Icon="search.png"
-          ContentTemplate="{DataTemplate views:SearchPage}"/>
-  
-      <ShellContent
-          Title="Videos"
-          Icon="video.png"
-          ContentTemplate="{DataTemplate views:VideosPage}"/>
-      <ShellContent
-          Title="Profile"
-          Icon="user.png"
-          ContentTemplate="{DataTemplate views:ProfilePage}"/>
-  
-  </TabBar>
-  ```
+Then include `ShellContent` pages as children of the `TabBar`. 
 
-  
+```xml
+<TabBar>
+    <ShellContent
+        Title="Home"
+         Icon="home.png"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+    <ShellContent
+        Title="Search"
+        Icon="search.png"
+        ContentTemplate="{DataTemplate views:SearchPage}"/>
+
+    <ShellContent
+        Title="Videos"
+        Icon="video.png"
+        ContentTemplate="{DataTemplate views:VideosPage}"/>
+    <ShellContent
+        Title="Profile"
+        Icon="user.png"
+        ContentTemplate="{DataTemplate views:ProfilePage}"/>
+
+</TabBar>
+```
+
+
 
 ### Implicit conversions	
 
@@ -338,38 +339,38 @@ The next navigation style we will learn about is Tab bar navigation:
 
 - You can add multiple `ShellContent` pages under the same `Tab` to create "grandchildren" pages
 
-  ```xaml
-      <TabBar>
+  ```xml
+  <TabBar>
+      <ShellContent
+      Title="Home"
+       Icon="home.png"
+      ContentTemplate="{DataTemplate local:MainPage}"
+      Route="MainPage" />
+      <ShellContent
+          Title="Search"
+          Icon="search.png"
+          ContentTemplate="{DataTemplate views:SearchPage}"/>
+      <Tab Icon="more.png" Title="New Post">
           <ShellContent
-          Title="Home"
-           Icon="home.png"
-          ContentTemplate="{DataTemplate local:MainPage}"
-          Route="MainPage" />
+              Title="Select photos"
+              Icon="select.png"
+              ContentTemplate="{DataTemplate views:FilePage}"/>
           <ShellContent
-              Title="Search"
-              Icon="search.png"
-              ContentTemplate="{DataTemplate views:SearchPage}"/>
-          <Tab Icon="more.png" Title="New Post">
-              <ShellContent
-                  Title="Select photos"
-                  Icon="select.png"
-                  ContentTemplate="{DataTemplate views:FilePage}"/>
-              <ShellContent
-                  Title="Camera"
-                  Icon="camera.png"
-                  ContentTemplate="{DataTemplate views:NewPostPage}"/>
-          </Tab>
-          
-          <ShellContent
-              Title="Videos"
-              Icon="video.png"
-              ContentTemplate="{DataTemplate views:VideosPage}"/>
-          <ShellContent
-              Title="Profile"
-              Icon="user.png"
-              ContentTemplate="{DataTemplate views:ProfilePage}"/>
+              Title="Camera"
+              Icon="camera.png"
+              ContentTemplate="{DataTemplate views:NewPostPage}"/>
+      </Tab>
   
-      </TabBar>
+      <ShellContent
+          Title="Videos"
+          Icon="video.png"
+          ContentTemplate="{DataTemplate views:VideosPage}"/>
+      <ShellContent
+          Title="Profile"
+          Icon="user.png"
+          ContentTemplate="{DataTemplate views:ProfilePage}"/>
+  
+  </TabBar>
   ```
 
   
@@ -403,11 +404,11 @@ After this step, this is the current hierarchy
 
   - If you wish to combine both you must make the `TabBar` a child of the `FlyoutItem`
 
-- To combine the flyout menu and the tab bar, each `ShellContent` you wish to display in the `Flyout` should be wrapped within a `FlyoutItem` instead of the `TabBar` and keep the `ShellContent` you wish to keep in the Flyout as direct children of the `Shell`
+- To combine the flyout menu and the tab bar, each `ShellContent` you wish to display in the `Flyout` should be wrapped within a `FlyoutItem` **instead of the `TabBar`** and keep the `ShellContent` you wish to keep in the Flyout as direct children of the `Shell`
 
   
 
-```xaml
+```xml
 <FlyoutItem Title="Home" Icon="home.png">
     <ShellContent
         Title="Home"
@@ -507,7 +508,7 @@ Shell navigation will enable us to navigate to any page using Uri links called r
 
 
 
-```xaml
+```xml
 <ShellContent
     Title="Home"
     ContentTemplate="{DataTemplate local:MainPage}"
@@ -522,7 +523,52 @@ Shell navigation will enable us to navigate to any page using Uri links called r
 await Shell.Current.GoToAsync("//MainPage");
 ```
 
+- UPDATE: Add the various routes of the pages,...
 
+```xml
+
+    <FlyoutItem Route="Home" Title="Home" Icon="home.png">
+        <ShellContent
+            Route="MainPage"
+            ContentTemplate="{DataTemplate local:MainPage}"/>
+        
+        <ShellContent
+            Route="SearchPage"
+            ContentTemplate="{DataTemplate views:SearchPage}"/>
+		<!--Some code...-->
+        <Tab Icon="more.png" Title="New Post" Route="AddPost">
+            <ShellContent 
+                Route="FilePage"
+                ContentTemplate="{DataTemplate views:FilePage}"/>
+            <!--Some code...-->
+            <ShellContent
+                Title="Camera"
+                Icon="camera.png"
+                Route="NewPostPage"
+                ContentTemplate="{DataTemplate views:NewPostPage}"/>
+        </Tab>
+        
+        <ShellContent
+            Route="VideosPage"
+            ContentTemplate="{DataTemplate views:VideosPage}"/>
+        <ShellContent
+            Route="ProfilePage"
+            ContentTemplate="{DataTemplate views:ProfilePage}"/>
+
+    </FlyoutItem>
+
+    <ShellContent 
+              Route="GroupsPage"
+              ContentTemplate="{DataTemplate views:GroupsPage}"/>
+    <ShellContent 
+              Route="InfoPage"
+              ContentTemplate="{DataTemplate views:InfoPage}"/>
+    
+    <ShellContent
+              Route="SettingsPage"
+              ContentTemplate="{DataTemplate views:SettingsPage}"/>
+
+```
 
 
 
@@ -542,28 +588,27 @@ await Shell.Current.GoToAsync("//MainPage");
 
   
 
-  ```C#
+  ```csharp
   public AppShell()
   {
       InitializeComponent();
       
-      Routing.RegisterRoute(nameof(MainPage), typeof(MainPage));
-      /// Add the other pages...
-      
+      Routing.RegisterRoute(nameof(CommentsPage), typeof(CommentsPage)) 
+      // UPDATE: Add other pages that are not part of the Flyout or TabBar...
   }
   ```
-
   
-
   
-
+  
+  
+  
 - **Note:** You may define hierarchical routes too at this point using forward slashes in the routes arguments,
 
   ```
    Routing.RegisterRoute($"//Home/{nameof(MainPage)}", typeof(MainPage));
   ```
 
-   **but for simplicity purposes we will use only the name of each file to route it**
+  
 
 
 
@@ -576,7 +621,7 @@ await Shell.Current.GoToAsync("//MainPage");
   ```csharp
   private async void Btn_AddPost_Clicked(object sender, EventArgs e)
   {
-      await Shell.Current.GoToAsync($"//{nameof(NewPostPage)}");
+      await Shell.Current.GoToAsync($"//Home/AddPost");
   }
   ```
 
@@ -611,11 +656,16 @@ What's the point of using routing to go to the `MainPage`?  Why not simply `Push
 ### Challenge (Medium): Navigating to CommentsPage:
 
 - You'll notice that the `CommentPage` is not in the Tab Bar hierarchy 
+
 - Previously (Lab1) we were simply using `PushAsync` to push a new `CommentsPage` everytime.
+
 - Let's try to reuse the same page and simply navigate to it using `GoToAsync`
+
 - Modify the event handlers in the `MainPage` and the `VideosPage` to navigate to this `CommentPage` 
   - Without passing arguments (only passing the route as argument to `GoToAsync()`)
-  - With arguments: provide a UserId, ProfilePic and Comments. 
+  - With arguments: provide a `UserId`, `ProfilePic` and `Comments`.
+  
+  > Hint: Use a dictionary<string,object> and QueryProperty
 
 
 
@@ -647,5 +697,24 @@ await Shell.Current.GoToAsync(nameof(MyPage), new Dictionary<string, object> {
     {"Arg2", value2},
     {"Arg3", value3}
 });
+```
+
+The page receiving this data must have `QueryProperty` and associated public properties:
+
+```csharp
+
+[QueryProperty(nameof(Property1), "Arg1")]
+[QueryProperty(nameof(Property2), "Arg2")]
+[QueryProperty(nameof(Property3), "Arg3")]
+
+public partial class MyPage : ContentPage
+{
+
+    public int Property1 { get; set; }
+    public string Property2 { get; set; }
+	public List<int> Property3 {get; set;}
+    
+    /// Some code...
+}
 ```
 

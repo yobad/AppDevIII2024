@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Lecture 5 : MVVM"
+title: "Lecture 5 : Navigation"
 permalink: /lectures/navigation/
 categories: notes
 ---

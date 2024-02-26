@@ -101,9 +101,9 @@ If you wish to access the views used in this demo clone the `Demos` repos
 
 - The Flyout is sometimes called "hamburger" menu and is often represented with this icon:
 
-  <img src="{{site.baseurl}}/images/maui_navigation/flyout_hamburger.png" Height="100" class="inline-img"/>
+  <img src="{{site.baseurl}}/images/maui_navigation/flyout_hamburger.png" Height="200" class="inline-img"/>
   
-  <img src="{{site.baseurl}}/images/maui_navigation/flyout_1.png" Height="100" class="inline-img"/>
+  <img src="{{site.baseurl}}/images/maui_navigation/flyout_1.png" Height="200" class="inline-img"/>
   
   
 

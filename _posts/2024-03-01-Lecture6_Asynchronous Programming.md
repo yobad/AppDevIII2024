@@ -5,7 +5,7 @@ permalink: /lectures/async
 categories: notes
 ---
 
-
+[Demo made in class: DemoAsync](https://github.com/AppDevIII-W24-Code/Demos/tree/main/DemoAsync)
 
 By default, C# code is run in a synchronous way or on a single thread. This means that each line of code is executed one at a time in a sequential manner. The execution of one line is blocking for the subsequent line. By default only one thread, which is the smallest sequence of programmed instructions that the OS will allocate processor time. 
 
@@ -17,7 +17,7 @@ The idea behind multithreading is to use multiple threads to execute computation
 
 ## Multithreading
 
-The idea is to start multiple code units that are running independently. 
+When using multithreading, multiple code units that are running independently. 
 
 - Ideal for computationally intensive applications ("CPU bound operations")
 - Makes use of the processing powers of modern CPUs.
@@ -30,12 +30,6 @@ The idea is to start multiple code units that are running independently.
 | Figure2: Multi-threaded Programming                         |
 | ----------------------------------------------------------- |
 | <img  src="../images/async/ch1_Mutlthread.png"  Width=800/> |
-
-
-
-
-
-
 
 
 
@@ -67,7 +61,7 @@ The idea is to start multiple code units that are running independently.
 
 ### When to use Async programming over multi-threading?
 
-f the app is waiting for a value because of a CPU-bound or I/O-bound operation, a value to from a webserver, filesystem or a database, then there is no need for a dedicated thread to sit around and wait for the data when it can be servicing other requests. 
+If the app is waiting for a value because of a ***I/O-bound*** operation, a value to from a webserver, filesystem or a database, then there is no need for a dedicated thread to sit around and wait for the data when it can be servicing other requests. 
 
 - Creating threads in a program is often undesirable. 
 
@@ -91,22 +85,23 @@ One major difference between synchronous and asynchronous function calls is the 
 
 
 ```c#
- namespace Multithreading { 
-    class Program 
+namespace DemoAsync
+{
+    internal class Program
     {
-        static void Main(string[] args) 
+        static void Main(string[] args)
         {
-            BakingACakeSynchronously();
+            BakingCakeSynchronously();
         }
-		static public void BakingACakeSynchronously()
+        static void BakingCakeSynchronously()
         {
-            Console.WriteLine("Let's start baking a cake");
-            string[] ingrds = GatheringIngredients();
-            HeatingUpOven();
-            String mixture = MixingIngredients(ingrds);
-            BakingCake(mixture);
+            var ingredients = GatherIngredients();
+            MixIngredients(ingredients);
+            HeatOven(250);
+            BakingCake(30);
+            CoolingCake(15);
         }
-        // The rest of the code can be found in your class Repo
+        // The rest of the code is in the Demos code repo
 ```
 
 Now each one of those steps is going to take time although conceptually, we do not need to wait until all ingredients are gathered before starting to heat up the oven, nor do we need to wait until the oven is heated up to start mixing the ingredients. The problem with synchronous programing is the blocking nature of each execution. The complete code can be found in the Demos. 
@@ -152,33 +147,41 @@ The ***async*** and ***await*** keywords were created in C# to makes creating as
 Going back to our cake, the asynchronous method of baking a cake would have the following signature:
 
 ```C#
-namespace Multithreading
-{
-    class Program2
+namespace DemoAsync
+{    
+    internal class Program
     {
-
         static async Task Main(string[] args)
         {
-            await BakingACakeASynchronously();
+            await BakingCakeAsynchronously();
         }
 
-        static async public Task BakingACakeASynchronously()
+        static async Task BakingCakeAsynchronously()
         {
-            Console.WriteLine("Let's start baking a cake");
+            
+            var ingredientsTask = GatherIngredientsAsync();
+            Task ovenTask = HeatOvenAsync(250);
 
-            // A task is a promise to obtain a certain result in the future
-            Task<string[]> ingrdsTask = GatheringIngredients();
-            Task<string> ovenTask = HeatingUpOven();
+            var ingredients = await ingredientsTask;
+            var mixingTask = MixIngredientsAsync(ingredients);
 
+            await mixingTask;
+            await ovenTask;
+            await BakingCakeAsync(30);
+            await CoolingCakeAsync(15);
 
-            // When using the await keyword, the current thread are now waiting until the task
-            // is completed, the return is the output of the methods.
-            string[] ingrds = await ingrdsTask;
-            string mixture = await MixingIngredients(ingrds);
-            string oven = await ovenTask;
-            BakingCake(mixture);
+            Console.WriteLine("Baking async completed");
+            await Task.Delay(1000);
         }
-        // The rest of the code can be found in your class Repo
+        static void BakingCakeSynchronously()
+        {
+            var ingredients = GatherIngredients();
+            MixIngredients(ingredients);
+            HeatOven(250);
+            BakingCake(30);
+            CoolingCake(15);
+        }
+
 ```
 
 

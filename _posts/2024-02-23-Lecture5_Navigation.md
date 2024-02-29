@@ -5,8 +5,7 @@ permalink: /lectures/navigation/
 categories: notes
 ---
 
-
-[TOC]
+[Demo made in class: Navigation](https://github.com/AppDevIII-W24-Code/Demos/tree/main/DemoNavigation)
 
 
 
@@ -188,7 +187,7 @@ If you wish to access the views used in this demo clone the `Demos` repos
 
 Add two more pages to get this result:
 
-<img src="{{site.baseurl}}/images/maui_navigation/flyout_1.png" Height="100" class="inline-img"/>
+<img src="{{site.baseurl}}/images/maui_navigation/flyout_1.png" Height="300" class="inline-img"/>
 
 - You should now be able to navigate to each one of these pages as you click on their icons:
 
@@ -231,7 +230,7 @@ private void Btn_SwitchTheme_Clicked(object sender, EventArgs e)
 
 - You can customize the `Header` and `Footer` of your MAUI app to your liking
 
-<img src="{{site.baseurl}}/images/maui_navigation/flyoutmenu_customization.png" Height="100" class="inline-img"/>
+<img src="{{site.baseurl}}/images/maui_navigation/flyoutmenu_customization.png" Height="300" class="inline-img"/>
 
 
 
@@ -246,7 +245,7 @@ private void Btn_SwitchTheme_Clicked(object sender, EventArgs e)
 </Shell.FlyoutFooter>
 ```
 
-<img src="{{site.baseurl}}/images/maui_navigation/flyout_with_header.png" Height="100" class="inline-img"/>
+<img src="{{site.baseurl}}/images/maui_navigation/flyout_with_header.png" Height="300" class="inline-img"/>
 
 
 
@@ -377,7 +376,7 @@ Then include `ShellContent` pages as children of the `TabBar`.
 
 - This will result in having a hierarchical structure within your pages, in this case the `FilePage` and `NewPostPage` are grandchildren of the `TabBar`
 
-   <img src="{{site.baseurl}}/images/maui_navigation/tabBar_2.png" Height="100" class="inline-img"/>
+   <img src="{{site.baseurl}}/images/maui_navigation/tabBar_2.png" Height="300" class="inline-img"/>
    
    
 

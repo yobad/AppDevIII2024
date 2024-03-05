@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Practice Test 1"
-permalink: /practice_tests/practice1_solution
+permalink: /practicetests/practice1_solution
 categories: labs
 
 ---

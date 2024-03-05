@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Practice Test 1"
-permalink: /practicetests/practice1
+permalink: /practice_tests/practice1
 categories: labs
 
 ---
@@ -101,4 +101,4 @@ class Program
 
 
 
-Solution found [here](../practice_tests/practice1_solution)
+Solution found [here](../practicetests/practice1_solution)

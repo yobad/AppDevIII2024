@@ -17,7 +17,14 @@ categories: labs
 7. True or False, PWA are very similar to responsive Web Sites only they are available offline. 
 8. Associate the best cross-platform framework with the scenario. 
 
-
+| Native or CPAD Framework | Scenario                                                     |
+| ------------------------ | ------------------------------------------------------------ |
+| React Native             | A company has a Web application developed in HTML, CSS and JavaScript. A new business need requires this application to also be available in Mobile. |
+| .NET MAUI                | A startup wants to develop an app to go with their product, most of their clients are iOS users. |
+| Cordova                  | A gaming company wants to develop an App mainly for Windows that needs to interface directly with the hardware. |
+| Swift                    | A mobile gaming company would like to create a game for various platforms. |
+| Kotlin                   | The government of Canada wants to create a vaccination passport application deployed across platforms and accessible via browsers. |
+| C++ Win32                |                                                              |
 
 **MAUI Architecture**  
 
@@ -92,3 +99,6 @@ class Program
 
 ```
 
+
+
+Solution found [here](../practice_tests/practice1_solution)

@@ -3,7 +3,6 @@ layout: post
 title: "Practice Test 1"
 permalink: /practicetests/practice1_solution
 categories: labs
-
 ---
 
 **CPAD** 

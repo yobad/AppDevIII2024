@@ -370,16 +370,25 @@ Given that data must be sent from an origin class *`A`* to a destination class *
 
    3. Contains:
       - A `Label` to indicate the `Subject`
+      
       - A `Label` to indicate the `SenderEmail.DisplayName`
+      
       - Labels for each `RecipientEmail`:
         - Hint: Use `BindableLayout` or a `CollectionView`with the `ItemsSource` set to the list of recipients.
+        
       - A `Label` to indicate the date
+      
       - A `Label` or `Editor` to dsiplay the body of the email.
+      
       - Feel free to improve the design to your linking.
+      
+        
 
-**Figure 4: ReadPage template ** 
+**Figure 4: ReadPage template**  
 
-<img src="../images/assignments_images/assignment1_imgs/as1_readpage.png" Height=400 class="inline-img"/><img src="../images/assignments_images/assignment1_imgs/foward_writepage.png" Height=400 class="inline-img"/>
+
+
+<img src="../images/assignments_images/assignment1_imgs/as1_readpage.png" Height=400 class="inline-img"/><img src="../images/assignments_images/assignment1_imgs/foward_readpage.png" Height=400 class="inline-img"/>
 
 
 

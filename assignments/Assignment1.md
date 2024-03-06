@@ -379,7 +379,7 @@ Given that data must be sent from an origin class *`A`* to a destination class *
 
 **Figure 4: ReadPage template ** 
 
-<img src="../images/assignments_images/assignment1_imgs/as1_readpage.png" Height=400 class="inline-img"/><img src="../images/assignments_images/assignment1_imgs/foward_writepage.png" Height=400 class="inline-img"/>
+<img src="../images/assignments_images/assignment1_imgs/as1_readpage.png" Height=400 class="inline-img"/><img src="../images/assignments_images/assignment1_imgs/foward_readpage.png" Height=400 class="inline-img"/>
 
 
 

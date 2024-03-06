@@ -8,7 +8,7 @@ categories: assignments
 ---
 
 * **Worth**: 10%
-* 📅 **Due**: March 18, 2024 @ 23:59.
+* 📅 **Due**: March 21, 2024 @ 23:59.
 * 🕑 **Late Submissions**: Deductions for late submissions is 10%/day. 
   *To a maximum of 3 days. A a grade of 0% will be given after 3 days.*
 * 📥**Submission**: Submit through GitHub classroom.

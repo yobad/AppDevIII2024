@@ -31,10 +31,11 @@ categories: assignments
 
 ## Objective
 
-In this first assignment, you are tasked with creating a simple Email Client App offering various functionality. This is first milestone of the assignment, you will have to create the various views and models used by you app. The app will not be fully functional but will provide a starting point for the following assignment. 
+In this first assignment, you are tasked with creating a simple Email Client App offering various functionality. This is first milestone of the assignment, you will have to create the various views and models used by your app. The app will not be fully functional but will provide a starting point for the following assignment. 
 
 - Design a mockup Email app using the .NET MAUI framework
-- Design and implement various views using `CollectionView`
+- Design and implement a view using a`CollectionView`
+- Use the `INotifyPropertyChanged` interface
 - Use shell navigation 
 - Create models 
 - Use data binding 
@@ -62,6 +63,8 @@ The Email app must:
 - Offer tap functionality to display a detail view of the email
 
 - Offer a view to write new emails
+
+- Offer a functionality to forward emails
 
   
 
@@ -128,7 +131,7 @@ Create an `Email` model with the following specifications:
 
 ## Data Repo
 
-Create a **non-static**  `EmailRepo` class (we will create a static instance of this class in the `App.xaml.cs`)
+Create a **non-static**  `EmailRepo` class 
 
 We will use the `EmailRepo` class as a static variable shared across all views. It is important **that any modifications done to the emails** be done through this `Repo` to avoid conflictual updates across the views. 
 
@@ -141,15 +144,15 @@ This class will eventually be using the email service to download emails, send t
 
 2. **Public property**
 
-- `ObservableCollection<Email>`: `InboxEmails`: Represents the entire emails in the inbox
+- `ObservableCollection<Email>`: `Emails`: Represents the entire emails in the inbox
 
 
 
 3. **Private methods:**
 
-- `void AddTestData()`: A method which creates mock data for the InboxEmails, DeletedEmails, ArchivedEmails. 
+- `void AddTestData()`: A method which creates mock data.
 
-- Note: This method is temporary to help you test the first milestone of this app. We will eventually remove it.
+  **Note:** This method is temporary to help you test the first milestone of this app. We will eventually remove it.
 
 4. **Public methods:**
 
@@ -163,7 +166,15 @@ This class will eventually be using the email service to download emails, send t
 
   > Hint: Use a Linq method to search for emails whose subjects, sender emails or body contain the filterString.
 
+5. Create a static instance of this class in the `App.xaml.cs`:
 
+```csharp
+public static EmailsRepo Inbox = new EmailsRepo();
+```
+
+6. The Email list can now be accessed in the views (code behind) using the ` App.Inbox.Emails`.
+
+   
 
 ## Helpful Tips
 
@@ -315,7 +326,7 @@ Given that data must be sent from an origin class *`A`* to a destination class *
 
 **Figure 2: Inbox Page** 
 
-<img src="../images/assignments_images/assignment1_imgs/as1_inbox.png" Height=400 class="inline-img"/><img src="../images/assignments_images/assignment1_imgs/as1_inbox_swipe_left.png" Height=400 class="inline-img"/><img src="../images/assignments_images/assignment1_imgs/as1_Inbox_swipe_right.png" Height=400 class="inline-img"/><img src="../images/assignments_images/assignment1_imgs/as1_Inbox_search.png" Height=400 class="inline-img"/>
+<img src="../images/assignments_images/assignment1_imgs/as1_inbox.png" Height=400 class="inline-img"/><img src="../images/assignments_images/assignment1_imgs/as1_inbox_swipe_left.png" Height=400 class="inline-img"/><img src="../images/assignments_images/assignment1_imgs/as1_Inbox_swipe_right.png" Height=400 class="inline-img"/><img src="../images/assignments_images/assignment1_imgs/as1_inbox_search.png" Height=400 class="inline-img"/>
 
 
 
@@ -325,7 +336,7 @@ Given that data must be sent from an origin class *`A`* to a destination class *
 
    *For example: Letter "O" for Outlook Team*
 
-   <img src="../images/assignments_images/assignment1_imgs/user_icon.png" Height=100 class="inline-img"/>
+   <img src="../images/assignments_images/assignment1_imgs/User_icon.png" Height=100 class="inline-img"/>
 
    > Hint: You must use a converter within the Binding of the user icon label. This converter must return the first character of the display name:
 

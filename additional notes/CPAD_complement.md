@@ -3,9 +3,6 @@ layout: post
 title: "Cross-Platform Native Apps - additional notes"
 permalink: /lectures/cpad/additionalnotes
 categories: notes
-
-
-
 ---
 
 ## Development process
@@ -15,13 +12,13 @@ categories: notes
 - The programming language itself is cross-platform.
 - Includes multiple SDKs for the various platforms.
 
-| <img src="../images/cpad/CPADprocess.png" /> |
-| :------------------------------------------: |
-|           *CPAD Building Process*            |
+| <img src="{{site.baseurl}}/images/cpad/CPADprocess.png" /> |
+| :--------------------------------------------------------: |
+|                  *CPAD Building Process*                   |
 
-| <img src="../images/cpad/CPADTypes.png"/> |
-| :---------------------------------------: |
-|             *CPAD App Types*              |
+| <img src="{{site.baseurl}}/images/cpad/CPADTypes.png"/> |
+| :-----------------------------------------------------: |
+|                    *CPAD App Types*                     |
 
 ### Drawbacks of using CPAD
 
@@ -36,7 +33,7 @@ categories: notes
 
 ## Popular Cross-platform Frameworks
 
-<img src="../images/cpad/Cordova.png" width="50%" />
+<img src="{{site.baseurl}}/images/cpad/Cordova.png" width="50%" />
 
 - Opensource `Hybrid` app development framework by Apache.
   - Single codebase that generates native Android and iOS apps.
@@ -53,7 +50,7 @@ categories: notes
 
 ---
 
-<img src="../images/cpad/ReactNative.webp" width="50%" />
+<img src="{{site.baseurl}}/images/cpad/ReactNative.webp" width="50%" />
 
 - Opensource `Cross-platform Native` app framework.
   - Single codebase that generates native Android and iOS apps.
@@ -67,7 +64,7 @@ categories: notes
 
 ---
 
-<img src="../images/cpad/Flutter.webp" width="40%" />
+<img src="{{site.baseurl}}/images/cpad/Flutter.webp" width="40%" />
 
 - Opensource `Cross-platform Native` app framework by Google.
 - Single codebase that generates:
@@ -81,7 +78,7 @@ categories: notes
 
 ---
 
-<img src="../images/cpad/Ionic.png" width="35%" />
+<img src="{{site.baseurl}}/images/cpad/Ionic.png" width="35%" />
 
 - Opensource `PWA` app framework.
 - Single codebase that generates mobile apps.
@@ -95,8 +92,8 @@ categories: notes
 ---
 
 <div style="text-align:center;">
-    <img src="../images/maui_intro/maui.jpg" width="30%" class="inline-img"/>
-    <img src="../images/cpad/apps.png" width="40%" class="inline-img" />
+    <img src="{{site.baseurl}}/images/maui_intro/maui.jpg" width="30%" class="inline-img"/>
+    <img src="{{site.baseurl}}/images/cpad/apps.png" width="40%" class="inline-img" />
 </div>
 
 
@@ -109,7 +106,7 @@ categories: notes
 
 ## Other frameworks worth mentioning
 
-<img src="../images/cpad/Solar2D.svg" width="35%" />
+<img src="{{site.baseurl}}/images/cpad/Solar2D.svg" width="35%" />
 
 - Opensource Cross-platform.
 - 2D Gaming engine.
@@ -121,7 +118,7 @@ categories: notes
 
 ---
 
-<img src="../images/cpad/CodenameOne.png" width="35%" />
+<img src="{{site.baseurl}}/images/cpad/CodenameOne.png" width="35%" />
 
 - Opensource Cross-Platform app framework. 
 - For `Java` lovers.
@@ -133,17 +130,16 @@ categories: notes
 
 ---
 
-### Sources
+### Sources and Additional ressources
 
-https://www.captechu.edu/blog/brief-history-of-mobile-apps
-https://edu.gcfglobal.org/en/computerbasics/understanding-applications/1/
-https://www.nationaldayarchives.com/day/national-app-day/
-https://nationaltoday.com/national-app-day/
-https://www.netsolutions.com/insights/cross-platform-app-frameworks-in-2019/#the-difference-between-native-and-cross-platform-app-development
-https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps
-https://flutter.dev/
-https://reactnative.dev/
-https://cordova.apache.org/
-https://ionicframework.com/
-https://solar2d.com/
-https://www.codenameone.com/
+[Brief History of Apps](https://www.captechu.edu/blog/brief-history-of-mobile-apps)
+[What is a mobile App](https://edu.gcfglobal.org/en/computerbasics/understanding-applications/1/)
+[National App Day](https://www.nationaldayarchives.com/day/national-app-day/)
+[Native vs CPAD](https://www.netsolutions.com/insights/cross-platform-app-frameworks-in-2019/#the-difference-between-native-and-cross-platform-app-development)
+[PWA](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps)
+[Flutter](https://flutter.dev/)
+[React Native](https://reactnative.dev/)
+[Cordova](https://cordova.apache.org/)
+[Ionic](https://ionicframework.com/)
+[Solar](https://solar2d.com/)
+[Codename](https://www.codenameone.com/)

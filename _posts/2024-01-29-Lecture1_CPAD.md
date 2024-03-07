@@ -261,6 +261,12 @@ The following notes were based on Matt Milner's course on .NET MAUI
   - Security
   - Use cases where CPAD is not the way to go: if we need to directly interface with the hardware, use of CoreOS libraries, Speed requirements
 
+
+
+[Additional notes on CPAD]({{site.baseurl}}/lectures/cpad/additionalnotes)
+
+
+
 ## Additional Resources:
 
 - [Flutter Tutorial](https://codelabs.developers.google.com/codelabs/flutter-codelab-first#3)

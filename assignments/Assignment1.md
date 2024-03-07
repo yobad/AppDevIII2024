@@ -156,9 +156,9 @@ This class will eventually be using the email service to download emails, send t
 
 4. **Public methods:**
 
-- `public void MarkRead(Email email)`:  Sets the `IsRead` property to property to `true`
-- `public void MarkUnread(Email email)`: Sets the `IsRead` property to property to `false`
-- `public void AddFavorite(Email email)`:Sets the `IsFavorite` property to property to `true`
+- `public void MarkRead(Email email)`:  Sets the `IsRead` property to `true`
+- `public void MarkUnread(Email email)`: Sets the `IsRead` property to `false`
+- `public void AddFavorite(Email email)`:Sets the `IsFavorite` property to `true`
 - `public void Archive(Email email)`: Removes the email from the Emails list. **We will later use the email service to mark the email for archive on the mail server.**
 - `public void Delete(Email email)`: Removes the email from the Emails list. **We will later use the email service to mark the email for deletion on the mail server.**
 

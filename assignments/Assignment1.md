@@ -31,7 +31,7 @@ categories: assignments
 
 ## Objective
 
-In this first assignment, you are tasked with creating a simple Email Client App offering various functionality. This is first milestone of the assignment, you will have to create the various views and models used by your app. The app will not be fully functional but will provide a starting point for the following assignment. 
+In this first assignment, you are tasked with creating a simple Email Client App offering various functionality. This is the first milestone of the assignment; you will have to create the various views and models used by your app. The app will not be fully functional but will provide a starting point for the following assignment. 
 
 - Design a mockup Email app using the .NET MAUI framework
 - Design and implement a view using a`CollectionView`
@@ -40,7 +40,7 @@ In this first assignment, you are tasked with creating a simple Email Client App
 - Create models 
 - Use data binding 
 - Use converters
-- (optional) Use templated views
+- (optional) Use templated views. Read more about [ContentView](https://learn.microsoft.com/en-us/dotnet/maui/user-interface/controls/contentview?view=net-maui-8.0)
 
 
 
@@ -96,8 +96,10 @@ Create an `Email` model with the following specifications:
 
 1. Implements the `INotifyPropertyChanged`from **`System.ComponentModel`**
 
-- Implement the event `PropertyChanged`
-- Install the NuGet package ***PropertyChanged.Fody*** which will auto generate notification on property changes. This way you will not need to create and call the `OnPropertyChanged()` method in every setter.
+   - Implement the event `PropertyChanged`
+
+   - Install the NuGet package ***PropertyChanged.Fody*** which will auto generate notification on property changes. This way you will not need to create and call the `OnPropertyChanged()` method in every setter.
+
 
 
 
@@ -105,13 +107,13 @@ Create an `Email` model with the following specifications:
 
 | Name               | Type                                        | Description                                                  |
 | ------------------ | ------------------------------------------- | ------------------------------------------------------------ |
-| `Id`               | `string`                                    | Unique identifier for an email                               |
-| `Date`             | `DateTime`                                  | Date and time of sending the email                           |
-| `Subject`          | `string`                                    | Subject of the email                                         |
-| `Body`             | `string`                                    |                                                              |
+| `Id`               | `string`                                    | A unique identifier for an email                             |
+| `Date`             | `DateTime`                                  | The date and time of sending the email                       |
+| `Subject`          | `string`                                    | The subject of the email                                     |
+| `Body`             | `string`                                    | The body/content of the email                                |
 | `SenderAddress`    | `MailAddress `(add using `System.Net.Mail`) | The email address of the sender                              |
 | `RecipientAddress` | `List<MailAddress>`                         | The email addresses of the recipients                        |
-| `IsRead`           | `bool`                                      | Flag used to decipher between read and unread emails         |
+| `IsRead`           | `bool`                                      | A flag used to decipher between read and unread emails       |
 | `IsFavorite`       | `bool`                                      | Flag used to decipher between starred and regular ones       |
 | `IsArchive`        | `bool`                                      | Flag used to decipher between archived emails and non-archived |
 
@@ -119,13 +121,16 @@ Create an `Email` model with the following specifications:
 
 - `public Email GetForward()`: This method returns a new Email with a forwarded body and subject as such:
 
-  <img src="../images/assignments_images/assignment1_imgs/foward_writepage.png" Height=400 class="inline-img"/>
+  
+
+| Original Email                                               | Forwarded Email                                              |
+| ------------------------------------------------------------ | ------------------------------------------------------------ |
+| Subject: Meeting next week                                   | Subject: FW: Meeting next week                               |
+| Body: Hello Team, we will have to meet urgently next week for the .... | Body: <br> ------------Forwarded message----------<br />From: regionalmanager@company.com<br>To: team@company.com<br>Hello Team, we will have to meet urgently next week for the .... |
 
 
 
-
-
-- Feel free to add methods and properties that are useful for other pages you've defined. In a future milestone, we will be adding the concept of Folder to organize emails.
+- Feel free to add methods and properties that are useful for other pages you've defined. In a future milestone, we will be adding the concept of **Folder** to organize emails.
 
 
 
@@ -172,7 +177,7 @@ This class will eventually be using the email service to download emails, send t
 public static EmailsRepo Inbox = new EmailsRepo();
 ```
 
-6. The Email list can now be accessed in the views (code behind) using the ` App.Inbox.Emails`.
+6. The Email list can now be accessed in the views (code behind) with ` App.Inbox.Emails`
 
    
 
@@ -192,7 +197,7 @@ A few new concepts are introduced in this design:
 
 To achieve this task you need to write some specialized code in a class that implements the `IValueConverter` interface. Classes that implement `IValueConverter` are called *value converters*, but they are also often referred to as *binding converters* or *binding value converters*.
 
-***Example\***
+***Example***
 
 *(Do not type this code into your project. This is only for explanation purpose and will be discussed in class)*
 
@@ -291,14 +296,39 @@ Given that data must be sent from an origin class *`A`* to a destination class *
 
    - `SwipeView.RightItems` should include two `SwipeItem`s titled "Delete" and "Favorite" as shown below.
 
-   - Add new event handlers for the `Clicked` event of every Swipe Item.
+   - To handler the swipe click you can do this in two different ways:
 
-   - Within each event handler you must cast the `sender` object as a `SwipeItem` and use the `BindingContext`:
+   - **Way 1:** Adding new event handlers for the `Clicked` event of every Swipe Item.
+
+     - Within each event handler you must cast the `sender` object as a `SwipeItem` and use the `BindingContext`:
+
 
      ```csharp
      var swipe = (sender as SwipeItem);
      Email item = swipe.BindingContext as Email;
      ```
+
+   - **Way 2**: This strategy has some overhead but can be very useful if you chose to use templated views that you can reuse. Using `Command`s and  `CommandParameter`:
+
+     - This method uses `Binding` to bind a command defined in the code behind to the `XAML`:
+
+       ```csharp
+       public ICommand DeleteCommand {get; set;}
+       ```
+
+       ```xml
+       Command="{Binding DeleteCommand}
+       ```
+
+     - You can pass the swiped email itself as a command parameter
+
+       ```xml
+        CommandParameter="{Binding .}
+       ```
+
+     - To implement a simple handler read [Microsoft's documentation](https://learn.microsoft.com/en-us/dotnet/maui/fundamentals/data-binding/commanding?view=net-maui-8.0#icommands)
+
+       
 
    - To perform the actions use the Repo's methods: 
 
@@ -340,9 +370,9 @@ Given that data must be sent from an origin class *`A`* to a destination class *
 
    > Hint: You must use a converter within the Binding of the user icon label. This converter must return the first character of the display name:
 
-8. (Optional) Use randomly generated background colors for the `Frame` of the user icon.
+8. (Optional) Generate a background color for the `Frame` of the user icon based on the user email address.
 
-   > Hint: You must a converter and a Random number generator.
+   > Hint: You must a converter and find a way to translate letters to color value. 
 
 9. Unread emails (never tapped) should appear differently. Feel free to use any method to distinguish them `IsRead`
 
@@ -374,27 +404,28 @@ Given that data must be sent from an origin class *`A`* to a destination class *
       - A `Label` to indicate the `SenderEmail.DisplayName`
       
       - Labels for each `RecipientEmail`:
-        - Hint: Use `BindableLayout` or a `CollectionView`with the `ItemsSource` set to the list of recipients.
+        
+        > Hint: Use `BindableLayout` or a `CollectionView`with the `ItemsSource` set to the list of recipients.
         
       - A `Label` to indicate the date
       
-      - A `Label` or `Editor` to dsiplay the body of the email.
+      - A `Label` or `Editor` to display the body of the email.
       
       - Feel free to improve the design to your linking.
       
         
 
-**Figure 4: ReadPage template**  
+**Figure 4: `ReadPage` template**  
 
 
 
-<img src="../images/assignments_images/assignment1_imgs/as1_readpage.png" Height=400 class="inline-img"/><img src="../images/assignments_images/assignment1_imgs/foward_readpage.png" Height=400 class="inline-img"/>
+<img src="../images/assignments_images/assignment1_imgs/as1_readpage.png" Height=400 class="inline-img"/>
 
 
 
 4. Implement a "Forward" button to:
-   - Use the `GetForward()` to get the forwarded email. 
-   - Push a new `WritePage` provide a forwarded email as input
+   - Use the `GetForward()` method to get the forwarded email. 
+   - Push a new `WritePage` providing a forwarded email as argument to the constructor.
 
 ### WritePage
 
@@ -404,11 +435,11 @@ Given that data must be sent from an origin class *`A`* to a destination class *
 
    > Hint: Create a default value for the passed argument and use conditional logic in the constructor.
 
-2. Initialize a public readonly property `EmailAddress` called "CurrentAddress". Set its value to a mock email for now. 
+2. Initialize a public readonly property `EmailAddress` named`CurrentAddress`. Set its value to a mock email for now. 
 
    **Note: we will later replace this with a real email provided by a mail service**.
 
-3. Initialize a public `Email` property to bind the various entries  called "EditEmail". Set the `SenderEmail` to the email you defined previously.
+3. Initialize a public `Email` property to bind the various entries named `EditEmail`. Set the `SenderEmail` to the email you defined previously.
 
 3. The `EditEmail` can be used as a Binding context for the various entries.
 
@@ -416,7 +447,7 @@ Given that data must be sent from an origin class *`A`* to a destination class *
 
    **XAML:**
 
-4. Contains an entry bound to the CurrentEmail
+4. Contains an entry bound to the `CurrentEmail`
 
    - Should be `ReadOnly`
 
@@ -424,7 +455,7 @@ Given that data must be sent from an origin class *`A`* to a destination class *
 
    - Contains a entry for the recipients emails:
      - The `Keyboard` should be set to `Email`
-     - Assume the inputted emails are separated by "';'" 
+     - Assume the inputted emails are separated by `"';'" `
      - Use the `Completed` event to parse the emails entered by the user
 
 5. Contains an entry for the Subject
@@ -433,7 +464,7 @@ Given that data must be sent from an origin class *`A`* to a destination class *
 
 7. Set the `HeightRequest` to at least 500:
 
-   **Figure 5: WritePage template**  
+   **Figure 5: `WritePage` template** (left - forwarded email , right - new email)
 
 <img src="../images/assignments_images/assignment1_imgs/foward_writepage.png" Height=400 class="inline-img"/><img src="../images/assignments_images/assignment1_imgs/as1_writepage.png" Height=400 class="inline-img"/>
 
@@ -454,7 +485,7 @@ Given that data must be sent from an origin class *`A`* to a destination class *
 
 ## Grading Rubric
 
-| Evaluation Criteria   | Details                                                      | Worth (/100) |
+| Evaluation Criteria   | Details                                                      | Worth (/110) |
 | --------------------- | ------------------------------------------------------------ | ------------ |
 | **UI Design**         | All requested elements available. 5<br /><br />Use of at least a Tab Bar or a Flyout menu 2<br />Use of at least 1 `CollectionView` 2<br />Use of application resources for UI styling 1<br />Use of converters 5 .<br />Use of swipe view 3 .<br />Use of tap gesture recognizer 2.<br /> | 20           |
 | **Views code behind** | Correct use of dependency injection 5.<br />Use of data binding 15.<br />Proper string formatting when required  5.<br />Use of the Data Repo to interact with the data 10.<br /> | 35           |

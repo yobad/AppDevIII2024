@@ -8,8 +8,32 @@
 
 
 
+
+
 - Installing EmailKit Nuget package
 - Creating a dummy email address on outlook
 - Enabling Pop and Imap 
 - Disabling two factor authentication
-- 
+
+
+
+
+
+- Creating a MailService
+- using imap client
+- Create a CientConfig (email, password, port number, mail server)
+- What's a mimemessage
+- Parse a mimemessage into an email object used in the MauiEmail app
+- adding the concept of folders in the EmailRepo
+- implement archive functionality
+- implement delete functionality
+
+
+
+- use mvvm?
+- add unit testing?
+- add email attachements?
+- **add settings page to allow user to configure their email address, mail server provider, etc.**
+- **include push notifications?**
+- test on iOS?
+

@@ -14,6 +14,7 @@
 - Creating a dummy email address on outlook
 - Enabling Pop and Imap 
 - Disabling two factor authentication
+- Send a few emails to this email address for testing purposes.
 
 
 
@@ -24,6 +25,9 @@
 - Create a CientConfig (email, password, port number, mail server)
 - What's a mimemessage
 - Parse a mimemessage into an email object used in the MauiEmail app
+- Use Html body 
+- change the Text Entry in the read page to html
+- note that the Editor with forwarded emails will look ugly, but so long as the text is parse correctly.
 - adding the concept of folders in the EmailRepo
 - implement archive functionality
 - implement delete functionality

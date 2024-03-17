@@ -20,7 +20,7 @@ categories: assignments
 - Check the `GitHub` classroom link shared with you on your section's Teams channel and accept the assignment.
 - Once your private repo is created, clone it to your computer.
 - The repo should contain a  `.NET MAUI App`  starter code using .NET Core 7.0
-- Create a new `.NET MAUI App` project in the cloned folder using the following specifications:
+- In the cloned folder created the following folders:
 - Organize your Views inside a folder **Views**
 - Organize your C# classes inside a folder named **Models**
 - Organize your data repos classes inside a folder named **DataRepos**
@@ -284,7 +284,7 @@ Given that data must be sent from an origin class *`A`* to a destination class *
 
    <img src="../images/assignments_images/assignment1_imgs/as1_navigation.png" Height=400 class="inline-img"/>
 
-3. In the Inbox view, you should include an `SearchBar` and a search button within the `NavBar`, this will serve as a search bar to filter out emails:
+3. In the Inbox view, you should include an `SearchBar` within the `NavBar`, this will serve as a search bar to filter out emails:
 
    > Hint: Use `Shell.TitleView` to include your search bar
 
@@ -298,37 +298,40 @@ Given that data must be sent from an origin class *`A`* to a destination class *
 
    - To handler the swipe click you can do this in two different ways:
 
+
    - **Way 1:** Adding new event handlers for the `Clicked` event of every Swipe Item.
 
-     - Within each event handler you must cast the `sender` object as a `SwipeItem` and use the `BindingContext`:
+   - Within each event handler you must cast the `sender` object as a `SwipeItem` and use the `BindingContext`:
 
 
-     ```csharp
-     var swipe = (sender as SwipeItem);
-     Email item = swipe.BindingContext as Email;
-     ```
+~~~csharp
+ ```csharp
+ var swipe = (sender as SwipeItem);
+ Email item = swipe.BindingContext as Email;
+ ```
+~~~
 
-   - **Way 2**: This strategy has some overhead but can be very useful if you chose to use templated views that you can reuse. Using `Command`s and  `CommandParameter`:
+- **Way 2**: This strategy has some overhead but can be very useful if you chose to use templated views that you can reuse. Using `Command`s and  `CommandParameter`:
 
-     - This method uses `Binding` to bind a command defined in the code behind to the `XAML`:
+- This method uses `Binding` to bind a command defined in the code behind to the `XAML`:
 
-       ```csharp
-       public ICommand DeleteCommand {get; set;}
-       ```
+  ```csharp
+  public ICommand DeleteCommand {get; set;}
+  ```
 
-       ```xml
-       Command="{Binding DeleteCommand}
-       ```
+  ```xml
+  Command="{Binding DeleteCommand}
+  ```
 
-     - You can pass the swiped email itself as a command parameter
+- You can pass the swiped email itself as a command parameter
 
-       ```xml
-        CommandParameter="{Binding .}
-       ```
+  ```xml
+   CommandParameter="{Binding .}
+  ```
 
-     - To implement a simple handler read [Microsoft's documentation](https://learn.microsoft.com/en-us/dotnet/maui/fundamentals/data-binding/commanding?view=net-maui-8.0#icommands)
+- To implement a simple handler read [Microsoft's documentation](https://learn.microsoft.com/en-us/dotnet/maui/fundamentals/data-binding/commanding?view=net-maui-8.0#icommands)
 
-       
+  
 
    - To perform the actions use the Repo's methods: 
 
@@ -469,8 +472,6 @@ Given that data must be sent from an origin class *`A`* to a destination class *
 <img src="../images/assignments_images/assignment1_imgs/foward_writepage.png" Height=400 class="inline-img"/><img src="../images/assignments_images/assignment1_imgs/as1_writepage.png" Height=400 class="inline-img"/>
 
 
-
- 
 
 
 

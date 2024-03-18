@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Lecture 8 : Accessing and Save Data"
-permalink: /lectures/filesystem/
+title: "Lecture 8 : Accessing and Saving Data"
+permalink: /lectures/savedata/
 categories: notes
 ---
 
@@ -92,7 +92,7 @@ Embedded resources are files included and packaged with your apps such as all th
     for example: *`MauiApp4.Files.MyFile.txt`*
 
   ```csharp
-  Assembly.GetExecutingAssembly().GetManifestResourceStream("MauiApp4.Files.MyFile.txt");
+  Assembly.GetExecutingAssembly().GetManifestResourceStream("MauiApp4.Resources.Files.MyFile.txt");
   ```
 
 
@@ -382,9 +382,7 @@ In this course, we will explore JSON serialization, but there exists other types
 
 There are several third party packages that provide out of the box functionalities to `serialize` objects into `Json` to save it into a text file and `deserialize` `Json` from text in object instances. 
 
-
-
-**Demo in class...**
+**Next Demo in class...**
 
 
 

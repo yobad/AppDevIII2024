@@ -11,3 +11,6 @@ permalink: /labs/
 ### [Lab 1 - Social Media Layouts (2%)](../labs/lab1.md) 
 
 ### [Lab 2 - Tip me with binding (3%)](../labs/lab2.md)
+
+### [Lab 3 - Saving Data in MauiSocial (1%)](../labs/lab3)
+

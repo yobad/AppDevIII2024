@@ -29,7 +29,7 @@ In this lab, we will attempt to make the Maui Social Media App more persistent t
 
 ## Setup
 
-- Clone the following repo: https://github.com/AppDevIII-W24-Code/Labs-solutions.git
+- Clone the following [repo](https://github.com/AppDevIII-W24-Code/Labs-solutions.git)
 
 - Save it on your local drive `C:/Users/<studentId>`, not on One Drive
 

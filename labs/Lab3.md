@@ -3,35 +3,46 @@ layout: post
 title: "Lab 3 - Saving data"
 permalink: /labs/lab3
 categories: labs
+
 ---
 
-This lab will help you get familiar with the various MAUI layouts and controls. 
 
-- 📝 **Worth:** 1%  (/5pts)
-- 📅 **Due:** Friday March 22, 2024 @End of class
-- 🕑 **Late submissions:** No late submission accepted.
-- 📥 **Submission:** In class 
+
+1. 📝 **Worth:** 2%  (/5pts)
+2. 📅 **Due:** Friday March 22, 2024 @End of class
+3. 🕑 **Late submissions:** Not accepted.
+4. 📥 **Submission:** In class 
 
 
 
 ## Objectives
 
+In this lab, we will attempt to make the Maui Social Media App more persistent to user changes.  
+
 - Learn how to use application preferences
 - Learn how to use embedded text files
 - Learn how to use embedded app settings in a json format
 - Learn how to use an API to save images on the cloud.
+- Learn how to serialize and deserialize objects and data strucutres.
 
 
 
 ## Setup
 
-- Clone the following app: https://github.com/AppDevIII-W24-Code/Demos/tree/main/MauiSocial
+- Clone the following repo: https://github.com/AppDevIII-W24-Code/Labs-solutions.git
 
 - Save it on your local drive `C:/Users/<studentId>`, not on One Drive
 
 - Avoid lengthy file directories
 
-  
+- Open the Lab3 folder containing the `MauiSocial` app, feel free to create a copy of the project so you can push it on a personal repo later on.
+
+- You will not submit this at the end, you will only show me your progress in class.
+
+- I have already installed the important package :
+  - `Cloudinary` (to upload pictures on the cloud)
+
+
 
 #### Target platform
 
@@ -39,17 +50,9 @@ For this lab we will be testing the app on two different form factors:
 
 - Android Emulator: Pixel 5 - API 34
 
-- (optional) iOS : note I did not configure app entitlements for iOS nor did I test the app on this platform.
+- (optional) iOS, **Note:** I did not configure app entitlements for iOS nor did I test the app on this platform.
 
   
-
-## Setup
-
-1. From Demos folder, clone the MauiSocial 
-2. Save it locally on your device (C: drive not on OneDrive)
-3. I have already installed the important packages :
-   - MediaKit (to save photos in the gallery)
-   - Cloudinary (to upload pictures on the cloud)
 
 
 
@@ -85,7 +88,7 @@ For this first exercise, you will have to complete the `Settings.xaml` page func
 5. Get the preference of the theme to set the App theme inside the `AppShell.xaml.cs`
 6. Get the preference of the username and the user profile to set the username and profile picture inside the `ProfilePage.xaml.cs` and inside the `CommentsPage.xaml.cs`
 
- **✨ Test yourself question:** Is it possible to serialize an object inside the Preferences?
+ **✨ Test your understanding** Is it possible to serialize an object inside the Preferences?
 
 ## Exercise 2 (1pt) - Reading an embedded file
 
@@ -107,7 +110,11 @@ For this first exercise, you will have to complete the `Settings.xaml` page func
 
 7. Display its content in the Editor
 
- **✨ Test yourself question:**   What other files are included as embdedded files? 
+
+
+**Do it at the end:**
+
+ **✨ Test your understanding**   What other files are included as embdedded files? 
 
 
 
@@ -123,7 +130,40 @@ For this first exercise, you will have to complete the `Settings.xaml` page func
 
 
 
-***Cloudinary***
+## Exercise 4 (1pt) - Serialization
+
+To ensure the persistence of the app we would like to save the `ObservableCollection<Post>` to a json file using the `System.Text.Json.JsonSerializer` class. I have already created two methods in the `PostsRepo` which you need to implement: `LoadPosts()` and `SavePosts()`. I have also already added calls to these methods inside the `PostsRepo` class. 
+
+1. Inside the `App.xaml.cs`, create a new static `string`variable called `"DataFile`"
+
+2. Create a file path to a `"posts.json"` file saved in the `AppDataDirectory`
+
+3. Use this variable to initialize the static `PostsRepo` 
+
+4. Observe the constructor of the `PostsRepo` and implement the `SavePosts()` and `LoadPosts()` :
+
+   - Use a `try/catch` to ensure some error handling and logging of errors.
+   - Make sure that if the file doesn't exist to not make the app crash, since the first time this file won't exist.
+
+   > Hint: Use `JsonSerializer.Serialize<ClassToSerialize>(stream, ObjectToSerialize); `and `JsonSerializer.Deserialize<ClassToSerialize>(stream);`
+
+5. Test it by adding a few comments and likes to some posts and re-starting the app. Your changes should be saved.
+
+
+
+ **✨ Test your understanding:**  What is the interest of using a static repo as opposed to simply initializing a list of posts in the code behind as we've done in the previous demos? 
+
+**✨ Test your understanding:**  Why did I make the `PostsRepo` implement the `INotifyPropertyChanged` interface?
+
+ **✨ Test your understanding**  What is the interest of having an `UpdatePost()` method when I could simply let the Pages code behind change a given Post directly (ex: `Post.Likes++`)?
+
+
+
+## Exercise 5 (2pt) - Using an API to upload pictures.
+
+
+
+***Cloudinary- Setup***
 
 *Cloudinary* is a a cloud management service for images and videos which allows programmatical uploads of media files and enables image and video transformations (cropping, filtered, etc). We will use the free license in order to upload pictures taken with the ***MauiSocial App***. 
 
@@ -153,9 +193,7 @@ Before using the service, we need to generate some api keys and secrets:
 
 6. If you push your source code somewhere, do not push this `"appsettings.json"` file at the root of the project as these are your confidential keys.
 
-   
-
-## Exercise 4 (1pt) - Adding Configs from appsettings.json
+***Using the service***
 
 1. Add the `"appsettings.json"` as an the embedded resources 
 
@@ -182,36 +220,42 @@ Before using the service, we need to generate some api keys and secrets:
    ```
 
 6. Use a `try/catch` inside the Service to ensure that the embedded file is properly found, parsed and used. 
+
 7. To test it out, go to your `App.xaml.cs` and create a static instance of this class.
+
 8. Run the app and observe any except being thrown. 
 
- **✨ Test yourself question:**  What's is the `"appsettings.json"` file typically used for? 
+ **✨ Test your understanding:**  What's is an `"appsettings.json"` file typically used for? 
 
- **✨ Test yourself question:** What's the interest of including it as an embedded file. 
-
-
-
-## Exercice 5 (1pt) - Upload an image
+ **✨ Test your understanding:** What's the interest of including it as an embedded file. 
 
 
 
-Using *Cloudinary*
+9. Implement the method which should call `_cloudinary.UploadAsync()`: use proper exception handling to ensure that exceptions are logged to the console.
 
-1. Implement the method which should call `_cloudinary.UploadAsync()`:
+```csharp
+public async Task<ImageUploadResult> UploadImage(string imageFilePath,string imageName)
+```
 
-   ```csharp
-   public async Task<ImageUploadResult> UploadImage(string imageFilePath,string imageName)
-   ```
+10. Call the method inside the `Btn_Save_Clicked()` event handler inside the `PostPage`: 
+    - Use exception handling and display an alert in case of error. 
+    - Get the `secureurl`  from the returned result
+    - Add a new post in the `Repo` with this `url`
+    - You should see the post appearing in the `MainPage`
 
-2. Call the method inside the `Btn_Save_Clicked()` event handler inside the `PostPage`
+
 
 
 
 ## Bonus exercise 1pt  
 
-James Montemagno created an [Plug-in](https://github.com/jamesmontemagno/MediaPlugin) which you can install as a Nuget package which facilitates the action of taking pictures, saving them and saving them to Gallery. 
+James Montemagno created an [Plug-in](https://github.com/jamesmontemagno/MediaPlugin) (installed as a Nuget package) which facilitates the action of taking pictures, saving them and saving them to Gallery. 
 
-Create a user preference inside the settings page which allow the user to choose weather they want to automatically save posts to their Gallery. Then modify the Save button event handler in the Post Page to save the photo to the Gallery using the Plug-in.
+Create a user preference inside the settings page which allow the user to have the option to automatically save posts to their phone Gallery. Then modify the Save button event handler in the Post Page to save the photo to the Gallery using the Plug-in. Test by insuring that the posts are saved to the gallery and your post page is still functional. 
+
+
+
+**✨ Test your understanding**: What can you say about this app's testability? Is it easily testable? What can we do to improve this?
 
 
 

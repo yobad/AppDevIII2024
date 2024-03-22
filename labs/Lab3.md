@@ -120,12 +120,12 @@ For this first exercise, you will have to complete the `Settings.xaml` page func
 
 ## Exercise 3 (1pt)
 
-1. In the `PostPage.xaml.cs`, implement the `Btn_Save_Clicked()` eventhandler
+1. In the `PostPage.xaml.cs`, implement the `Btn_Save_Clicked()` event handler
 2. Save the photo to the `FileSystem.AppDataDirectory`:
 
 > Hint: Read the stream of the file and use `sourceStream.CopyToAsync(destinationStream);` 
 
-3. You'll notice that you do not have access to this directory on the Android Emulator 
+3. You'll notice that you cannot validate your work because you do not have access to this directory on the Android Emulator.
 4. To validate that the file was correctly saved, we will upload the image on Cloudinary in **Exercise 5**. 
 
 
@@ -165,7 +165,7 @@ To ensure the persistence of the app we would like to save the `ObservableCollec
 
 ***Cloudinary- Setup***
 
-*Cloudinary* is a a cloud management service for images and videos which allows programmatical uploads of media files and enables image and video transformations (cropping, filtered, etc). We will use the free license in order to upload pictures taken with the ***MauiSocial App***. 
+*Cloudinary* is a a cloud management service for images and videos which allows programmatical uploads of media files and enables image and video transformations (cropping, filtered, etc). We will use the free license to upload pictures taken with the ***MauiSocial App***. 
 
 Before using the service, we need to generate some api keys and secrets:
 

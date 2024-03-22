@@ -18,7 +18,7 @@ permalink: /project/
 
 ## Milestones - tentative dates
 
-- #### [Milestone 1 - Combined (5%) March 25 - April 8](./project/milestone1)
+- #### [Milestone 1 - Combined (5%) March 25 - April 8](./milestone1)
 
 - #### Milestone 2 - Connected Objects Apr 12 - 19
 
@@ -115,15 +115,15 @@ The container farm has 3 independent subsystems:
 
 The plant subsystem is responsible for the monitoring and controlling of the growing environment.
 
-| Requirements                               |
-| ------------------------------------------ |
-| A1.1. To measure temperature and humidity. |
-| A1.2. To measure relative water levels.    |
-| A1.3. To measure soil moisture levels.     |
-| A1.4. To read fan state (on/off).          |
-| A1.5. To control fan state (on/off).       |
-| A1.6. To read light state (on/off)         |
-| A1.7. To control light state (on/off)      |
+| No   | Requirements                         |
+| ---- | ------------------------------------ |
+| A1.1 | To measure temperature and humidity. |
+| A1.2 | To measure relative water levels.    |
+| A1.3 | To measure soil moisture levels.     |
+| A1.4 | To read fan state (on/off).          |
+| A1.5 | To control fan state (on/off).       |
+| A1.6 | To read light state (on/off)         |
+| A1.7 | To control light state (on/off)      |
 
 
 
@@ -131,25 +131,25 @@ The plant subsystem is responsible for the monitoring and controlling of the gro
 
 The geo-location subsystem is responsible for monitoring the transportation and placement of the container.
 
-| Requirements                            |
-| --------------------------------------- |
-| A2.1. To collect GPS location.          |
-| A2.2. To read pitch and roll angles.    |
-| A2.3. To read vibration levels.         |
-| A2.4. To read buzzer state (on/off).    |
-| A2.5. To control buzzer state (on/off). |
+| No   | Requirements                      |
+| ---- | --------------------------------- |
+| A2.1 | To collect GPS location.          |
+| A2.2 | To read pitch and roll angles.    |
+| A2.3 | To read vibration levels.         |
+| A2.4 | To read buzzer state (on/off).    |
+| A2.5 | To control buzzer state (on/off). |
 
 ### 3. Security subsystem
 
 The security subsystem is responsible for monitoring access and safety of the container.
 
-| Requirements                            |
-| --------------------------------------- |
-| A3.1. To collect GPS location.          |
-| A3.2. To read pitch and roll angles.    |
-| A3.3. To read vibration levels.         |
-| A3.4. To read buzzer state (on/off).    |
-| A3.5. To control buzzer state (on/off). |
+| No   | Requirements                      |
+| ---- | --------------------------------- |
+| A3.1 | To collect GPS location.          |
+| A3.2 | To read pitch and roll angles.    |
+| A3.3 | To read vibration levels.         |
+| A3.4 | To read buzzer state (on/off).    |
+| A3.5 | To control buzzer state (on/off). |
 
 ## B - Mobile App
 
@@ -157,32 +157,32 @@ As shown in Figure 3, in the Cloud Infrastructure section, the mobile app repres
 
 
 
-| Requirements                                                 |
-| ------------------------------------------------------------ |
-| B1. Provides a user authentication mechanism                 |
-| B2. Offers a Dashboard view of all farming operations and detail views of each component. |
-| B3. Allows remote control of all farming operations based on user profile. |
-| B4. Geolocation functionality:                               |
-| B4.1 Displays real time location of a container              |
-| B4.2 Displays real time orientation of a container           |
-| B5. Security functionality:                                  |
-| B5.1 Should allow real time monitoring of security related sensors |
-| B5.2 Should allow control of the security related sensors based on user authorization |
-| B5.3 Should display historical security highlights           |
-| B6. Plant monitoring functionality:                          |
-| B6.1 Should display real time monitoring of environmental measures |
-| B6.2 Should allow access to various controls to adjust environment |
-| B6.3 Should display historical farming data for trend analysis |
-| B7 User customization:                                       |
-| B7.1 Allows the user to set surveillance thresholds          |
-| B7.2 Allows the user to set notifications and alerts         |
-| B8. Data visualization:                                      |
-| B8.1 Displays data within graphs                             |
-| B8.2 Displays data in an intuitive way                       |
-| B8.3 Compares real time data with user defined thresholds.   |
-| B9 Connectivity:                                             |
-| B9.1 Enable real time data access and control.               |
-| B9.1 Robust mechanisms in case of network disruptions.       |
+| No   | Requirements                                                 |
+| ---- | ------------------------------------------------------------ |
+| B1   | Provides a user authentication mechanism                     |
+| B2   | Offers a Dashboard view of all farming operations and detail views of each component. |
+| B3   | Allows remote control of all farming operations based on user profile. |
+| B4   | Geolocation functionality:                                   |
+| B4.1 | Displays real time location of a container                   |
+| B4.2 | Displays real time orientation of a container                |
+| B5   | Security functionality:                                      |
+| B5.1 | Should allow real time monitoring of security related sensors |
+| B5.2 | Should allow control of the security related sensors based on user authorization |
+| B5.3 | Should display historical security highlights                |
+| B6.  | Plant monitoring functionality:                              |
+| B6.1 | Should display real time monitoring of environmental measures |
+| B6.2 | Should allow access to various controls to adjust environment |
+| B6.3 | Should display historical farming data for trend analysis    |
+| B7   | User customization:                                          |
+| B7.1 | Allows the user to set surveillance thresholds               |
+| B7.2 | Allows the user to set notifications and alerts              |
+| B8   | Data visualization:                                          |
+| B8.1 | Displays data within graphs                                  |
+| B8.2 | Displays data in an intuitive way                            |
+| B8.3 | Compares real time data with user defined thresholds.        |
+| B9   | Connectivity:                                                |
+| B9.1 | Enable real time data access and control.                    |
+| B9.2 | Robust mechanisms in case of network disruptions.            |
 
 
 

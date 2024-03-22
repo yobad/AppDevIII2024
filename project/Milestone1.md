@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Milestone 1 =
+title: Milestone 1
 permalink: /project/milestone1
 
 ---
@@ -41,7 +41,7 @@ A contract template is included in the GitHub classroom repository for this proj
 
 ### Epic User Stories
 
-Below are four [Epic User Stories](https://www.agilealliance.org/glossary/epic/#q=~(infinite~false~filters~(postType~(~'page~'post~'aa_book~'aa_event_session~'aa_experience_report~'aa_glossary~'aa_research_paper~'aa_video)~tags~(~'epic)) that should be fulfilled by the end of the project. The epic user stories should guide the creation of **smaller and more specific** user stories for milestone 1 (see next section).
+Below are four [Epic User Stories](https://www.atlassian.com/agile/project-management/epics#:~:text=What%20is%20an%20agile%20epic,over%20a%20set%20of%20sprints.) that should be fulfilled by the end of the project. The epic user stories should guide the creation of **smaller and more specific** user stories for milestone 1 (see next section).
 
 **Farm technician**
 

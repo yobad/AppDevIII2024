@@ -37,7 +37,7 @@ permalink: /project/milestone1
 
 Each group must submit an informal team contract. One contract is submitted for the whole team and should be made available in the team’s GitHub repository for the project **as a markdown file**.
 
-A contract template is included in the GitHub classroom repository for this project and is also available [here](./TeamContractTemplate).
+A contract template is included in the GitHub classroom repository for this project and is also available [here](./TeamContractTemplate). It is also found in your project template. 
 
 ### Epic User Stories
 
@@ -75,20 +75,82 @@ The user stories should:
 
 Clarification questions regarding system users should be asked in the Teams for the project. The user descriptions will be further detailed if necessary, according to questions received in Teams.
 
-### Project Tracking
+## Screen Analysis
 
-Each team should organize and track their work using [Jira](https://www.atlassian.com/software/jira).
+Define each screen that appears in the app by providing the following:
 
-At the end of each sprint and deliverable presentation, the team will show their backlog, boards and task assignment.
+1. Screen title.
+2. A brief description: includes the purpose of the screen and how the end user would use this screen.
 
-### Jira accounts teacher:
+## Screen Design 
 
-Youmna : youmna.badawy@johnabbott.qc.ca
+1. Create a wireframe for each screen: draw how you except each screen to look like. Include buttons, text, and images that the user will see and use.
 
-Michael Haaf: micheal.haaf@johnabbott.qc.ca
+   - Sketching\Drawing manually: an easy way to start this process is to sketch the screens using index cards to emulate a phone’s screen size. Each app screen should be drawn on a separate notecard. These hand maid sketches can be scanned and used in the report and app final documentation.
+   - Digital design: there are different tools that can help you achieve the same task digitally:
+     - https://balsamiq.com/
+     - https://www.figma.com/
+     - https://www.justinmind.com/free-wireframe-tool
+     - Microsoft Visio.
+     - Microsoft PowerPoint: search for a mobile wireframe PowerPoint template.
+
+2. Screen relations: draw arrows and add notes that show how a user **navigates between the screens.** 
+
+   *For example, if clicking a button takes the user to another screen, draw an arrow between the button and that other screen, or label the lines between the screen with the action that takes the user on that path.*
+
+<img src="../images/project_images/wireframe_web_mobile.png" />
+
+Here are some inspiration for your app design:
+
+- Telus Smart Home app surveillance system : https://play.google.com/store/apps/details?id=com.alarm.alarmmobile.android.telus&hl=ln&pli=1
+- Solar Edge  App solar system surveillance: https://play.google.com/store/apps/details?id=com.solaredge.homeowner
+- Blue guard smart home: https://play.google.com/store/apps/details?id=com.archtron.bluguardp2p&hl=en
+
+**Tips:** 
+
+- Use a spiral approach where you start with a very basic design which covers the most important functionality, then progressively app "nice to haves". 
 
 
+
+## Design Document 
+
+Write a document to explain the app you are creating and include the screen designs created above. The document must show the app's name and should include the following sections:
+
+- **Functional Overview:** Briefly describe the app in 2-3 sentences.
+
+- **Design Overview:** describe how the app will function in greater detail. Include the description of each screen, as well as screen design, and any information about the navigation between the screens.
+
+- **App Prototype:** Add the created screen analysis and design in the document.
+
+  **DO NOT ADD IMAGES AS A LINK**
+
+- **App Features:** create a list of all features that the app should achieve. start from the user needs we provided. Include all the ideas you have discussed with your teammates even the ones you do not think they will be developed due to lack of time.
+
+  - Organize the features into epic user stories.
+
+  - Then create small (testable) user stories of all the features you have created.
+
+  - Prioritization of Features:
+
+    the user stories (features) must be categorized by priority as:
+
+    - Must develop.
+    - Would like to develop.
+    - Could develop if time permits.
+    - Likely would not develop because of lack time or knowledge.
+
+- **Potential Showstoppers and open ended Questions:** list any problem, question, or concern you may have about this project.
 
 
 
 ## Rubric
+
+| Evaluation Criteria                                          | Worth (/10pts)                                               |
+| :----------------------------------------------------------- | :----------------------------------------------------------- |
+| **Team Contract** (breakup details provided in the Course Project document) | **1 point**                                                  |
+| **Design Document**                                          |                                                              |
+| Functional Overview                                          | **0.5 point**                                                |
+| Design overview                                              | **0.5 point**                                                |
+| **App Prototype**: includes at least 4 screens Screen analysis includes screen titles and description. Screen design includes wireframe layout. Wireframe layout includes screen relations. | **4 points** <br>1.5 <br>2 <br>0.5                           |
+| **App Features** Features described by user stories collectively cover epic user stories.       Stories follow standard structure (as a, I want to, so that). Stories are small and testable. Stories are independent of other stories where possible. Prioritization of Features *Must Develop* features reflected by the screen design. | **3.5 points** <br/>0.5 <br/>0.5 <br/>0.5 <br/>0.5 <br/>0.5 <br/>1 |
+| **Showstoppers and Open Questions**                          | **0.5 point**                                                |

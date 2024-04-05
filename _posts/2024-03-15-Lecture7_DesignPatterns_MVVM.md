@@ -4,6 +4,8 @@ title: "Lecture 7 : MVVM"
 permalink: /lectures/mvvm/
 categories: notes
 ---
+[Demo MVVM and Unit Testing](https://github.com/AppDevIII-W24-Code/Demos/tree/main/DemoMvvmAndTesting)
+
 The Model-View-ViewModel (MVVM) pattern is a *software design pattern*. Design patterns are sets of rules and templates that help make application code **better**, more **structured** or more **consistent**. 
 
 - The MVVM pattern is used to help separate the app's behavior logic from the user interface-rendering code, and to do so in a way that supports unit testing.
@@ -101,3 +103,11 @@ Testable parts of an app:
 
 
 ## Demo - turning the Billing App into MVVM and unit testing it
+
+**Objectives:**
+
+- How to refactor an existing app to MVVM
+- How to use the *MVVM Community Toolkit*
+- How to use Commands
+- How to use `EventToCommandBehavior` 
+- How to create an *xUnitTest* project to test the View Model.

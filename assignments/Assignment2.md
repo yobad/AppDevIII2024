@@ -1,14 +1,14 @@
 # Assignment 2: Email App milestone 2
 
 * **Worth**: 10%
-* 📅 **Due**: April 7th, 2024 @ 23:59.
+* 📅 **Due**: May 3rd, 2024 @ 23:59.
 * 🕑 **Late Submissions**: Deductions for late submissions is 10%/day. 
   *To a maximum of 3 days. A a grade of 0% will be given after 3 days.*
 * 📥**Submission**: Submit through GitHub classroom.
 
 
 
-
+## Setup
 
 - Installing EmailKit Nuget package
 - Creating a dummy email address on outlook
@@ -18,8 +18,10 @@
 
 
 
+### Using MailKit 
 
-
+- Documentation: https://github.com/jstedfast/MailKit/tree/master
+- Subscribing to events in emails being changed: https://mimekit.net/docs/html/E_MailKit_MailFolder_CountChanged.htm
 - Creating a MailService
 - using imap client
 - Create a CientConfig (email, password, port number, mail server)
@@ -32,7 +34,7 @@
 - implement archive functionality
 - implement delete functionality
 
-
+## MVVM
 
 - use mvvm?
 - add unit testing?
@@ -41,3 +43,4 @@
 - **include push notifications?**
 - test on iOS?
 
+### Unit tests

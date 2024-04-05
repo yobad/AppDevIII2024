@@ -14,7 +14,7 @@ The Model-View-ViewModel (MVVM) pattern is a *software design pattern*. Design p
 
   
 
-  <img src="{{site.baseurl}}/images/mvvm/MVVMPattern.png" /img>
+  <img src="{{site.baseurl}}/images/mvvm/MVVMPattern.png" />
 
 ## MVVM & `.NET MAUI`
 

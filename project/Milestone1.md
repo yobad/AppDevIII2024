@@ -63,7 +63,7 @@ The user stories should:
 
 - Be derived from one of the epic user stories described in the previous section.
 
-- Include an Acceptance Criteria section that involves specific hardware requirements (see section [Subsystems & Hardware](https://docs.google.com/document/d/1r5b5m1fvmDRZswrYxSoVx0ezlDFAbBRMkoZBTXbzJ6Y/edit#heading=h.8ny33raoupe0)).
+- Include an Acceptance Criteria section that involves specific hardware requirements (see section [Subsystems & Hardware](https://docs.google.com/document/d/1j5LqHZBLBl-dD95ZVhYK9nrCBShQKbginOflveHvrwM/edit?usp=sharing)).
 
 - Follow the standard:
 

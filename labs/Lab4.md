@@ -326,7 +326,11 @@ public static MauiApp CreateMauiApp()
       - Set the visibility of the out container to `true` to display it on the page.
         - Display the username and user ID (using `AuthService.UserCreds.User.Uid`)
 
+<<<<<<< HEAD
     <img src="../images/labs_images/Lab4/img04.png" alt="Snap shot" height="300"/>
+=======
+    <img src="../images/labs_images/lab4/\img04.png" alt="Snap shot" height="300"/>
+>>>>>>> 332306e16b57d6c7c1dfd6163c22f84af2dbce89
 
   - In the logout button click event handler:
 

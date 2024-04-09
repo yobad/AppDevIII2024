@@ -52,7 +52,7 @@ In this lab, we will examine `Firebase Authentication` and use it to authenticat
 
 - In the `MauiFitness` app, I have already added an `"appsettings.json"` file and included it as an embedded file
 
-- I also added a `Settings` class to parse all the configuration strings into a static `Settings` object 
+- I also added a `Settings` class to parse all the configuration strings into a static `Settings` class
 
 - Use this class to add any new API key you will be using for this lab. Note: This is also how you should parse settings within your project.
 
@@ -323,7 +323,7 @@ public static MauiApp CreateMauiApp()
       - Set the visibility of the out container to `true` to display it on the page.
         - Display the username and user ID (using `AuthService.UserCreds.User.Uid`)
 
-    <img src="C:\Users\Youmna.Badawy\Documents\ADIII-W23\Assignments\Assignment2\images\asg2Auth\img04.png" alt="Snap shot" height="300"/>
+    <img src="../images/labs_images/lab4/\img04.png" alt="Snap shot" height="300"/>
 
   - In the logout button click event handler:
 

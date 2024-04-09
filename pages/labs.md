@@ -14,3 +14,4 @@ permalink: /labs/
 
 ### [Lab 3 - Saving Data in MauiSocial (1%)](../labs/lab3)
 
+### [Lab 4 - Authentication (3%)](../labs/lab4)

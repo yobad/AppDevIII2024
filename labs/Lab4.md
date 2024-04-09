@@ -88,7 +88,7 @@ In this lab, we will examine `Firebase Authentication` and use it to authenticat
 - Disable Google Analytics for this project, we will not use them.
 - Click `Create Project`
 
-<img src="../images/labs_images/lab4/firebase_auth.png" alt="Snap shot" height="200"/>
+<img src="../images/labs_images/Lab4/firebase_auth.png" alt="Snap shot" height="200"/>
 
 - Setting Authentication
 - Once the project is created, you will land in the main Firebase dashboard. 
@@ -100,10 +100,11 @@ In this lab, we will examine `Firebase Authentication` and use it to authenticat
 - The `MauiFitness` app does not include a registration functionality, so we will need to create user accounts manually.
 - Go to the `Users` tab
 - Add two users manually:
-- First user: an account for you (add your email and a password)
-- Second user: for the teacher to access your app
-  - email: teacher@jac.ca
-  - password: test@1234
+  - First user: an account for you (add your email and a password)
+  - Second user: for the teacher to access your app
+    - email: teacher@jac.ca
+    - password: test@1234
+
 
 > **Notes for the Project**  
 >
@@ -127,7 +128,7 @@ In this lab, we will examine `Firebase Authentication` and use it to authenticat
     - Get value from Firebase portal > Left Navigation > Click on the gear icon ⚙️ next to `Project Overview` 
     - Select `Project Settings` > Under `General` tab > Web API Key
 
-    #### 
+    
 
 ## Preparing App to use Firebase API
 
@@ -167,9 +168,9 @@ In this lab, we will examine `Firebase Authentication` and use it to authenticat
 
 - Go to `LoginPage.xaml.cs` to update the login button click event to use Firebase authentication class.
 
-  - Authentication process is an IO bound call and prone to errors.
+  - Authentication process is an **IO bound call** and prone to errors.
 
-    - Will fail if a wrong password or username are provided.
+    - Will fail if a wrong password or wrong username are provided.
 
     - Will fail is wrong API key is used and several other. 
 
@@ -177,7 +178,9 @@ In this lab, we will examine `Firebase Authentication` and use it to authenticat
 
       - Add multiple `catch` blocks each for specific exception type.
       - Start with more specific exception, then the general one.
-      - Firebase exception type is `FirebaseAuthException` which has a `Reason` property which displays the reason of failure.
+      - Firebase exception type is `FirebaseAuthException` which has a `Reason` property which contains the reason of failure.
+      - Log the `Reason` in the console
+      - Display an alert with a description of the error.
 
       ```csharp
       try		
@@ -204,11 +207,10 @@ In this lab, we will examine `Firebase Authentication` and use it to authenticat
 
       - `.NET MAUI App` Connectivity [documentation](https://learn.microsoft.com/en-us/dotnet/maui/platform-integration/communication/networking?view=net-maui-7.0&tabs=android).
 
-  - The `FirebaseAuthClient` (used in the `AuthService` class) provides different methods to assist in the login process, here are some of the useful methods:
+  - The `FirebaseAuthClient` (used in the `AuthService` class) provides different methods to assist in the login process:
 
-    - `FetchSignInMethodsForEmailAsync(user_name)` checks if the user exists.
     - `SignInWithEmailAndPasswordAsync(user_name.Text, password.Text)` attempt to login using the provided username and password.
-    - Check the sample code on GitHub.
+    - Check the sample code on [GitHub](https://github.com/step-up-labs/firebase-authentication-dotnet).
 
   - Once authenticated make sure to save the returned `UserCredential` in the `UseCreds` property in the `AuthService` class. We need to use the authentication later to access the database.
 
@@ -216,8 +218,8 @@ In this lab, we will examine `Firebase Authentication` and use it to authenticat
     - Display the exception message if an error occurred. 
 
     <div style="text-align:center;">
-        <img src="../images/labs_images/lab4/img01.png" alt="Snap shot" height="300" class="inline-img"/>
-        <img src="../images/labs_images/lab4/img02.png" alt="Snap shot" height="300" class="inline-img"/>
+        <img src="../images/labs_images/Lab4/img01.png" alt="Snap shot" height="300" class="inline-img"/>
+        <img src="../images/labs_images/Lab4/img02.png" alt="Snap shot" height="300" class="inline-img"/>
     </div>
 
 - Test app while adding debug points to ensure that the authentication is done successfully.
@@ -235,19 +237,19 @@ Currently the login page is a tab and will not prevent the user from accessing t
     <ShellContent Route="Login" ContentTemplate="{DataTemplate views:LoginPage}" />
 
     <!-- App Tabs: note the use of FlyoutDisplayOptions="AsMultipleItems"  -->
-    <TabBar Route="Home" FlyoutDisplayOptions="AsMultipleItems">
-        <ShellContent Title="Worksouts" ContentTemplate="{DataTemplate views:WorkoutsPage}" 
+    <TabBar Route="Index" FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent Title="Workouts" ContentTemplate="{DataTemplate views:WorkoutsPage}" 
                       Icon="gym.png"/>
         <!-- Add the other tab pages .... -->
         
         <!-- Add the login page to be used to display account info and to logout-->
         <ShellContent Title="Account" ContentTemplate="{DataTemplate views:LoginPage}"
-                      Icon="user.png"/>
+                      Icon="home.png"/>
     </TabBar>
 </Shell>
 ```
 
-- In the above setup, the `LoginPage.xaml` is used twice. We need to insure that only a single instance of it is created.
+- In the above setup, the `LoginPage.xaml` is used twice. We need to insure that only **a single instance** of it is created.
   - Go to `MauiProgram.cs` to register a singleton of the `LoginPage` and all the other pages since we only need a single instance of each. 
   - `.Net Maui` provides a built-in functionality to use `dependency injection` by either creating singleton or transient instance of a class. This functionality is similar to the one you used in `Asp .Net`. 
     - When object is created as a `Singleton`, the app will create a single instance of the object which will be remain for the lifetime of the application.
@@ -281,7 +283,7 @@ public static MauiApp CreateMauiApp()
   - The App route is `Home`, add a navigation call once successfully logged in the button event handler.
 
     ```csharp
-    await Shell.Current.GoToAsync($"//Home");
+    await Shell.Current.GoToAsync($"//Index");
     ```
 
 - App is ready for testing. 
@@ -292,9 +294,10 @@ public static MauiApp CreateMauiApp()
   - If the login was successful, you should get an alert and would be redirected to the app with tabs.
 
 <div style="text-align:center;">
-    <img src="../images/labs_images/lab4/img01.png" alt="Snap shot" height="300" class="inline-img"/>
-    <img src="../images/labs_images/lab4/img03.png" alt="Snap shot" height="300" class="inline-img"/>
+    <img src="../images/labs_images/Lab4/img01.png" alt="Snap shot" height="300" class="inline-img"/>
+    <img src="../images/labs_images/Lab4/img03.png" alt="Snap shot" height="300" class="inline-img"/>
 </div>
+
 
 
 
@@ -323,7 +326,7 @@ public static MauiApp CreateMauiApp()
       - Set the visibility of the out container to `true` to display it on the page.
         - Display the username and user ID (using `AuthService.UserCreds.User.Uid`)
 
-    <img src="../images/labs_images/lab4/\img04.png" alt="Snap shot" height="300"/>
+    <img src="../images/labs_images/Lab4/img04.png" alt="Snap shot" height="300"/>
 
   - In the logout button click event handler:
 

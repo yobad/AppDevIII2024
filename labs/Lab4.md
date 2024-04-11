@@ -326,20 +326,22 @@ public static MauiApp CreateMauiApp()
       - Set the visibility of the out container to `true` to display it on the page.
         - Display the username and user ID (using `AuthService.UserCreds.User.Uid`)
 
-<<<<<<< HEAD
-    <img src="../images/labs_images/Lab4/img04.png" alt="Snap shot" height="300"/>
+
+
+<div style="text-align:center;">
+   <img src="../images/labs_images/Lab4/img04.png" alt="Snap shot" height="300"/>
+</div>
+
+
+ In the logout button click event handler:
 =======
-    <img src="../images/labs_images/lab4/\img04.png" alt="Snap shot" height="300"/>
->>>>>>> 332306e16b57d6c7c1dfd6163c22f84af2dbce89
 
-  - In the logout button click event handler:
-
-    - Use the `Client` property to logout `AuthService.Client.SignOut()`
+  - - Use the `Client` property to logout `AuthService.Client.SignOut()`
     - Clear the username and password entry fields.
     - Swap the containers visibility to show the login container and hide the logout container.
     - Finally, navigate to the login page using the route `await Shell.Current.GoToAsync($"//Login");`
     - Use `try`-`catch` blocks to catch any possible exception.
-
+    
   - Test the login and logout functionality of the app.
 
     - Login using the created username and password.

@@ -9,7 +9,7 @@ categories: labs
 
 
 
-1. 📝 **Worth:** 3%  
+1. 📝 **Worth:** 5%  
 2. 📅 **Due:** Friday April 19, 2024 @End of class
 3. 🕑 **Late submissions:** 3 days maximum
 4. 📥 **Submission:** In class
@@ -199,8 +199,8 @@ Similarly to the `AuthService`, we will create a class that contains all the fun
     ```
 
 
-            
-    
+​            
+​    
     - Requires an authentication token to access the database, which can be acquired from `AuthService` after the user logs in.
     - Path: a location where to store the data object on the cloud. The easiest implementation is to pass the class name. 
       - Example: a `Workout` object will be saved under the path of the same name using `nameof(Workout)` 

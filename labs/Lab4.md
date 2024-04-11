@@ -299,7 +299,7 @@ public static MauiApp CreateMauiApp()
 </div>
 
 
-
+✨ **Test your understanding**: For the project, how can you customize the pages that appear to the user based on who they are?
 
 ## Logout Functionality
 

@@ -21,17 +21,37 @@
 ### Using MailKit 
 
 - Documentation: https://github.com/jstedfast/MailKit/tree/master
+
 - Subscribing to events in emails being changed: https://mimekit.net/docs/html/E_MailKit_MailFolder_CountChanged.htm
+
 - Creating a MailService
+
 - using imap client
+
 - Create a CientConfig (email, password, port number, mail server)
+
+  - Install MailKitSimplified 
+
+  - Use Models.EmailReciverOptions with appsettings.json
+
+  - Use MailReciever.MonitorFolder.SetIgnore...(...).SetMessageSummaryItems().OnMessageArrival()
+
+    
+
 - What's a mimemessage
+
 - Parse a mimemessage into an email object used in the MauiEmail app
+
 - Use Html body 
+
 - change the Text Entry in the read page to html
+
 - note that the Editor with forwarded emails will look ugly, but so long as the text is parse correctly.
+
 - adding the concept of folders in the EmailRepo
+
 - implement archive functionality
+
 - implement delete functionality
 
 ## MVVM

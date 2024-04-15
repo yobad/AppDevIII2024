@@ -14,7 +14,7 @@ permalink: /labs/
 
 ### [Lab 4 - Authentication (3%)](../labs/lab4)
 
-### [Lab 5 - Real time database (5%) ](../labs/lab5)
+### [Lab 5 - Real time database (3%) ](../labs/lab5)
 
 Coming soon:
 

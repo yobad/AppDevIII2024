@@ -86,7 +86,7 @@
     - ~~`APIKey` which is a string.~~
     - ~~`FireBase_DB_BaseUrl` which is a string.~~
     - ~~`IsEnabled` which is a boolean.~~
-- Conditional view based on user profile.
+- ~~Conditional view based on user profile.~~
 
 
 
@@ -100,6 +100,7 @@
   - Hot reload 
   - Create Android Emulator
   - How to debug on Windows and on Android Emulator
+  
 - Lab 1 - Layouts (2%)
   - Utilizing the VerticalStackLayout and HorizontalStackLayout:
     - Understand how these layouts look like on mobile vs desktop
@@ -113,6 +114,7 @@
     - Understanding how to position, size items with absolute/proportional variables
   - Utilizing Flexible Layout:
     - How this fixes the Mobile/Desktop problem
+  
 - DemoDataBinding:
 
   - Create a simple page with text and slider, rotate the text with the slider
@@ -125,6 +127,7 @@
   - DataTemplate
   - What happens if the number of comments changed?
   - ObservableCollection
+  
 - Lab 2 - Data Binding and CollectionView  (2%)
 
   - Slider to binding to label text
@@ -134,22 +137,36 @@
   - *Create an object to hold these items*
   - *Create a list of these objects*
   - Use Observable collection
+  
 - Assignment 1: 
 
   - Email inbox (Use of collectionView and email content, Reply, Send message View, create model email(title,body,recipient))
   - Online shopping app UI and model (no database connexion)
   - Choose a messaging app of your choice and create the View and the Model 
+  
 - Lab 3 - Saving data
+
 - Start of the project
+
 - Lab 4 - Authentication
+
 - Lab 5 - Real time database
+
 - Lab 6 - Data visualization
+
 - Project MS 3
+
 - Assignment 2: Advanced topics
-  - Use Mail kit imap client and smtp client to send and recieve emails
+  - Simple receiving emails App 
+  - Sends notifications
+  - Notifications
+  - Sending email
+  - Use Mail kit imap client and smtp client to send and receive emails
   - Use MailKit Idle client to fetch data from mail server automatically
+  - Bonus 1% 
   - How to organize a complex app:
+    - Content Views
     - MVVM?
-    - Services and Repos
     - Unit tests?
-- 
+  
+  

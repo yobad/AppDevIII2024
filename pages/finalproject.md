@@ -22,7 +22,7 @@ permalink: /project/
 
 - #### Milestone 2 - Connected Objects Apr 12 - 19
 
-- #### Milestone 3 - App Dev III (10%) April 19 - 26
+- #### [Milestone 3 - App Dev III (10%) April 19 - 26](./milestone3)
 
 - #### Milestone 4 - Connected Objects April 26- May 3
 
@@ -30,6 +30,6 @@ permalink: /project/
 
 - #### Milestone 6 - Connected Objects May 10 - 15
 
-- #### Milestone 7 - Combined  May 15 - 21
+- #### Milestone 7 - Combined  (25%) May 15 - 21
 
   

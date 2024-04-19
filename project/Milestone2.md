@@ -7,7 +7,7 @@ permalink: /project/milestone3
 
 📝**Worth**: 10%
 
-📅 **Due:** From Friday, April 19 to Friday, Apr 26th @11:59 pm
+📅 **Due:** From Monday, April 22 to Monday, Apr 29th @11:59 pm
 
 📥 **Submission:** Code pushed on Repo + UML class diagram + Short presentation video
 

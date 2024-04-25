@@ -16,7 +16,5 @@ permalink: /labs/
 
 ### [Lab 5 - Real time database (3%) ](../labs/lab5)
 
-Coming soon:
-
-### Lab 6 - Data visualization (1%) 
+### [Lab 6 - Data visualization (2%)](../labs/lab6)
 

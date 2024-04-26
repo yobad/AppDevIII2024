@@ -66,7 +66,7 @@ Examples:
 
 4. Make sure to check `Include Prerelease`
 
-5. Search for `LiveChartCore.SkiaView.Maui`
+5. Search for `LiveChartsCore.SkiaSharpView.Maui`
 
 6. Install version `2.0.0-beta.701`
 

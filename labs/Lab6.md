@@ -196,7 +196,7 @@ Examples:
 
 6. Subscribe to the `CollectionChanged` event of the `WorkoutDb.Items` and raise the `PropertyChanged` event on the `CaloriesBurnt` property :
 
-7. In the `MeasurePage.xaml` ensure to set the `BindingContext` of the page to the `App.Repo` which is now an observable object. 
+7. In the `MeasurePage.xaml.cs` ensure to set the `BindingContext` of the page to the `App.Repo` which is now an observable object. 
 
 8. Use data binding to set the calories IN and calories OUT Labels.
 

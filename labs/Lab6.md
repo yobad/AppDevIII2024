@@ -66,12 +66,12 @@ Examples:
 
 4. Make sure to check `Include Prerelease`
 
-5. Search for `LiveChartCore.SkiaView.Maui`
+5. Search for `LiveChartsCore.SkiaSharpView.Maui`
 
-6. Install version `2.0.0-beta.701`
+6. Install version `2.0.0-beta.rc2 (Latest)`
 
    - This is a free package and tested to be working with `MUI` and `.NET 7.0`
-   - Has a clear [documentation](https://lvcharts.com/docs/maui/2.0.0-beta.700/gallery) with code examples in `C#` and `xaml`.
+   - Has a clear [documentation](https://livecharts.dev/docs/maui/2.0.0-rc2/gallery) with code examples in `C#` and `xaml`.
    - Make sure to consult the LiveCharts2 documentation to avoid confusion.
    - Main issues: 
      - there is no direct link between a collection of objects and chart data. This package uses custom classes called Series to populate the charts with data. You'll have to convert the data you want displayed into those special objects.

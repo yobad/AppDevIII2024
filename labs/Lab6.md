@@ -68,7 +68,7 @@ Examples:
 
 5. Search for `LiveChartsCore.SkiaSharpView.Maui`
 
-6. Install version `2.0.0-beta.rc2 (Latest)`
+6. **Correction 04-26-2024**: Install version `2.0.0-beta.rc2 (Latest)`
 
    - This is a free package and tested to be working with `MUI` and `.NET 7.0`
    - Has a clear [documentation](https://livecharts.dev/docs/maui/2.0.0-rc2/gallery) with code examples in `C#` and `xaml`.
@@ -315,6 +315,8 @@ RectangularSection[] sections =
 
 16. Modify the `MeasurePage.xaml` to bind all the attributes of the chart:
 
+    **Correction 04-26-2024: If you cannot see the chart, this could be related to the height of the chart being automatically set to 0. Make sure to set the `HeightRequest`** 
+
 ```xml
 <charts:CartesianChart x:Name="Chart1" 
                        Series="{Binding Series}" 
@@ -322,6 +324,7 @@ RectangularSection[] sections =
                        YAxes="{Binding YAxes}"
                        Title="{Binding Title}" 
                        Sections="{Binding Sections}"
+                       HeightRequest="280"
                        ZoomMode="ZoomX"/>
 ```
 

@@ -6,7 +6,7 @@ permalink: /project/
 
 1. 📝**Worth**: 
 
-   - **50% (Application Development III)**
+   - **55% (Application Development III)**
 
 2. 📅 **Due:** 7 milestones due dates across the months of April and May
 

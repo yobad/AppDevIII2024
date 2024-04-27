@@ -117,31 +117,33 @@ You are expected to use good coding practices:
 ### Video Submission
 #### Using MS Teams
 - Open your private team's channel
-- In the Posts tab, look for Meet  Meet now button (camera button) in the top-right corner.
+
+- In the Posts tab, look for Meet  Meet now button (camera button) in the top-right corner:
+
+  <img src="..\images\project_images\Milestone2.1.png" alt="Screen shot" height="100" class="inline-img"/>
+
 - Select Meet now
+
 - Give the meeting a title "Milestone 3 submission"
+
 - When your ready start the meeting
+
 - Select the More actions icon
+
 - Click "Record and transcribe"
+
 - Start recording
+
+  <img src="..\images\project_images\Milestone2.2.png" alt="Screen shot" height="200" class="inline-img"/>
+
 - Share your screen
+
 - Once you are done, simply exit the meeting.
+
 - The video should appear in the comment section of the meeting.
   
-#### (Alternative) Using Steam
-Do not perform these steps if you have already validated that the video was added to your team's channel.
-  
-- Add a copy of the video to the GitHub repo for documentation.
 
-- Upload to www.microsoftstream.com using your college credentials.
-
-- Add a tab to your ***team private*** channel with the link from stream.
-
-  <img src="..\images\project_images\Milestone2.1.png" alt="Screen shot" height="50" class="inline-img"/><br>
-
-  <img src="..\images\project_images\Milestone2.2.png" alt="Screen shot" height="200" class="inline-img"/><br>
-
-  <img src="..\images\project_images\Milestone2.3.png" alt="Screen shot" height="200" class="inline-img"/>
+<img src="..\images\project_images\Milestone2.4.png" alt="Screen shot" height="300" class="inline-img"/>
 
 
 ## Grading Rubric (/10 points )

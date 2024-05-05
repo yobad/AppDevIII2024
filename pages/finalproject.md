@@ -14,16 +14,16 @@ permalink: /project/
 
 **Teachers:** Michael Haaf & Youmna Badawy
 
-## Milestones - tentative dates
+## Milestones
 
 - #### [Milestone 1 - Combined (5%)](./milestone1)
 
-- #### [Milestone 3 - App Dev III (10%) ](./milestone3)
+- #### [Milestone 3 - App Dev III (10%)](./milestone3)
+
+- #### [Milestone 5 - App Dev III (15%)](./milestone5)
 
   Coming soon...
 
-- #### Milestone 5 - App Dev III (15%) 
-
-- #### Milestone 7 - Combined  (25%)
+- #### Final Milestone - Combined  (25%)
 
   

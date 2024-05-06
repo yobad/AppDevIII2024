@@ -210,15 +210,17 @@ This Assignment, will be completed in class as the last lab of the course. We wi
 
    
 
-8. To test the method, go to the `WritePage.xaml.cs` and modify the event handler to include this line:
+8. Create a static instance of the `MailService` in the `App.xaml.cs` (similar to the `EmailsRepo`).
+
+9. To test the method, go to the `WritePage.xaml.cs` and modify the send button event handler to include this line:
 
    ```csharp
    await App.MailService.SendMessageAsync(EditEmail);
    ```
 
-9. Test the operation of sending an email by sending an email to another inbox. 
+10. Test the operation of sending an email by sending an email to another inbox. 
 
-10. **Updated instructions: You may run into authentication issues at this point**:
+11. **Updated instructions: You may run into authentication issues at this point**:
 
     - Make sure this line is added before you attempt the connection, this will bypass the certificate verification step:
 
@@ -234,7 +236,7 @@ This Assignment, will be completed in class as the last lab of the course. We wi
 
       
 
-11. Create the following method which connects the imap client, and downloads all the emails in the `Inbox`. Use [this](https://github.com/jstedfast/MailKit?tab=readme-ov-file#using-imap) example as reference. Call this method synchronously in the `EmailsRepo` as you are setting the `Emails`. 
+12. Create the following method which connects the imap client, and downloads all the emails in the `Inbox`. Use [this](https://github.com/jstedfast/MailKit?tab=readme-ov-file#using-imap) example as reference. Call this method synchronously in the `EmailsRepo` as you are setting the `Emails`. 
 
     ```csharp
     /// <summary>
@@ -246,9 +248,9 @@ This Assignment, will be completed in class as the last lab of the course. We wi
 
     > Hint: Use `Task.Run(()=>SomeAsyncMethod()).Wait()`
 
-12. Test it out by sending a few emails to your newly created app. 
+13. Test it out by sending a few emails to your newly created app. 
 
-13. Show me your progress for today.
+14. Show me your progress for today.
 
     
 

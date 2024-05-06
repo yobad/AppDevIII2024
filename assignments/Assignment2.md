@@ -30,7 +30,7 @@ This Assignment, will be completed in class as the last lab of the course. We wi
   - [Section 1](https://classroom.github.com/a/e6mNPcOo)
   - [Section 2](https://classroom.github.com/a/GKqMcALy)
 
-- For this assignment you may re-use your Assignment 1 code or use the starer code found **here** (will be added soon).
+- For this assignment you may re-use your Assignment 1 code or use the starer code found [here](https://github.com/AppDevIII-W24-Code/Labs-solutions/tree/main/MauiEmail).
 - Create a dummy email address on outlook:
   - Go to [Microsoft Outlook website](https://www.microsoft.com/en-us/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook?rtc=1)
   - Click Create free account

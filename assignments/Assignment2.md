@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Assignment 1 - Email App Notifications"
+title: "Assignment 2 - Email App Notifications"
 permalink: /assignments/assignment2
 categories: assignments
 ---
@@ -13,7 +13,7 @@ categories: assignments
 
 
 
-This Assignment, will be completed in class as the last lab of the course. We will complete some of the functionality of the MauiEmail app. 
+This Assignment, will be completed in class as the last lab of the course. We will complete some of the functionality of the **MauiEmail** app. 
 
 ### Objectives:
 
@@ -26,7 +26,11 @@ This Assignment, will be completed in class as the last lab of the course. We wi
 
 ## Setup
 
-- For this assignment you may re-use your Assignment 1 code or use the starer code found **here**.
+- Accept the assignment and clone the repo:
+  - [Section 1](https://classroom.github.com/a/e6mNPcOo)
+  - [Section 2](https://classroom.github.com/a/GKqMcALy)
+
+- For this assignment you may re-use your Assignment 1 code or use the starer code found **here** (will be added soon).
 - Create a dummy email address on outlook:
   - Go to [Microsoft Outlook website](https://www.microsoft.com/en-us/microsoft-365/outlook/email-and-calendar-software-microsoft-outlook?rtc=1)
   - Click Create free account
@@ -69,7 +73,7 @@ This Assignment, will be completed in class as the last lab of the course. We wi
 
 **Modification of the Email model**
 
-6. Since the mail kit uses `MimeMessage` we need a way to convert them into our `Email` model.
+6. Since the mail kit uses [MimeMessage](https://mimekit.net/docs/html/T_MimeKit_MimeMessage.htm) we need a way to convert them into our `Email` model.
 
 7. Add a string property `Id` to the `Email` model:
 
@@ -79,7 +83,7 @@ This Assignment, will be completed in class as the last lab of the course. We wi
 
    
 
-8. In your `Email` model add another constructor which takes a `MimeMessage` and a `MailKit.UniqueId` as parameter:
+8. In your `Email` model add another constructor which takes a   `MimeMessage`  and a `MailKit.UniqueId` as parameter:
 
    ```csharp
    using MimeKit;// Add the following using
@@ -212,9 +216,21 @@ This Assignment, will be completed in class as the last lab of the course. We wi
 
 9. Create the following method which connects the imap client, and downloads all the emails in the `Inbox`. Use [this](https://github.com/jstedfast/MailKit?tab=readme-ov-file#using-imap) example as reference. To make it easier for you, make this method synchronous and call it in the `EmailsRepo`. 
 
+   ```csharp
+   /// <summary>
+   /// Connects the Imap client and downloads all the _emails in the inbox.
+   /// </summary>
+   /// <returns>List of downloaded _emails</returns>
+   public async Task<List<Email>> GetEmailsAsync()
+   ```
+
+   
+
 10. Test it out by sending a few emails to your newly created app. 
 
 11. Show me your progress for today.
+
+    
 
     
 

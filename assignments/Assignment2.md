@@ -6,7 +6,7 @@ categories: assignments
 ---
 
 * **Worth**: 5%
-* 📅 **Due**: May 15, @11:59PM.
+* 📅 **Due**: May 16, in class.
 * 🕑 **Late Submissions**: Deductions for late submissions is 10%/day. 
   *To a maximum of 3 days. A a grade of 0% will be given after 3 days.*
 * 📥**Submission**: Submit through GitHub classroom.
@@ -153,7 +153,9 @@ This Assignment, will be completed in class as the last lab of the course. We wi
    - `ImapClient imapClient` : This is a private instance of the `ImapClient` which uses the imap protocol to retrieve emails
    - `SmptClient smtpClient`: This is a private instance of the `SmptClient` which uses the imap protocol to retrieve emails
 
-4. Create the following method which will connect and authenticate the Imap client: read [this](https://github.com/jstedfast/MailKit/tree/master?tab=readme-ov-file#using-imap) example to see how the client is authenticated synchronously. 
+4. Create an instance of each client (either in the constructor or directly in the class).
+
+5. Create the following method which will connect and authenticate the Imap client: read [this](https://github.com/jstedfast/MailKit/tree/master?tab=readme-ov-file#using-imap) example to see how the client is authenticated synchronously. 
 
    
 
@@ -174,7 +176,7 @@ This Assignment, will be completed in class as the last lab of the course. We wi
    > - Call the `ServerCertificateValidationCallback = (...)` method before the connection to ensure that the server certificate validation is not checked, otherwise this might fail.
    > - There are async equivalents for each method `ConnectAsync()`, `AuthenticateAsync()`
 
-5. Create the following method which will connect and authenticate the Smpt client: read [this](https://github.com/jstedfast/MailKit/tree/master?tab=readme-ov-file#sending-messages) example from MailKit. 
+6. Create the following method which will connect and authenticate the Smpt client: read [this](https://github.com/jstedfast/MailKit/tree/master?tab=readme-ov-file#sending-messages) example from MailKit. 
 
    ```csharp
    /// <summary>
@@ -184,11 +186,13 @@ This Assignment, will be completed in class as the last lab of the course. We wi
    public async Task StartSmtpAsync()
    {
    	// To be completed...
-   
+   	smtp.ServerCertificateValidationCallback = (s, c, h, e) => true;
    }
    ```
 
-6. Create the following method, and a `try-catch` to catch any exception. return true 
+7. Create the following method, and a `try-catch` to catch any exception. Return `true` if successful and `false` if not. 
+
+   > Note: To send an email, only the `Smtp` protocol is used.
 
    ```csharp
    /// <summary>
@@ -206,29 +210,45 @@ This Assignment, will be completed in class as the last lab of the course. We wi
 
    
 
-7. To test the method, go to the `WritePage.xaml.cs` and modify the event handler to include this line:
+8. To test the method, go to the `WritePage.xaml.cs` and modify the event handler to include this line:
 
    ```csharp
    await App.MailService.SendMessageAsync(EditEmail);
    ```
 
-8. Test the operation of sending an email by sending an email to another inbox. 
+9. Test the operation of sending an email by sending an email to another inbox. 
 
-9. Create the following method which connects the imap client, and downloads all the emails in the `Inbox`. Use [this](https://github.com/jstedfast/MailKit?tab=readme-ov-file#using-imap) example as reference. To make it easier for you, make this method synchronous and call it in the `EmailsRepo`. 
+10. **Updated instructions: You may run into authentication issues at this point**:
 
-   ```csharp
-   /// <summary>
-   /// Connects the Imap client and downloads all the _emails in the inbox.
-   /// </summary>
-   /// <returns>List of downloaded _emails</returns>
-   public async Task<List<Email>> GetEmailsAsync()
-   ```
+    - Make sure this line is added before you attempt the connection, this will bypass the certificate verification step:
 
-   
+      ```
+      smtp.ServerCertificateValidationCallback = (s, c, h, e) => true;
+      ```
 
-10. Test it out by sending a few emails to your newly created app. 
+    - Account is blocked on the first connection. You need to unblock it via the browser by logging into the Outlook account created earlier and following the steps to unlock it. For this you'll need your phone number or a recovery email address. 
 
-11. Show me your progress for today.
+    - Ensure that the `EditEmail` has the same `SenderAddress` as the email account you created earlier. 
+
+    - Some students ran into issues if the email was not all in lower case letters or if the `SenderAddress` has a name that does not correspond exactly to the one in Outlook.
+
+      
+
+11. Create the following method which connects the imap client, and downloads all the emails in the `Inbox`. Use [this](https://github.com/jstedfast/MailKit?tab=readme-ov-file#using-imap) example as reference. Call this method synchronously in the `EmailsRepo` as you are setting the `Emails`. 
+
+    ```csharp
+    /// <summary>
+    /// Connects the Imap client and downloads all the _emails in the inbox.
+    /// </summary>
+    /// <returns>List of downloaded _emails</returns>
+    public async Task<List<Email>> GetEmailsAsync()
+    ```
+
+    > Hint: Use `Task.Run(()=>SomeAsyncMethod()).Wait()`
+
+12. Test it out by sending a few emails to your newly created app. 
+
+13. Show me your progress for today.
 
     
 
@@ -236,4 +256,4 @@ This Assignment, will be completed in class as the last lab of the course. We wi
 
 ### Push Notifications
 
-Coming in next...
+This step is were you'll learn about push

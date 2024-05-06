@@ -1,7 +1,12 @@
-# Assignment 2: Email App Notifications
+---
+layout: post
+title: "Assignment 1 - Email App Notifications"
+permalink: /assignments/assignment2
+categories: assignments
+---
 
 * **Worth**: 5%
-* 📅 **Due**: May 13, 2024 End of class.
+* 📅 **Due**: May 15, @11:59PM.
 * 🕑 **Late Submissions**: Deductions for late submissions is 10%/day. 
   *To a maximum of 3 days. A a grade of 0% will be given after 3 days.*
 * 📥**Submission**: Submit through GitHub classroom.

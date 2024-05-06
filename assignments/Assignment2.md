@@ -66,10 +66,10 @@ This Assignment, will be completed in class as the last lab of the course. We wi
    - `Password`: the password you just created
    - `ImapHost`: **outlook.office365.com**
    - `ImapPort`: **993**
-   - `ImapSocket`: `SecureSocketOptions.SslOnConnect`
+   - `ImapSocket`: `SecureSocketOptions.SslOnConnect` (part of `MailKit.Security`)
    - `SmtpHost`: **smtp-mail.outlook.com**
    - `SmptPort`: **587**
-   - `SmptSocket`: ` SecureSocketOptions.StartTls`
+   - `SmptSocket`: `SecureSocketOptions.StartTls` (part of `MailKit.Security`)
 
 **Modification of the Email model**
 

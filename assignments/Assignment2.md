@@ -68,8 +68,8 @@ This Assignment, will be completed in class as the last lab of the course. We wi
    - `ImapPort`: **993**
    - `ImapSocket`: `SecureSocketOptions.SslOnConnect` (part of `MailKit.Security`)
    - `SmtpHost`: **smtp-mail.outlook.com**
-   - `SmptPort`: **587**
-   - `SmptSocket`: `SecureSocketOptions.StartTls` (part of `MailKit.Security`)
+   - `SmtpPort`: **587**
+   - `SmtpSocket`: `SecureSocketOptions.StartTls` (part of `MailKit.Security`)
 
 **Modification of the Email model**
 
@@ -151,7 +151,7 @@ This Assignment, will be completed in class as the last lab of the course. We wi
 3. Which contain the following private fields:
 
    - `ImapClient imapClient` : This is a private instance of the `ImapClient` which uses the imap protocol to retrieve emails
-   - `SmptClient smtpClient`: This is a private instance of the `SmptClient` which uses the imap protocol to retrieve emails
+   - `SmtpClient smtpClient`: This is a private instance of the `SmtpClient` which uses the imap protocol to retrieve emails
 
 4. Create an instance of each client (either in the constructor or directly in the class).
 
@@ -176,7 +176,7 @@ This Assignment, will be completed in class as the last lab of the course. We wi
    > - Call the `ServerCertificateValidationCallback = (...)` method before the connection to ensure that the server certificate validation is not checked, otherwise this might fail.
    > - There are async equivalents for each method `ConnectAsync()`, `AuthenticateAsync()`
 
-6. Create the following method which will connect and authenticate the Smpt client: read [this](https://github.com/jstedfast/MailKit/tree/master?tab=readme-ov-file#sending-messages) example from MailKit. 
+6. Create the following method which will connect and authenticate the Smtp client: read [this](https://github.com/jstedfast/MailKit/tree/master?tab=readme-ov-file#sending-messages) example from MailKit. 
 
    ```csharp
    /// <summary>

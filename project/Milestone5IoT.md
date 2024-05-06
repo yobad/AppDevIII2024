@@ -7,13 +7,13 @@ permalink: /project/milestone5
 
 📝**Worth**: 15%
 
-📅 **Due:** May 13-14 Demos. Location: TBD
+📅 **Due:** May 14
 
-📥 **Submission:** Code pushed on Repo + Short demo in class:
+📥 **Submission:** Code pushed on Repo + Short demo on Teams (or at my office P-235):
 
-###### Book your demo time here:
+###### [Book time Demo IoT Hub connection ](https://outlook.office365.com/bookwithme/user/be6f45e6ebc4491f8e1ec3d7917a39a0@johnabbott.qc.ca/meetingtype/QBBKtDHJ1kiKrye9KzmjpQ2?anonymous&ep=mcard)    
 
-Booking links to be added...
+
 
 ### Introduction
 
@@ -106,7 +106,7 @@ Refer to Milestone 3 for the details of [Code Quality](https://yobad.github.io/A
 
 ## Deliverables
 
-- Schedule a meeting with me to demonstrate your progress. The booking link was provided [here](https://yobad.github.io/AppDevIII2024/project/milestone5#book-your-demo-time-here).
+- Schedule a meeting with me to demonstrate your progress. The booking link was provided [here](https://yobad.github.io/AppDevIII2024/project/milestone5#book-time-demo-iot-hub-connection).
 
 - **All team members must attend the meeting.**
 

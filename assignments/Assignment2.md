@@ -48,27 +48,37 @@ This Assignment, will be completed in class as the last lab of the course. We wi
 
 [MailKit](https://github.com/jstedfast/MailKit) developed by [Jeffrey Stedfast](https://github.com/jstedfast) and is a cross-platform mail client library which uses [MimeKit](https://github.com/jstedfast/MimeKit). It offers authentication functionality as well as emailing functionality using POP3 protocol, Imap and Smtp. It is relatively easy to use for emailing. 
 
-1. Install the Nuget Package: `MailKit` **version:** 4.3.0
+1. In visual studio, right-click your project
 
-2. Create a folder called `Config` 
+2. Click **Manage Nuget Packages**
 
-3. Add a static class called `MailConfig` 
+3. **Browse** NuGet Packages
 
-4. Add the following using:
+4. **Browse** NuGet Packages
+
+5. Search for: ***MailKit*** 
+
+6. Install version: **4.3.0**
+
+7. Create a folder called `Config` 
+
+8. Add a static class called `MailConfig` 
+
+9. Add the following using:
 
    ```csharp
    using MailKit.Security;
    ```
 
-5. Add the following public properties and set their values which are based on [Outlook's settings](https://support.microsoft.com/en-us/office/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040):
+10. Add the following public properties and set their values which are based on [Outlook's settings](https://support.microsoft.com/en-us/office/pop-imap-and-smtp-settings-for-outlook-com-d088b986-291d-42b8-9564-9c414e2aa040):
 
-   - `Email`: the email address you just created
-   - `Password`: the password you just created
-   - `ImapHost`: **outlook.office365.com**
-   - `ImapPort`: **993**
+   - `Email`: the email address you just created (`string`)
+   - `Password`: the password you just created  (`string`)
+   - `ImapHost`: **"outlook.office365.com"  (`string`)**
+   - `ImapPort`: **993** (`int`)
    - `ImapSocket`: `SecureSocketOptions.SslOnConnect` (part of `MailKit.Security`)
-   - `SmtpHost`: **smtp-mail.outlook.com**
-   - `SmtpPort`: **587**
+   - `SmtpHost`: **"smtp-mail.outlook.com" (`string`)**
+   - `SmtpPort`: **587 **(`int`)
    - `SmtpSocket`: `SecureSocketOptions.StartTls` (part of `MailKit.Security`)
 
 **Modification of the Email model**
@@ -279,8 +289,9 @@ This Assignment, will be completed in class as the last lab of the course. We wi
 
 ### Push Notifications
 
-- Notifications may triggers by a server or may be triggered by a local event.
-- In this app, we will send a push notification when a local event is raised by the `ImapClient` indicating that the count of emails changed.
+- Notifications may be triggered by a server or by a local event.
+- In this app, we will send a push notification when a a local event is raised by the `MailService` indicating that the count of emails changed.
+- This event will in reality be caused by a server event. 
 
 ### Setup - Local Push Notification 
 
@@ -311,7 +322,7 @@ This package is only supported on Android and Windows
 
 
 
-#### How to send local notification
+#### How to send local notifications
 
 1. This package is functional for Android and iOS, but not for Windows.
 
@@ -341,9 +352,9 @@ This package is only supported on Android and Windows
    
    ```
 
-   > **Important note:** This must be done on the main thread of the application. We didn't discuss multi-threading, but it's possible if you are hooked to a server triggered event, that the client will be running a background process to handle this. In other words, add those lines outside the event handler where the notification is sent. 
+   > **Important note:** This must be done on the main thread of the application. We didn't discuss multi-threading, but it's possible if you are hooked to a server event, that the client will be running a background process to handle this. In other words, add those lines outside the event handler where the notification is sent: create a helper function and call it in the constructor of the `Inbox.xaml.cs`. 
 
-4. In the event handler of the local event, the following notification request can be created and sent through the `LocalNotificationCenter`
+4. In the event handler of the local event, the following notification request can be created and sent through the `LocalNotificationCenter` (Test it with any button in the app)
 
    ```csharp
    var notification = new NotificationRequest

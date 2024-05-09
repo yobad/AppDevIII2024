@@ -553,17 +553,19 @@ MailKit has published an [example](https://github.com/jstedfast/MailKit/blob/mas
 
 You are a few steps away from the end!
 
-1. Inside the constructor of the `Inbox.xaml.cs`, call the `App.MailService.MonitorInbox();` **without awaiting it.**
+1. Create a private event handler in the `Inbox.xaml.cs`  called `OnNewMessageRecieved`
 
-2. Create a new async event handler for the `App.MailService.NewMessagesArrived`
+2. This handler should send a notification with the `Title` : "New Email" and `Description`: "You received 1 new message". Don't set any delays. 
 
-3. Send a notification without delay. 
+3. In the constructor of the `InboxView`, subscribe to the `App.MailService.NewMessageRecieved` event.
 
-4. To test the app, go to the home page of the emulator (keep the app running in the background)
+4. Add one last line int he constructor:`App.MailService.MonitorInbox();` **without awaiting it.**
 
-5. Send yourself a few emails and wait for a few seconds
+5. To test the app, go to the home page of the emulator (keep the app running in the background)
 
-6. You should see notifications appearing in the status bar:
+6. Send yourself a few emails and wait for a few seconds
+
+7. You should see notifications appearing in the status bar:
 
    <img src="../images/assignments_images/asignment2_imgs/notif_3.png" Height=400 class="inline-img"/>
 

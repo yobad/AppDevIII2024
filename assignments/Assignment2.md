@@ -364,32 +364,34 @@ This package is only supported on Android and Windows
 
 4. Once the notification is sent, a small dot will appear in the status bar and on the app itself: 
 
-   <img src="../images/assignments_images/asignment2_imgs/notif_1.png" Height=300 class="inline-img"/><img src="../images/assignments_images/asignment2_imgs/notif_2.png" Height=300 class="inline-img"/>
+   <img src="../images/assignments_images/asignment2_imgs/notif_1.png" Height=400 class="inline-img"/><img src="../images/assignments_images/asignment2_imgs/notif_2.png" Height=400 class="inline-img"/>
 
 
 
 ## New Message Received event
 
-For now we've simply converted all the mime messages from the inbox and parsed them into our custom `Email` model which is an observable and therefore is more suitable for the UI, data and binding.
+The remaining part of this assignment, will focus on receiving an event from the mail server and sending a new notifications every time a new email is received. 
 
-In you security course, you learnt about the various emailing protocols. Here are a few things to keep in mind when using `Imap`
+In you security course, you have learnt about the various emailing protocols such as pop3 and imap. Here are a few things to keep in mind when using `Imap`
 
-- Unlike `Pop3` , this protocol is not storing the emails on the device, rather only accessing them and downloading them on demand.
+- Unlike `Pop3` , `Imap` is not storing the emails on the device, rather only accessing them and downloading them on demand.
 - When deleting, archiving, or marking as seen, there should be a real time update between the server and the client app.
-- One major advantage of `Imap` over `Pop3` is the Idle feature, which allows the client to indicate to the server that it is ready to accept real-time notifications.
-- Let's try to set the `imapClient` created earlier into `Idle` mode and wait for incoming messages. Once a message is received, the `MailService` should fire an event which we will use to send the push notification. 
+- Hence why `Imap` offers the `Idle` feature, which allows the client to indicate to the server that it is ready to accept real-time notifications.
+- The client will simply remain inactive while waiting for events from the server. 
+- Let's try to set the `imapClient` created earlier into `Idle` mode and wait for incoming messages. Once a message is received, the `MailService` should fire a local event more suitable for the purpose of our app: send a push notification. 
 
 
 
 ### Implementing "`Idle`" mode
 
-MailKit has published an [example](https://github.com/jstedfast/MailKit/blob/master/Documentation/Examples/ImapIdleExample.cs) on how to listen to incoming emails. Those  251 lines of code are complex, so we will simplify them for our own needs:
+MailKit has published an [example](https://github.com/jstedfast/MailKit/blob/master/Documentation/Examples/ImapIdleExample.cs) on how to listen to incoming emails. Those  251 lines of code are complex, let's slowly analyze them and re-use the parts that we truly need:
 
 1. Add the following properties to the `MailService`:
 
    ```csharp
-   //Needed for Idle
+   //Needed for monitoring
    bool messagesRecieved = false;
+   int CurrentMessageCount;
    CancellationTokenSource cancel = new CancellationTokenSource();
    CancellationTokenSource done;
    ```
@@ -404,7 +406,7 @@ MailKit has published an [example](https://github.com/jstedfast/MailKit/blob/mas
 
    
 
-3. Create a private async method called `WaitForNewMessages()` (which comes directly from the example above)
+3. Create a private async method called `WaitForNewMessages()` (which comes directly from the example above). This methods sets the `ImapClient` in `idle` mode and if the connection drops, simply restarts it  again. Note that the `done` and `Cancel` tokens can interrupt this process. 
 
    ```csharp
    /// <summary>
@@ -459,63 +461,68 @@ MailKit has published an [example](https://github.com/jstedfast/MailKit/blob/mas
 
    
 
-4. When in idle mode the `imapClient.Inbox.CountChanged` event will be raised by the server. We need to handle it internally:
+   When in idle mode the `imapClient.Inbox.CountChanged` event will be raised by the server everytime a message is received, deleted or flagged. 
 
+   It might be tempting to raise the `NewNewMessagesArrived` as soon as `CountChanged` is triggered but this will not work if you decide later to download the new emails. This is due to the Imap client being busy in idle mode. This is caused by two separate threads trying to access the same resource. In addition, we need to be sure that the count of emails increased before saying that we've received an email.
+
+   
+
+4. Add this `private` event handler:
+
+   - This event handler will cancel the done command because, based on the documentation:
+
+      *While the IDLE command is running, no other commands may be issued until the doneToken is cancelled.*
+
+      
+
+   ```csharp
+   void OnCountChanged(object sender, EventArgs e)
+   {
+       var inbox = (ImapFolder)sender;
+   
+       if (inbox.Count > Messages.Count) //makes sure that a message was received
+       {
+           messagesRecieved = true;
+           done?.Cancel(); //this is a very important step to interrupt the idle for a few seconds and fetched the incoming messages. 
+   
+       }
+   
+   }
    ```
-           void OnCountChanged(object sender, EventArgs e)
-           {
-               var inbox = (ImapFolder)sender;
-               
-               if (inbox.Count > Messages.Count)
-               {
-                   messagesRecieved = true;
-                   done?.Cancel();
-   
-               }
-   
-           }
-   ```
 
-   
-
-5. Finally, let's create a public `async` method which will be called by the classes using the `MailService` and will:
-
-   -  Start the Imap server if it's not already started (you can add an `if` statements in the `StartImapAsync()` )
-   - Subscribe to the `ImapClient.Inbox.CountChanged` event 
-   - Fire the `NewMessagesArrived` event
-   - Await the `WaitForNewMessagesAsync()`
-   - Finally disconnect the `ImapClient`
+5. Let's create a public `async` method which will be called by the classes using the `MailService` to Monitor the inbox:
 
    ```csharp
    /// <summary>
-   /// This method observes the inbox and ensures that any incoming message is handled
+   /// This method observes the inbox and ensures that any new message
    /// </summary>
    /// <returns></returns>
    public async Task MonitorInbox()
    {
-   
-       // TODO: start the IMAP server 
        
-   
-       // Triggers an internal event handler
-       // Based on the documentation of the ImapClient
-       // It might be at first more intuitive to notify that a new message was
-       // recieved. This said, the imapClient at this stage is still in idle
-       // mode, we need to pause the idle mode, to fetch the new message summary 
-       // and be able to display it. 
-       var inbox = imapClient.Inbox;
-       await inbox.OpenAsync(FolderAccess.ReadOnly);
+       // TODO: Start the IMAP client
+       
+       // TODO: Open the Inbox in ReadOnly
+       var inbox = ...
+   	
+      
+       CurrentMessageCount = inbox.Count; //Gets the current count, before idle
+       
+       
        inbox.CountChanged += OnCountChanged;
    
+       
        do
        {
            try
            {
-               await WaitForNewMessagesAsync();
+               
+               await WaitForNewMessagesAsync(); // this will start the idle mode
    
-               if (messagesRecieved)
+               if (messagesRecieved) //we only get here if the idle was canceled
                {
-                   // Raise the event NewMessageRecieved 
+                   //(Optional) TODO: Fetch the most recent message and send it.
+                   //TODO: raise the New Message recieved event here
                    messagesRecieved = false;
                }
            }
@@ -524,12 +531,11 @@ MailKit has published an [example](https://github.com/jstedfast/MailKit/blob/mas
                break;
            }
        } while (!cancel.IsCancellationRequested);
-   
+           
        inbox.CountChanged -= OnCountChanged;
    
        await imapClient.DisconnectAsync(true);
    }
-   
    ```
 
 ## Send a notification On `NewMessagesArrived`
@@ -544,33 +550,29 @@ You are a few steps away from the end!
 
 4. To test the app, go to the home page of the emulator (keep the app running in the background)
 
-5. Send yourself an email and wait for a few seconds
+5. Send yourself a few emails and wait for a few seconds
 
-6. You should see a notification appearing in the status bar:
+6. You should see notifications appearing in the status bar:
 
-   <img src="../images/assignments_images/asignment2_imgs/notif_3.png" Height=300 class="inline-img"/>
+   <img src="../images/assignments_images/asignment2_imgs/notif_3.png" Height=400 class="inline-img"/>
 
-- 
+**Optional improvement:**
+
+7. Fetch the emails that have not been fetched before and display a specific notification as such:
+
+   <img src="../images/assignments_images/asignment2_imgs/notif_4.png" Height=400 class="inline-img"/>
 
 
-
-### Bonus (+1%)
-
-- Update the `ObservableCollection<Email>`of emails when a new message arrives.
-
-- Make sure the emails are sorted by date.
-
-- Optional improvements of the notification:
-
-  - Display the name of the sender and the title of the newly received email.
-  - Add a button within the notification that brings you to the read page. 
-  - Add an email icon for the notification in the status bar.
-  
-  
 
 
 
 ### Bonus (+1%)
+
+Implement any of the following improvements:  
+
+- Update the `ObservableCollection<Email>`of emails when a new message arrives and make sure they are sorted by date. Note: There are many ways of doing this.
+- Add a button within the notification that brings you to the read page
+- Add an email icon for the notification in the status bar.
 
 - Mark a message as `Read` and `Favorite` using the `ImapClient`
 - Delete a message using the `ImapClient`
@@ -580,5 +582,5 @@ You are a few steps away from the end!
 > Note: 
 >
 > - The `ImapClient` will be busy waiting for incoming email and if you try to use it to open, mark or move emails to other folder it will most likely throw an exception.
-> - This is caused by two separate threads trying to access the same resource. 
-> - `SyncRoot` is an objected created by [jstedfast](https://github.com/jstedfast) to mitigate this issue, by ensuring that the threads are synchronized when accessing the client. [Here](https://github.com/jstedfast/MailKit/issues/578#issuecomment-339951714) is more about it.
+> - This is caused by two separate threads trying to access the same resource.
+> - I haven't actually tested this, this is why it's a bonus :)

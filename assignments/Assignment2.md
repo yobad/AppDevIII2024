@@ -491,7 +491,7 @@ MailKit has published an [example](https://github.com/jstedfast/MailKit/blob/mas
    {
        var inbox = (ImapFolder)sender;
    
-       if (inbox.Count > Messages.Count) //makes sure that a message was received
+       if (inbox.Count > CurrentMessageCount) //makes sure that a message was received
        {
            messagesRecieved = true;
            done?.Cancel(); //this is a very important step to interrupt the idle for a few seconds and fetched the incoming messages. 
@@ -553,9 +553,11 @@ MailKit has published an [example](https://github.com/jstedfast/MailKit/blob/mas
 
 You are a few steps away from the end!
 
-1. Create a private event handler in the `Inbox.xaml.cs`  called `OnNewMessageRecieved`
+**Updated instructions 10-05**
 
-2. This handler should send a notification with the `Title` : "New Email" and `Description`: "You received 1 new message". Don't set any delays. 
+1. Create a private event handler in the `Inbox.xaml.cs`  called `OnNewMessageRecieved(object sender, EventArgs a)`
+
+2. This `async` handler should send a notification with the `Title` : "New Email" and `Description`: "You received 1 new message". Don't set any delays. 
 
 3. In the constructor of the `InboxView`, subscribe to the `App.MailService.NewMessageRecieved` event.
 

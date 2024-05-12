@@ -22,8 +22,6 @@ permalink: /project/
 
 - #### [Milestone 5 - App Dev III (15%)](./milestone5)
 
-  Coming soon...
-
-- #### Final Milestone - Combined  (25%)
+- #### [Final Milestone - Combined  (25%)](./milestone7)
 
   

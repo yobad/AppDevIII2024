@@ -45,6 +45,10 @@ You should start the process of connecting you app to `Azure IoT Hub`. The key o
 
 Here is a suggestion on how to organize the code: 
 
+- Inspect the sample projects provided by Microsoft:
+  - [Receiving D2C message in the C# app]([azure-iot-sdk-csharp/iothub/service/samples/getting started/ReadD2cMessages at main · Azure/azure-iot-sdk-csharp · GitHub](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/service/samples/getting started/ReadD2cMessages))
+  - [Sending commands to device using C# app]([azure-iot-sdk-csharp/iothub/service/samples/getting started/InvokeDeviceMethod/Parameters.cs at main · Azure/azure-iot-sdk-csharp · GitHub](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/iothub/service/samples/getting started/InvokeDeviceMethod/Parameters.cs))
+
 <img src="../images/project_images/IoT_Hub_Connection.png"/>
 
 **Fixed Values**

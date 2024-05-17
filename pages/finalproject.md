@@ -26,4 +26,4 @@ permalink: /project/
 
   
 
-#### [IoT Hub Summary Notes](./iot_csharp)
+[IoT Hub Summary Notes](./iot_csharp)

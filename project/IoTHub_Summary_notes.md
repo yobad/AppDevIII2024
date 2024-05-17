@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Summary Notes on IoT connection with .NET"
-permalink: /project/iot_csharp/
+permalink: /project/iot_csharp
 categories: notes
 
 ---

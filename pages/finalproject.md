@@ -25,3 +25,5 @@ permalink: /project/
 - #### [Final Milestone - Combined  (25%)](./milestone7)
 
   
+
+#### [IoT Hub Summary Notes](./iot_csharp)

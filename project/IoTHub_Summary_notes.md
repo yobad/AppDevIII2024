@@ -1,8 +1,8 @@
 ---
-layout: post
+layout: page
 title: "Summary Notes on IoT connection with .NET"
 permalink: /project/iot-csharp
-categories: notes
+
 
 ---
 
